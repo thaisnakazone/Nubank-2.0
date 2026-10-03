@@ -28,6 +28,7 @@ Nubank-2.0/
 ├── dashboard/             # Código do dashboard interativo
 ├── docs/                  # Documentação e relatórios
 └── README.md              # Este arquivo
+```
 
 ## 👥 Colaboração
 - Cada integrante deve criar **branches** para suas alterações (ex.: `feature/api-ingestao`, `feature/mongodb`).
