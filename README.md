@@ -20,6 +20,7 @@ Automatizar a coleta e análise de dados financeiros do Nubank, aplicando concei
 - API Twelve (dados financeiros)  
 
 ## 📂 Estrutura do projeto   
+```text
 Nubank-2.0/
 │
 ├── data_ingestion/        # Scripts para coletar dados da API
