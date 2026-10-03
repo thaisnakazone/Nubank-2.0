@@ -26,7 +26,7 @@ Nubank-2.0/
 ├── database/              # Conexão e operações com MongoDB
 ├── dashboard/             # Código do dashboard interativo
 ├── docs/                  # Documentação e relatórios
-└── README.md              # Este arquivo 
+└── README.md              # Este arquivo
 
 ## 👥 Colaboração
 - Cada integrante deve criar **branches** para suas alterações (ex.: `feature/api-ingestao`, `feature/mongodb`).
