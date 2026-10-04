@@ -1,7 +1,7 @@
 from src.data_pipeline import load_financial_history, load_capital_risk_history
 import plotly.graph_objects as go
 
-# Dados financeiros e de risco
+# Carregar dados
 financial = load_financial_history()
 risk, risk_source = load_capital_risk_history()
 
