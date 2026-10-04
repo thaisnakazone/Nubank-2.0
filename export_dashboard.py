@@ -1,42 +1,37 @@
-import pandas as pd
+from database.connection import get_database, get_mongo_client, get_mongo_uri
+from src.data_pipeline import load_financial_history, load_capital_risk_history
 import plotly.graph_objects as go
 import plotly.express as px
-from plotly.subplots import make_subplots
 
-# 🔧 Aqui você pode substituir por fetch_market_data() e fetch_fundamental_data()
-# Para simplificar, vou usar dados fictícios
-dates = pd.date_range("2024-01-01", periods=30, freq="D")
-df = pd.DataFrame({
-    "datetime": dates,
-    "open": [10 + i*0.1 for i in range(30)],
-    "high": [10.5 + i*0.1 for i in range(30)],
-    "low": [9.5 + i*0.1 for i in range(30)],
-    "close": [10 + i*0.1 for i in range(30)],
-    "volume": [1000 + i*50 for i in range(30)],
-})
+# Dados do Atlas
+financial = load_financial_history()
+risk, risk_source = load_capital_risk_history()
 
-# 📈 Gráfico Candlestick
-fig_candle = make_subplots(rows=2, cols=1, shared_xaxes=True, row_heights=[0.7, 0.3])
-fig_candle.add_trace(go.Candlestick(
-    x=df["datetime"], open=df["open"], high=df["high"], low=df["low"], close=df["close"],
-    name="OHLC"
-), row=1, col=1)
-fig_candle.add_trace(go.Bar(x=df["datetime"], y=df["volume"], name="Volume"), row=2, col=1)
+# Gráfico Receita vs Lucro
+fig_rev = go.Figure()
+fig_rev.add_trace(go.Bar(x=financial.year, y=financial.revenue_usd_b, name="Receita"))
+fig_rev.add_trace(go.Scatter(x=financial.year, y=financial.net_income_usd_b, name="Lucro líquido", mode="lines+markers"))
 
-# 📊 Gráfico de linha comparativo
-fig_line = px.line(df, x="datetime", y="close", title="Preço de Fechamento")
+# Margens
+financial["gross_margin"] = (financial["gross_profit_usd_b"] / financial["revenue_usd_b"]) * 100
+financial["net_margin"] = (financial["net_income_usd_b"] / financial["revenue_usd_b"]) * 100
+fig_margens = go.Figure()
+fig_margens.add_trace(go.Scatter(x=financial.year, y=financial.gross_margin, name="Margem Bruta"))
+fig_margens.add_trace(go.Scatter(x=financial.year, y=financial.net_margin, name="Margem Líquida"))
 
-# 💰 Gráfico de barras exemplo
-fig_bar = px.bar(df, x="datetime", y="volume", title="Volume negociado")
+# Índices de Basileia
+fig_risk = go.Figure()
+fig_risk.add_trace(go.Scatter(x=risk.period, y=risk.basel_index_pct, name="Índice de Basileia"))
+fig_risk.add_trace(go.Scatter(x=risk.period, y=risk.icp_pct, name="ICP"))
 
-# 🔗 Exportar todos em um único index.html
+# Exportar para index.html
 with open("index.html", "w", encoding="utf-8") as f:
     f.write("<html><head><title>Nubank 2.0 Dashboard</title></head><body>")
-    f.write("<h1>📈 Nubank 2.0 Dashboard</h1>")
-    f.write("<h2>Candlestick + Volume</h2>")
-    f.write(fig_candle.to_html(full_html=False, include_plotlyjs="cdn"))
-    f.write("<h2>Preço de Fechamento</h2>")
-    f.write(fig_line.to_html(full_html=False, include_plotlyjs=False))
-    f.write("<h2>Volume Negociado</h2>")
-    f.write(fig_bar.to_html(full_html=False, include_plotlyjs=False))
+    f.write("<h1>📊 Nubank 2.0 · Dashboard</h1>")
+    f.write("<h2>Receita vs Lucro Líquido</h2>")
+    f.write(fig_rev.to_html(full_html=False, include_plotlyjs="cdn"))
+    f.write("<h2>Margens</h2>")
+    f.write(fig_margens.to_html(full_html=False, include_plotlyjs=False))
+    f.write("<h2>Índices Prudenciais</h2>")
+    f.write(fig_risk.to_html(full_html=False, include_plotlyjs=False))
     f.write("</body></html>")
