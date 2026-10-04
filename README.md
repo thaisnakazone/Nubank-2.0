@@ -8,32 +8,105 @@ Este repositório é uma continuação e aprimoramento do projeto [Nubank Financ
 Automatizar a coleta e análise de dados financeiros do Nubank, aplicando conceitos de **Big Data, NoSQL e Data Visualization** aprendidos no semestre.
 
 ## 🔑 Principais melhorias
-- Substituição da ingestão de dados via arquivos CSV/XLSX por integração direta com a **API Twelve**.  
-- Armazenamento automatizado em **MongoDB Atlas**, permitindo atualização contínua dos dados.  
-- Dashboard interativo atualizado periodicamente sem necessidade de manipulação manual de arquivos.  
-- Estrutura pensada para colaboração em grupo com branches e pull requests.  
+- **Substituição da ingestão de dados via arquivos CSV/XLSX** por integração direta com a **API Twelve Data** (ativos `NU`, `ITUB` e `BBD`).  
+- **Armazenamento automatizado em MongoDB Atlas**, garantindo idempotência com upserts (`UpdateOne`), índice único composto em `(ticker, datetime)` e atualização contínua dos dados.  
+- **Dashboard interativo atualizado periodicamente** via GitHub Actions (agendamento cron de seg a sex às 22h UTC), eliminando a necessidade de manipulação manual de planilhas.  
+- **Estrutura modular e colaborativa** pensada para trabalho em equipe com branches e pull requests.
 
 ## 🛠️ Tecnologias utilizadas
-- Python (pandas, requests, plotly/dash)  
-- MongoDB Atlas (NoSQL)  
-- GitHub Pages / Firebase Hosting (publicação)  
-- API Twelve (dados financeiros)  
+- Python 3.12 (pandas, requests, streamlit, plotly)  
+- MongoDB Atlas (NoSQL - PyMongo)  
+- API Twelve Data (cotações financeiras OHLCV)  
+- GitHub Actions (CI/CD, agendamento diário e deploy)  
+- GitHub Pages / Firebase Hosting (publicação estática do dashboard)  
 
 ## 📂 Estrutura do projeto   
 ```text
 Nubank-2.0/
 │
-├── data_ingestion/        # Scripts para coletar dados da API
-├── database/              # Conexão e operações com MongoDB
-├── dashboard/             # Código do dashboard interativo
-├── docs/                  # Documentação e relatórios
-└── README.md              # Este arquivo
+├── data_ingestion/        # Módulo de integração e validação com Twelve Data API
+│   ├── client.py          # Cliente HTTP com rate-limiting e sanitização
+│   ├── validator.py       # Validador de dados OHLCV
+│   ├── sanitizer.py       # Proteção contra vazamento de credenciais em logs
+│   └── service.py         # Orquestrador do fluxo de coleta
+│
+├── database/              # Conexão e operações com MongoDB Atlas
+│   ├── connection.py      # Gerenciamento de conexão com Atlas e ping
+│   ├── operations.py      # Operações de upsert, índices únicos e consultas
+│   └── seed_mongodb.py    # Carga das séries fundamentalistas no Atlas
+│
+├── dashboard/             # Código do dashboard interativo em Python
+│   └── app.py             # Aplicação Streamlit conectada diretamente ao MongoDB
+│
+├── docs/                  # Dashboard web estático publicado no GitHub Pages
+│   ├── index.html         # Página principal com gráficos Plotly.js
+│   ├── css/style.css      # Estilização moderna Nubank
+│   ├── js/dashboard.js    # Lógica interativa de visualização
+│   └── data/              # Payload JSON atualizado automaticamente
+│
+├── scripts/               # Utilitários de manutenção e limpeza controlada
+├── tests/                 # Suíte de testes unitários automatizados
+├── ingestao.py            # Ponto de entrada CLI para ingestão
+├── consultar.py           # Utilitário CLI para verificação do banco
+└── README.md              # Documentação do projeto
 ```
 
-## 👥 Colaboração
-- Cada integrante deve criar **branches** para suas alterações (ex.: `feature/api-ingestao`, `feature/mongodb`).
-- As mudanças entram via **Pull Request**, mantendo o histórico organizado.
-- Usuários e permissões são gerenciados no **MongoDB Atlas** para acesso compartilhado ao banco.
+## ⚙️ Como configurar e executar
+
+### 1. Pré-requisitos
+- Python 3.12 instalado
+- Conta no [Twelve Data](https://twelvedata.com/) para obter a chave gratuita de API
+- Cluster configurado no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+### 2. Configuração do ambiente
+Clone o repositório e crie o ambiente virtual:
+```bash
+git clone https://github.com/thaisnakazone/Nubank-2.0.git
+cd Nubank-2.0
+python -m venv venv
+venv\Scripts\activate   # No Windows (ou source venv/bin/activate no Linux/macOS)
+pip install -r requirements.txt
+```
+
+Crie o arquivo `.env` na raiz do projeto (baseado em `.env.example`):
+```ini
+TWELVE_DATA_API_KEY=sua_chave_twelve_data_aqui
+MONGO_URI=mongodb+srv://usuario:senha@cluster0.exemplo.mongodb.net/?appName=Cluster0
+```
+
+### 3. Coleta e Ingestão de Dados
+Para executar a coleta direta da API Twelve Data e persistir no MongoDB Atlas:
+```bash
+python ingestao.py
+```
+
+Para inspecionar o status e dados no MongoDB Atlas:
+```bash
+python consultar.py
+```
+
+### 4. Executando o Dashboard Interativo Local
+Inicie o dashboard interativo construído em Streamlit:
+```bash
+streamlit run dashboard/app.py
+# ou alternativamente:
+streamlit run app.py
+```
+
+O dashboard conectará diretamente ao MongoDB Atlas e exibirá as cotações em tempo real/diárias, médias móveis, volume e comparativo de mercado, além das séries históricas de crescimento, rentabilidade e risco.
+
+### 5. Atualização Periódica e Automatizada (Sem manipulação manual)
+O repositório conta com GitHub Actions configurado em `.github/workflows/coleta_diaria.yml`:
+- **Disparo periódico:** Executa de segunda a sexta-feira às 22:00 UTC (após o fechamento dos mercados).
+- **Ingestão automática:** Coleta os dados da Twelve Data e atualiza o MongoDB Atlas via `ingestao.py`.
+- **Publicação contínua:** Reconstrói o payload `docs/data/dashboard-data.json` e dispara o deploy no GitHub Pages.
+- **Zero manipulação manual de arquivos:** Todo o fluxo ocorre na nuvem de forma transparente e auditável.
+
+### 6. Execução de Testes
+Para rodar a suíte de testes unitários:
+```bash
+python -m unittest discover tests
+```
 
 ---
 

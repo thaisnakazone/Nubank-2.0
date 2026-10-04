@@ -6,6 +6,14 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from pymongo.errors import PyMongoError
 
+# Garante suporte a UTF-8 no console Windows
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 TARGET_DB = "nubank_db"
 TARGET_COLLECTION = "historico_diario"
 CONFIRMATION_PHRASE = "LIMPAR nubank_db.historico_diario"

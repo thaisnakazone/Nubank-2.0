@@ -278,6 +278,99 @@ function renderSources(data) {
   `).join('');
 }
 
+function renderMarket(data) {
+  if (!data.market || !data.market.length) return;
+
+  const marketPill = document.getElementById('market-source-pill');
+  if (marketPill && data.meta && data.meta.market_source) {
+    marketPill.textContent = data.meta.market_source;
+  }
+
+  const nuRows = data.market.filter(r => r.ticker === 'NU').sort((a, b) => a.datetime.localeCompare(b.datetime));
+  if (nuRows.length) {
+    const latest = nuRows[nuRows.length - 1];
+    const first = nuRows[0];
+    const varPct = ((latest.close / first.close) - 1) * 100;
+    const volSum = nuRows.reduce((acc, r) => acc + (r.volume || 0), 0);
+    const volAvg = volSum / nuRows.length;
+
+    const closeElem = document.getElementById('market-nu-close');
+    if (closeElem) closeElem.textContent = `US$ ${fmt2.format(latest.close)}`;
+
+    const dateElem = document.getElementById('market-nu-date');
+    if (dateElem) dateElem.textContent = `Pregão: ${latest.datetime}`;
+
+    const varElem = document.getElementById('market-nu-var');
+    if (varElem) {
+      varElem.textContent = `${varPct >= 0 ? '+' : ''}${fmt2.format(varPct)}%`;
+      varElem.style.color = varPct >= 0 ? POSITIVE : NEGATIVE;
+    }
+
+    const volElem = document.getElementById('market-nu-vol');
+    if (volElem) volElem.textContent = `${fmt1.format(volAvg / 1e6)}M`;
+
+    const xDates = nuRows.map(r => r.datetime);
+    const yCloses = nuRows.map(r => r.close);
+    const yVolumes = nuRows.map(r => r.volume);
+
+    safePlot('chart-market-nu', [
+      {
+        type: 'scatter',
+        mode: 'lines+markers',
+        x: xDates,
+        y: yCloses,
+        name: 'Fechamento NU',
+        line: { color: PURPLE, width: 3 },
+        marker: { size: 6 },
+        hovertemplate: '<b>%{x}</b><br>Fechamento: US$ %{y:.2f}<extra></extra>',
+      },
+      {
+        type: 'bar',
+        x: xDates,
+        y: yVolumes,
+        name: 'Volume',
+        yaxis: 'y2',
+        opacity: 0.35,
+        marker: { color: PURPLE_SOFT },
+        hovertemplate: '<b>%{x}</b><br>Volume: %{y:,.0f}<extra></extra>',
+      },
+    ], layout({
+      yaxis: { title: 'Preço (US$)', gridcolor: GRID },
+      yaxis2: { title: 'Volume', overlaying: 'y', side: 'right', gridcolor: 'rgba(0,0,0,0)', fixedrange: true },
+      legend: { orientation: 'h', x: 0, y: 1.12 },
+    }));
+  }
+
+  const tickers = ['NU', 'ITUB', 'BBD'];
+  const traces = [];
+  const colorMap = { NU: PURPLE, ITUB: '#FF7A00', BBD: '#D62828' };
+
+  for (const ticker of tickers) {
+    const tRows = data.market.filter(r => r.ticker === ticker).sort((a, b) => a.datetime.localeCompare(b.datetime));
+    if (tRows.length > 0) {
+      const baseClose = tRows[0].close;
+      const normValues = tRows.map(r => (r.close / baseClose) * 100);
+      traces.push({
+        type: 'scatter',
+        mode: 'lines+markers',
+        x: tRows.map(r => r.datetime),
+        y: normValues,
+        name: ticker,
+        line: { color: colorMap[ticker] || '#666', width: ticker === 'NU' ? 3.5 : 2 },
+        marker: { size: 5 },
+        hovertemplate: `<b>%{x}</b><br>${ticker}: %{y:.1f} (base 100)<extra></extra>`,
+      });
+    }
+  }
+
+  if (traces.length) {
+    safePlot('chart-market-comparison', traces, layout({
+      yaxis: { title: 'Base 100 = 1º pregão', gridcolor: GRID },
+      legend: { orientation: 'h', x: 0, y: 1.12 },
+    }));
+  }
+}
+
 async function init() {
   try {
     const response = await fetch('data/dashboard-data.json', { cache: 'no-store' });
@@ -285,6 +378,7 @@ async function init() {
     const data = await response.json();
 
     renderHeadline(data);
+    renderMarket(data);
     renderGrowth(data);
     renderProfitability(data);
     renderRisk(data);

@@ -1,0 +1,1593 @@
+{
+  "meta": {
+    "title": "Nubank em Dados 2.0",
+    "period": "2021–2025 + Cotações Atuais",
+    "generated_from": "Twelve Data API & MongoDB Atlas + Relatórios Oficiais",
+    "risk_source": "Pilar 3 · dados regulatórios locais 2021–2025",
+    "market_source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
+    "updated_at": "2026-10-03 17:27:06 UTC"
+  },
+  "headline": {
+    "latest_year": 2025,
+    "customers_m": 131.0,
+    "revenue_usd_b": 15.7748,
+    "net_income_usd_b": 2.8717,
+    "deposits_usd_b": 41.9,
+    "customer_growth_pct": 143.0,
+    "revenue_multiple": 9.3,
+    "deposit_multiple": 4.3
+  },
+  "market": [
+    {
+      "datetime": "2026-08-21",
+      "ticker": "BBD",
+      "close": 3.11,
+      "high": 3.13,
+      "low": 3.02,
+      "open": 3.03,
+      "source": "Twelve Data",
+      "volume": 24840400.0
+    },
+    {
+      "datetime": "2026-08-21",
+      "ticker": "NU",
+      "close": 14.58,
+      "high": 14.82,
+      "low": 14.26,
+      "open": 14.35,
+      "source": "Twelve Data",
+      "volume": 66022200.0
+    },
+    {
+      "datetime": "2026-08-21",
+      "ticker": "ITUB",
+      "close": 7.48,
+      "high": 7.52,
+      "low": 7.27,
+      "open": 7.27,
+      "source": "Twelve Data",
+      "volume": 23793800.0
+    },
+    {
+      "ticker": "BBD",
+      "datetime": "2026-08-24",
+      "close": 3.15,
+      "high": 3.18,
+      "low": 3.08,
+      "open": 3.08,
+      "source": "Twelve Data",
+      "volume": 17769100.0
+    },
+    {
+      "datetime": "2026-08-24",
+      "ticker": "NU",
+      "close": 14.76,
+      "high": 15.05,
+      "low": 14.34,
+      "open": 14.41,
+      "source": "Twelve Data",
+      "volume": 42487700.0
+    },
+    {
+      "datetime": "2026-08-24",
+      "ticker": "ITUB",
+      "close": 7.52,
+      "high": 7.59,
+      "low": 7.37,
+      "open": 7.37,
+      "source": "Twelve Data",
+      "volume": 16967400.0
+    },
+    {
+      "datetime": "2026-08-25",
+      "ticker": "BBD",
+      "close": 3.25,
+      "high": 3.27,
+      "low": 3.12,
+      "open": 3.15,
+      "source": "Twelve Data",
+      "volume": 30377800.0
+    },
+    {
+      "datetime": "2026-08-25",
+      "ticker": "NU",
+      "close": 15.14,
+      "high": 15.17,
+      "low": 14.45,
+      "open": 14.72,
+      "source": "Twelve Data",
+      "volume": 76204200.0
+    },
+    {
+      "datetime": "2026-08-25",
+      "ticker": "ITUB",
+      "close": 7.66,
+      "high": 7.68,
+      "low": 7.44,
+      "open": 7.54,
+      "source": "Twelve Data",
+      "volume": 12818100.0
+    },
+    {
+      "ticker": "BBD",
+      "datetime": "2026-08-26",
+      "close": 3.26,
+      "high": 3.33,
+      "low": 3.25,
+      "open": 3.27,
+      "source": "Twelve Data",
+      "volume": 33624300.0
+    },
+    {
+      "datetime": "2026-08-26",
+      "ticker": "NU",
+      "close": 15.17,
+      "high": 15.42,
+      "low": 15.13,
+      "open": 15.22,
+      "source": "Twelve Data",
+      "volume": 45113700.0
+    },
+    {
+      "datetime": "2026-08-26",
+      "ticker": "ITUB",
+      "close": 7.61,
+      "high": 7.77,
+      "low": 7.6,
+      "open": 7.72,
+      "source": "Twelve Data",
+      "volume": 26139000.0
+    },
+    {
+      "datetime": "2026-08-27",
+      "ticker": "ITUB",
+      "close": 7.53,
+      "high": 7.63,
+      "low": 7.48,
+      "open": 7.6,
+      "source": "Twelve Data",
+      "volume": 22478900.0
+    },
+    {
+      "datetime": "2026-08-27",
+      "ticker": "NU",
+      "close": 14.88,
+      "high": 15.257,
+      "low": 14.71,
+      "open": 15.14,
+      "source": "Twelve Data",
+      "volume": 47692800.0
+    },
+    {
+      "datetime": "2026-08-27",
+      "ticker": "BBD",
+      "close": 3.23,
+      "high": 3.28,
+      "low": 3.21,
+      "open": 3.24,
+      "source": "Twelve Data",
+      "volume": 25317700.0
+    },
+    {
+      "datetime": "2026-08-28",
+      "ticker": "ITUB",
+      "close": 7.5,
+      "high": 7.55,
+      "low": 7.39,
+      "open": 7.55,
+      "source": "Twelve Data",
+      "volume": 14861100.0
+    },
+    {
+      "datetime": "2026-08-28",
+      "ticker": "BBD",
+      "close": 3.25,
+      "high": 3.27,
+      "low": 3.2,
+      "open": 3.27,
+      "source": "Twelve Data",
+      "volume": 21418200.0
+    },
+    {
+      "datetime": "2026-08-28",
+      "ticker": "NU",
+      "close": 14.3,
+      "high": 14.905,
+      "low": 14.22,
+      "open": 14.86,
+      "source": "Twelve Data",
+      "volume": 79130400.0
+    },
+    {
+      "datetime": "2026-08-31",
+      "ticker": "ITUB",
+      "close": 7.61,
+      "high": 7.69,
+      "low": 7.55,
+      "open": 7.66,
+      "source": "Twelve Data",
+      "volume": 14608800.0
+    },
+    {
+      "datetime": "2026-08-31",
+      "ticker": "BBD",
+      "close": 3.28,
+      "high": 3.33,
+      "low": 3.26,
+      "open": 3.32,
+      "source": "Twelve Data",
+      "volume": 17673900.0
+    },
+    {
+      "datetime": "2026-08-31",
+      "ticker": "NU",
+      "close": 14.55,
+      "high": 14.635,
+      "low": 14.21,
+      "open": 14.35,
+      "source": "Twelve Data",
+      "volume": 95271200.0
+    },
+    {
+      "datetime": "2026-09-01",
+      "ticker": "NU",
+      "close": 14.46,
+      "high": 14.935,
+      "low": 14.425,
+      "open": 14.425,
+      "source": "Twelve Data",
+      "volume": 67501000.0
+    },
+    {
+      "datetime": "2026-09-01",
+      "ticker": "ITUB",
+      "close": 7.68,
+      "high": 7.83,
+      "low": 7.6,
+      "open": 7.6,
+      "source": "Twelve Data",
+      "volume": 16113200.0
+    },
+    {
+      "datetime": "2026-09-01",
+      "ticker": "BBD",
+      "close": 3.32,
+      "high": 3.37,
+      "low": 3.27,
+      "open": 3.27,
+      "source": "Twelve Data",
+      "volume": 31093200.0
+    },
+    {
+      "datetime": "2026-09-02",
+      "ticker": "NU",
+      "close": 15.4,
+      "high": 15.48,
+      "low": 14.43,
+      "open": 14.52,
+      "source": "Twelve Data",
+      "volume": 80829600.0
+    },
+    {
+      "datetime": "2026-09-02",
+      "ticker": "ITUB",
+      "close": 8.08,
+      "high": 8.13,
+      "low": 7.79,
+      "open": 7.83,
+      "source": "Twelve Data",
+      "volume": 24591400.0
+    },
+    {
+      "ticker": "BBD",
+      "datetime": "2026-09-02",
+      "close": 3.45,
+      "high": 3.47,
+      "low": 3.38,
+      "open": 3.39,
+      "source": "Twelve Data",
+      "volume": 46173600.0
+    },
+    {
+      "datetime": "2026-09-03",
+      "ticker": "NU",
+      "close": 15.68,
+      "high": 15.84,
+      "low": 15.34,
+      "open": 15.67,
+      "source": "Twelve Data",
+      "volume": 81820300.0
+    },
+    {
+      "datetime": "2026-09-03",
+      "ticker": "ITUB",
+      "close": 8.22,
+      "high": 8.31,
+      "low": 8.1,
+      "open": 8.25,
+      "source": "Twelve Data",
+      "volume": 19403500.0
+    },
+    {
+      "datetime": "2026-09-03",
+      "ticker": "BBD",
+      "close": 3.46,
+      "high": 3.53,
+      "low": 3.42,
+      "open": 3.52,
+      "source": "Twelve Data",
+      "volume": 42591600.0
+    },
+    {
+      "datetime": "2026-09-04",
+      "ticker": "NU",
+      "close": 15.37,
+      "high": 15.633,
+      "low": 15.19,
+      "open": 15.49,
+      "source": "Twelve Data",
+      "volume": 48567100.0
+    },
+    {
+      "datetime": "2026-09-04",
+      "ticker": "ITUB",
+      "close": 8.15,
+      "high": 8.28,
+      "low": 8.05,
+      "open": 8.05,
+      "source": "Twelve Data",
+      "volume": 15712700.0
+    },
+    {
+      "datetime": "2026-09-04",
+      "ticker": "BBD",
+      "close": 3.47,
+      "high": 3.49,
+      "low": 3.4,
+      "open": 3.4,
+      "source": "Twelve Data",
+      "volume": 27207600.0
+    },
+    {
+      "datetime": "2026-09-08",
+      "ticker": "BBD",
+      "close": 3.55,
+      "high": 3.62,
+      "low": 3.54,
+      "open": 3.55,
+      "source": "Twelve Data",
+      "volume": 31126800.0
+    },
+    {
+      "datetime": "2026-09-08",
+      "ticker": "ITUB",
+      "close": 8.31,
+      "high": 8.45,
+      "low": 8.27,
+      "open": 8.34,
+      "source": "Twelve Data",
+      "volume": 24858200.0
+    },
+    {
+      "datetime": "2026-09-08",
+      "ticker": "NU",
+      "close": 15.33,
+      "high": 15.82,
+      "low": 15.29,
+      "open": 15.56,
+      "source": "Twelve Data",
+      "volume": 75352300.0
+    },
+    {
+      "datetime": "2026-09-09",
+      "ticker": "BBD",
+      "close": 3.43,
+      "high": 3.51,
+      "low": 3.42,
+      "open": 3.5,
+      "source": "Twelve Data",
+      "volume": 33816300.0
+    },
+    {
+      "datetime": "2026-09-09",
+      "ticker": "NU",
+      "close": 15.0,
+      "high": 15.28,
+      "low": 14.99,
+      "open": 15.18,
+      "source": "Twelve Data",
+      "volume": 68309800.0
+    },
+    {
+      "ticker": "ITUB",
+      "datetime": "2026-09-09",
+      "close": 8.08,
+      "high": 8.23,
+      "low": 8.05,
+      "open": 8.19,
+      "source": "Twelve Data",
+      "volume": 35701700.0
+    },
+    {
+      "datetime": "2026-09-10",
+      "ticker": "BBD",
+      "close": 3.58,
+      "high": 3.62,
+      "low": 3.4,
+      "open": 3.4,
+      "source": "Twelve Data",
+      "volume": 37248600.0
+    },
+    {
+      "datetime": "2026-09-10",
+      "ticker": "NU",
+      "close": 15.02,
+      "high": 15.44,
+      "low": 14.741,
+      "open": 14.87,
+      "source": "Twelve Data",
+      "volume": 76219800.0
+    },
+    {
+      "datetime": "2026-09-10",
+      "ticker": "ITUB",
+      "close": 8.3,
+      "high": 8.39,
+      "low": 8.01,
+      "open": 8.03,
+      "source": "Twelve Data",
+      "volume": 35221200.0
+    },
+    {
+      "datetime": "2026-09-11",
+      "ticker": "ITUB",
+      "close": 8.33,
+      "high": 8.37,
+      "low": 8.24,
+      "open": 8.34,
+      "source": "Twelve Data",
+      "volume": 25160000.0
+    },
+    {
+      "datetime": "2026-09-11",
+      "ticker": "BBD",
+      "close": 3.6,
+      "high": 3.63,
+      "low": 3.55,
+      "open": 3.63,
+      "source": "Twelve Data",
+      "volume": 23245300.0
+    },
+    {
+      "datetime": "2026-09-11",
+      "ticker": "NU",
+      "close": 14.62,
+      "high": 15.16,
+      "low": 14.44,
+      "open": 15.09,
+      "source": "Twelve Data",
+      "volume": 65672400.0
+    },
+    {
+      "datetime": "2026-09-14",
+      "ticker": "ITUB",
+      "close": 8.23,
+      "high": 8.27,
+      "low": 8.04,
+      "open": 8.05,
+      "source": "Twelve Data",
+      "volume": 25465300.0
+    },
+    {
+      "datetime": "2026-09-14",
+      "ticker": "BBD",
+      "close": 3.54,
+      "high": 3.55,
+      "low": 3.47,
+      "open": 3.49,
+      "source": "Twelve Data",
+      "volume": 21167900.0
+    },
+    {
+      "datetime": "2026-09-14",
+      "ticker": "NU",
+      "close": 14.41,
+      "high": 14.55,
+      "low": 14.221,
+      "open": 14.35,
+      "source": "Twelve Data",
+      "volume": 48568100.0
+    },
+    {
+      "datetime": "2026-09-15",
+      "ticker": "ITUB",
+      "close": 8.26,
+      "high": 8.3,
+      "low": 8.17,
+      "open": 8.19,
+      "source": "Twelve Data",
+      "volume": 18294800.0
+    },
+    {
+      "datetime": "2026-09-15",
+      "ticker": "BBD",
+      "close": 3.5,
+      "high": 3.54,
+      "low": 3.49,
+      "open": 3.51,
+      "source": "Twelve Data",
+      "volume": 23103800.0
+    },
+    {
+      "datetime": "2026-09-15",
+      "ticker": "NU",
+      "close": 14.19,
+      "high": 14.41,
+      "low": 14.06,
+      "open": 14.37,
+      "source": "Twelve Data",
+      "volume": 59523400.0
+    },
+    {
+      "datetime": "2026-09-16",
+      "ticker": "ITUB",
+      "close": 8.29,
+      "high": 8.29,
+      "low": 8.11,
+      "open": 8.23,
+      "source": "Twelve Data",
+      "volume": 28560100.0
+    },
+    {
+      "datetime": "2026-09-16",
+      "ticker": "BBD",
+      "close": 3.5,
+      "high": 3.51,
+      "low": 3.44,
+      "open": 3.48,
+      "source": "Twelve Data",
+      "volume": 28367200.0
+    },
+    {
+      "datetime": "2026-09-16",
+      "ticker": "NU",
+      "close": 13.81,
+      "high": 14.07,
+      "low": 13.58,
+      "open": 14.01,
+      "source": "Twelve Data",
+      "volume": 98497100.0
+    },
+    {
+      "datetime": "2026-09-17",
+      "ticker": "NU",
+      "close": 13.84,
+      "high": 14.05,
+      "low": 13.675,
+      "open": 13.985,
+      "source": "Twelve Data",
+      "volume": 90742400.0
+    },
+    {
+      "datetime": "2026-09-17",
+      "ticker": "BBD",
+      "close": 3.48,
+      "high": 3.52,
+      "low": 3.42,
+      "open": 3.51,
+      "source": "Twelve Data",
+      "volume": 31463800.0
+    },
+    {
+      "datetime": "2026-09-17",
+      "ticker": "ITUB",
+      "close": 8.29,
+      "high": 8.36,
+      "low": 8.1,
+      "open": 8.31,
+      "source": "Twelve Data",
+      "volume": 22450000.0
+    },
+    {
+      "datetime": "2026-09-18",
+      "ticker": "NU",
+      "close": 13.65,
+      "high": 13.82,
+      "low": 13.59,
+      "open": 13.77,
+      "source": "Twelve Data",
+      "volume": 70805800.0
+    },
+    {
+      "datetime": "2026-09-18",
+      "ticker": "ITUB",
+      "close": 8.2,
+      "high": 8.25,
+      "low": 8.1,
+      "open": 8.21,
+      "source": "Twelve Data",
+      "volume": 19480500.0
+    },
+    {
+      "datetime": "2026-09-18",
+      "ticker": "BBD",
+      "close": 3.43,
+      "high": 3.48,
+      "low": 3.42,
+      "open": 3.46,
+      "source": "Twelve Data",
+      "volume": 21516200.0
+    },
+    {
+      "datetime": "2026-09-21",
+      "ticker": "NU",
+      "close": 14.06,
+      "high": 14.095,
+      "low": 13.695,
+      "open": 13.84,
+      "source": "Twelve Data",
+      "volume": 47282400.0
+    },
+    {
+      "datetime": "2026-09-21",
+      "ticker": "ITUB",
+      "close": 8.45,
+      "high": 8.46,
+      "low": 8.33,
+      "open": 8.36,
+      "source": "Twelve Data",
+      "volume": 16833900.0
+    },
+    {
+      "datetime": "2026-09-21",
+      "ticker": "BBD",
+      "close": 3.52,
+      "high": 3.53,
+      "low": 3.49,
+      "open": 3.51,
+      "source": "Twelve Data",
+      "volume": 14688000.0
+    },
+    {
+      "datetime": "2026-09-22",
+      "ticker": "NU",
+      "close": 14.16,
+      "high": 14.19,
+      "low": 13.75,
+      "open": 14.0,
+      "source": "Twelve Data",
+      "volume": 69350100.0
+    },
+    {
+      "datetime": "2026-09-22",
+      "ticker": "ITUB",
+      "close": 8.43,
+      "high": 8.49,
+      "low": 8.28,
+      "open": 8.31,
+      "source": "Twelve Data",
+      "volume": 20324700.0
+    },
+    {
+      "datetime": "2026-09-22",
+      "ticker": "BBD",
+      "close": 3.57,
+      "high": 3.58,
+      "low": 3.48,
+      "open": 3.49,
+      "source": "Twelve Data",
+      "volume": 29823300.0
+    },
+    {
+      "datetime": "2026-09-23",
+      "ticker": "NU",
+      "close": 13.62,
+      "high": 14.25,
+      "low": 13.56,
+      "open": 14.07,
+      "source": "Twelve Data",
+      "volume": 62880700.0
+    },
+    {
+      "datetime": "2026-09-23",
+      "ticker": "ITUB",
+      "close": 8.18,
+      "high": 8.5,
+      "low": 8.17,
+      "open": 8.44,
+      "source": "Twelve Data",
+      "volume": 17557400.0
+    },
+    {
+      "datetime": "2026-09-23",
+      "ticker": "BBD",
+      "close": 3.46,
+      "high": 3.61,
+      "low": 3.45,
+      "open": 3.58,
+      "source": "Twelve Data",
+      "volume": 33054500.0
+    },
+    {
+      "datetime": "2026-09-24",
+      "ticker": "NU",
+      "close": 13.56,
+      "high": 13.69,
+      "low": 13.365,
+      "open": 13.56,
+      "source": "Twelve Data",
+      "volume": 58073500.0
+    },
+    {
+      "datetime": "2026-09-24",
+      "ticker": "BBD",
+      "close": 3.38,
+      "high": 3.46,
+      "low": 3.36,
+      "open": 3.42,
+      "source": "Twelve Data",
+      "volume": 27233700.0
+    },
+    {
+      "datetime": "2026-09-24",
+      "ticker": "ITUB",
+      "close": 8.08,
+      "high": 8.21,
+      "low": 8.04,
+      "open": 8.15,
+      "source": "Twelve Data",
+      "volume": 15327500.0
+    },
+    {
+      "datetime": "2026-09-25",
+      "ticker": "BBD",
+      "close": 3.41,
+      "high": 3.43,
+      "low": 3.36,
+      "open": 3.38,
+      "source": "Twelve Data",
+      "volume": 16507700.0
+    },
+    {
+      "datetime": "2026-09-25",
+      "ticker": "NU",
+      "close": 13.59,
+      "high": 13.678,
+      "low": 13.44,
+      "open": 13.56,
+      "source": "Twelve Data",
+      "volume": 52838800.0
+    },
+    {
+      "datetime": "2026-09-25",
+      "ticker": "ITUB",
+      "close": 8.11,
+      "high": 8.15,
+      "low": 8.01,
+      "open": 8.04,
+      "source": "Twelve Data",
+      "volume": 15929400.0
+    },
+    {
+      "datetime": "2026-09-28",
+      "ticker": "BBD",
+      "close": 3.35,
+      "high": 3.4,
+      "low": 3.34,
+      "open": 3.35,
+      "source": "Twelve Data",
+      "volume": 27293300.0
+    },
+    {
+      "datetime": "2026-09-28",
+      "ticker": "NU",
+      "close": 12.23,
+      "high": 12.66,
+      "low": 12.22,
+      "open": 12.53,
+      "source": "Twelve Data",
+      "volume": 143669800.0
+    },
+    {
+      "datetime": "2026-09-28",
+      "ticker": "ITUB",
+      "close": 7.99,
+      "high": 8.08,
+      "low": 7.95,
+      "open": 8.0,
+      "source": "Twelve Data",
+      "volume": 21535200.0
+    },
+    {
+      "datetime": "2026-09-29",
+      "ticker": "BBD",
+      "close": 3.36,
+      "high": 3.37,
+      "low": 3.3,
+      "open": 3.33,
+      "source": "Twelve Data",
+      "volume": 33246200.0
+    },
+    {
+      "datetime": "2026-09-29",
+      "ticker": "NU",
+      "close": 12.35,
+      "high": 12.5,
+      "low": 12.27,
+      "open": 12.3,
+      "source": "Twelve Data",
+      "volume": 78303800.0
+    },
+    {
+      "datetime": "2026-09-29",
+      "ticker": "ITUB",
+      "close": 8.09,
+      "high": 8.09,
+      "low": 7.92,
+      "open": 7.98,
+      "source": "Twelve Data",
+      "volume": 16621400.0
+    },
+    {
+      "datetime": "2026-09-30",
+      "ticker": "BBD",
+      "close": 3.52,
+      "high": 3.55,
+      "low": 3.42,
+      "open": 3.45,
+      "source": "Twelve Data",
+      "volume": 30447800.0
+    },
+    {
+      "ticker": "NU",
+      "datetime": "2026-09-30",
+      "close": 12.66,
+      "high": 12.76,
+      "low": 12.131,
+      "open": 12.39,
+      "source": "Twelve Data",
+      "volume": 104333800.0
+    },
+    {
+      "datetime": "2026-09-30",
+      "ticker": "ITUB",
+      "close": 8.53,
+      "high": 8.62,
+      "low": 8.26,
+      "open": 8.3,
+      "source": "Twelve Data",
+      "volume": 54101500.0
+    },
+    {
+      "datetime": "2026-10-01",
+      "ticker": "NU",
+      "close": 13.29,
+      "high": 13.32,
+      "low": 12.75,
+      "open": 13.24,
+      "source": "Twelve Data",
+      "volume": 128394800.0
+    },
+    {
+      "datetime": "2026-10-01",
+      "ticker": "BBD",
+      "close": 3.51,
+      "high": 3.57,
+      "low": 3.41,
+      "open": 3.52,
+      "source": "Twelve Data",
+      "volume": 41733500.0
+    },
+    {
+      "datetime": "2026-10-01",
+      "ticker": "ITUB",
+      "close": 8.45,
+      "high": 8.58,
+      "low": 8.27,
+      "open": 8.51,
+      "source": "Twelve Data",
+      "volume": 50919800.0
+    },
+    {
+      "datetime": "2026-10-02",
+      "ticker": "BBD",
+      "close": 3.65,
+      "high": 3.66,
+      "low": 3.44,
+      "open": 3.53,
+      "source": "Twelve Data",
+      "volume": 48375600.0
+    },
+    {
+      "datetime": "2026-10-02",
+      "ticker": "ITUB",
+      "close": 8.59,
+      "high": 8.59,
+      "low": 8.19,
+      "open": 8.48,
+      "source": "Twelve Data",
+      "volume": 44951900.0
+    },
+    {
+      "datetime": "2026-10-02",
+      "ticker": "NU",
+      "close": 13.43,
+      "high": 13.5,
+      "low": 12.95,
+      "open": 13.32,
+      "source": "Twelve Data",
+      "volume": 77988600.0
+    }
+  ],
+  "financial": [
+    {
+      "year": 2021,
+      "customers_m": 53.9,
+      "active_customers_m": 41.1,
+      "activity_rate_pct": 76.3,
+      "purchase_volume_usd_b": 43.8,
+      "arpac_usd": 4.5,
+      "cost_to_serve_usd": 0.8,
+      "deposits_usd_b": 9.7,
+      "credit_portfolio_usd_b": null,
+      "interest_earning_portfolio_usd_b": 2.0,
+      "revenue_usd_b": 1.698,
+      "gross_profit_usd_b": 0.7329,
+      "net_income_usd_b": -0.1653,
+      "adjusted_net_income_usd_b": 0.0066,
+      "source_label": "Nu Q4/FY 2021 Results (SEC)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1691493/000129281422000527/nupr4q21_6k.htm"
+    },
+    {
+      "year": 2022,
+      "customers_m": 74.6,
+      "active_customers_m": 61.2,
+      "activity_rate_pct": 82.0,
+      "purchase_volume_usd_b": 80.6,
+      "arpac_usd": 7.8,
+      "cost_to_serve_usd": 0.8,
+      "deposits_usd_b": 15.8,
+      "credit_portfolio_usd_b": 11.3,
+      "interest_earning_portfolio_usd_b": 4.0,
+      "revenue_usd_b": 4.7922,
+      "gross_profit_usd_b": 1.663,
+      "net_income_usd_b": -0.3646,
+      "adjusted_net_income_usd_b": 0.2041,
+      "source_label": "Nu Form 20-F 2024 (comparatives)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1691493/000129281425001517/nuform20f_2024.htm"
+    },
+    {
+      "year": 2023,
+      "customers_m": 93.9,
+      "active_customers_m": 78.0,
+      "activity_rate_pct": 83.0,
+      "purchase_volume_usd_b": 111.1,
+      "arpac_usd": 9.6,
+      "cost_to_serve_usd": 0.8,
+      "deposits_usd_b": 23.7,
+      "credit_portfolio_usd_b": 18.2,
+      "interest_earning_portfolio_usd_b": 8.2,
+      "revenue_usd_b": 8.029,
+      "gross_profit_usd_b": 3.491,
+      "net_income_usd_b": 1.0306,
+      "adjusted_net_income_usd_b": 1.1965,
+      "source_label": "Nu Form 20-F 2024 (comparatives)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1691493/000129281425001517/nuform20f_2024.htm"
+    },
+    {
+      "year": 2024,
+      "customers_m": 114.2,
+      "active_customers_m": 94.9,
+      "activity_rate_pct": 83.0,
+      "purchase_volume_usd_b": 125.6,
+      "arpac_usd": 11.1,
+      "cost_to_serve_usd": 0.8,
+      "deposits_usd_b": 28.9,
+      "credit_portfolio_usd_b": 20.7,
+      "interest_earning_portfolio_usd_b": 11.2,
+      "revenue_usd_b": 11.517,
+      "gross_profit_usd_b": 5.2529,
+      "net_income_usd_b": 1.9721,
+      "adjusted_net_income_usd_b": 2.2075,
+      "source_label": "Nu Form 20-F 2024",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1691493/000129281425001517/nuform20f_2024.htm"
+    },
+    {
+      "year": 2025,
+      "customers_m": 131.0,
+      "active_customers_m": null,
+      "activity_rate_pct": 83.4,
+      "purchase_volume_usd_b": 141.8,
+      "arpac_usd": 13.3,
+      "cost_to_serve_usd": 0.8,
+      "deposits_usd_b": 41.9,
+      "credit_portfolio_usd_b": 32.7,
+      "interest_earning_portfolio_usd_b": 18.5,
+      "revenue_usd_b": 15.7748,
+      "gross_profit_usd_b": 6.625,
+      "net_income_usd_b": 2.8717,
+      "adjusted_net_income_usd_b": null,
+      "source_label": "Nu Form 20-F 2025",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1691493/000129281426002166/nuform20f_2025.htm"
+    }
+  ],
+  "risk": [
+    {
+      "period": "2021-06-30",
+      "basel_index_pct": 37.52464719382388,
+      "capital_buffer_pct": null,
+      "capital_principal_brl_b": 1.6486931837599998,
+      "icp_pct": 35.46313939841738,
+      "rwa_total_brl_b": null,
+      "year": 2021
+    },
+    {
+      "period": "2021-12-31",
+      "basel_index_pct": 22.63923395320529,
+      "capital_buffer_pct": null,
+      "capital_principal_brl_b": 2.60515384672,
+      "icp_pct": 21.78714620967025,
+      "rwa_total_brl_b": null,
+      "year": 2021
+    },
+    {
+      "period": "2022-03-22",
+      "basel_index_pct": 18.14,
+      "capital_buffer_pct": 11.0,
+      "capital_principal_brl_b": 2.88618582938,
+      "icp_pct": 17.5,
+      "rwa_total_brl_b": 16.493485113120002,
+      "year": 2022
+    },
+    {
+      "period": "2022-03-31",
+      "basel_index_pct": 18.13526323324264,
+      "capital_buffer_pct": 29.34,
+      "capital_principal_brl_b": 2.60515384672,
+      "icp_pct": 31.438514372583498,
+      "rwa_total_brl_b": 11.957297305709998,
+      "year": 2022
+    },
+    {
+      "period": "2022-06-22",
+      "basel_index_pct": 21.63,
+      "capital_buffer_pct": 9.73,
+      "capital_principal_brl_b": 3.1094262513000004,
+      "icp_pct": 16.73,
+      "rwa_total_brl_b": 18.590678041220002,
+      "year": 2022
+    },
+    {
+      "period": "2022-06-28",
+      "basel_index_pct": 21.63,
+      "capital_buffer_pct": 9.73,
+      "capital_principal_brl_b": 3.109426251,
+      "icp_pct": 16.73,
+      "rwa_total_brl_b": 18.590678041,
+      "year": 2022
+    },
+    {
+      "period": "2022-06-30",
+      "basel_index_pct": 21.63,
+      "capital_buffer_pct": 9.73,
+      "capital_principal_brl_b": 3.1094262513000004,
+      "icp_pct": 16.73,
+      "rwa_total_brl_b": 18.590678041220002,
+      "year": 2022
+    },
+    {
+      "period": "2022-09-26",
+      "basel_index_pct": 17.73,
+      "capital_buffer_pct": 6.819999999999999,
+      "capital_principal_brl_b": 3.346871487,
+      "icp_pct": 13.819999999999999,
+      "rwa_total_brl_b": 24.220149916,
+      "year": 2022
+    },
+    {
+      "period": "2022-09-30",
+      "basel_index_pct": 17.73,
+      "capital_buffer_pct": 6.819999999999999,
+      "capital_principal_brl_b": 3.3468714874499996,
+      "icp_pct": 13.819999999999999,
+      "rwa_total_brl_b": 24.220149916220002,
+      "year": 2022
+    },
+    {
+      "period": "2022-12-25",
+      "basel_index_pct": 21.38,
+      "capital_buffer_pct": 8.07,
+      "capital_principal_brl_b": 4.064004869,
+      "icp_pct": 15.07,
+      "rwa_total_brl_b": 26.963627263,
+      "year": 2022
+    },
+    {
+      "period": "2022-12-31",
+      "basel_index_pct": 21.38,
+      "capital_buffer_pct": 8.07,
+      "capital_principal_brl_b": 4.064004868860001,
+      "icp_pct": 15.07,
+      "rwa_total_brl_b": 26.963627263080003,
+      "year": 2022
+    },
+    {
+      "period": "2023-03-25",
+      "basel_index_pct": 18.67,
+      "capital_buffer_pct": 6.68,
+      "capital_principal_brl_b": 4.833777156,
+      "icp_pct": 13.68,
+      "rwa_total_brl_b": 35.344385797,
+      "year": 2023
+    },
+    {
+      "period": "2023-03-31",
+      "basel_index_pct": 18.67,
+      "capital_buffer_pct": 6.68,
+      "capital_principal_brl_b": 4.83377715556,
+      "icp_pct": 13.68,
+      "rwa_total_brl_b": 35.34438579739,
+      "year": 2023
+    },
+    {
+      "period": "2023-06-23",
+      "basel_index_pct": 20.169999999999998,
+      "capital_buffer_pct": 8.39,
+      "capital_principal_brl_b": 5.896972986,
+      "icp_pct": 15.39,
+      "rwa_total_brl_b": 38.310589461,
+      "year": 2023
+    },
+    {
+      "period": "2023-09-03",
+      "basel_index_pct": 10.99,
+      "capital_buffer_pct": 4.62,
+      "capital_principal_brl_b": 8.885360617,
+      "icp_pct": 9.120000000000001,
+      "rwa_total_brl_b": 97.458504359,
+      "year": 2023
+    },
+    {
+      "period": "2023-09-07",
+      "basel_index_pct": 10.99,
+      "capital_buffer_pct": 4.62,
+      "capital_principal_brl_b": 8.885360617,
+      "icp_pct": 9.120000000000001,
+      "rwa_total_brl_b": 97.458504359,
+      "year": 2023
+    },
+    {
+      "period": "2023-09-27",
+      "basel_index_pct": 10.99,
+      "capital_buffer_pct": 4.62,
+      "capital_principal_brl_b": 8.885360617,
+      "icp_pct": 9.120000000000001,
+      "rwa_total_brl_b": 97.458504359,
+      "year": 2023
+    },
+    {
+      "period": "2023-09-28",
+      "basel_index_pct": 10.99,
+      "capital_buffer_pct": 4.62,
+      "capital_principal_brl_b": 8.885360617,
+      "icp_pct": 9.120000000000001,
+      "rwa_total_brl_b": 97.458504359,
+      "year": 2023
+    },
+    {
+      "period": "2023-12-02",
+      "basel_index_pct": 13.65,
+      "capital_buffer_pct": 6.909999999999999,
+      "capital_principal_brl_b": 10.672167752,
+      "icp_pct": 11.41,
+      "rwa_total_brl_b": 93.557039207,
+      "year": 2023
+    },
+    {
+      "period": "2023-12-06",
+      "basel_index_pct": 13.65,
+      "capital_buffer_pct": 6.909999999999999,
+      "capital_principal_brl_b": 10.672167752,
+      "icp_pct": 11.41,
+      "rwa_total_brl_b": 93.557039207,
+      "year": 2023
+    },
+    {
+      "period": "2023-12-17",
+      "basel_index_pct": 13.65,
+      "capital_buffer_pct": 6.909999999999999,
+      "capital_principal_brl_b": 10.672167752,
+      "icp_pct": 11.41,
+      "rwa_total_brl_b": 93.557039207,
+      "year": 2023
+    },
+    {
+      "period": "2023-12-30",
+      "basel_index_pct": 13.65,
+      "capital_buffer_pct": 6.909999999999999,
+      "capital_principal_brl_b": 10.672167752,
+      "icp_pct": 11.41,
+      "rwa_total_brl_b": 93.557039207,
+      "year": 2023
+    },
+    {
+      "period": "2023-12-31",
+      "basel_index_pct": 13.65,
+      "capital_buffer_pct": 6.909999999999999,
+      "capital_principal_brl_b": 10.672167752,
+      "icp_pct": 11.41,
+      "rwa_total_brl_b": 93.557039207,
+      "year": 2023
+    },
+    {
+      "period": "2024-03-05",
+      "basel_index_pct": 13.88,
+      "capital_buffer_pct": 6.03,
+      "capital_principal_brl_b": 11.852236937,
+      "icp_pct": 11.78,
+      "rwa_total_brl_b": 100.612467304,
+      "year": 2024
+    },
+    {
+      "period": "2024-03-16",
+      "basel_index_pct": 13.88,
+      "capital_buffer_pct": 6.03,
+      "capital_principal_brl_b": 11.852236937,
+      "icp_pct": 11.78,
+      "rwa_total_brl_b": 100.612467304,
+      "year": 2024
+    },
+    {
+      "period": "2024-03-21",
+      "basel_index_pct": 13.88,
+      "capital_buffer_pct": 6.03,
+      "capital_principal_brl_b": 11.852236937,
+      "icp_pct": 11.78,
+      "rwa_total_brl_b": 100.612467304,
+      "year": 2024
+    },
+    {
+      "period": "2024-03-31",
+      "basel_index_pct": 13.88,
+      "capital_buffer_pct": 6.03,
+      "capital_principal_brl_b": 11.852236937,
+      "icp_pct": 11.78,
+      "rwa_total_brl_b": 100.612467304,
+      "year": 2024
+    },
+    {
+      "period": "2024-06-03",
+      "basel_index_pct": 15.809999999999999,
+      "capital_buffer_pct": 6.890000000000001,
+      "capital_principal_brl_b": 13.243611753,
+      "icp_pct": 12.64,
+      "rwa_total_brl_b": 104.805517394,
+      "year": 2024
+    },
+    {
+      "period": "2024-06-15",
+      "basel_index_pct": 15.809999999999999,
+      "capital_buffer_pct": 6.890000000000001,
+      "capital_principal_brl_b": 13.243611753,
+      "icp_pct": 12.64,
+      "rwa_total_brl_b": 104.805517394,
+      "year": 2024
+    },
+    {
+      "period": "2024-06-19",
+      "basel_index_pct": 15.809999999999999,
+      "capital_buffer_pct": 6.890000000000001,
+      "capital_principal_brl_b": 13.243611753,
+      "icp_pct": 12.64,
+      "rwa_total_brl_b": 104.805517394,
+      "year": 2024
+    },
+    {
+      "period": "2024-06-24",
+      "basel_index_pct": 15.809999999999999,
+      "capital_buffer_pct": 6.890000000000001,
+      "capital_principal_brl_b": 13.243611753,
+      "icp_pct": 12.64,
+      "rwa_total_brl_b": 104.805517394,
+      "year": 2024
+    },
+    {
+      "period": "2024-06-30",
+      "basel_index_pct": 15.809999999999999,
+      "capital_buffer_pct": 6.890000000000001,
+      "capital_principal_brl_b": 13.243611753,
+      "icp_pct": 12.64,
+      "rwa_total_brl_b": 104.805517394,
+      "year": 2024
+    },
+    {
+      "period": "2024-09-18",
+      "basel_index_pct": 15.78,
+      "capital_buffer_pct": 7.24,
+      "capital_principal_brl_b": 15.006902505,
+      "icp_pct": 12.989999999999998,
+      "rwa_total_brl_b": 115.562993658,
+      "year": 2024
+    },
+    {
+      "period": "2024-09-22",
+      "basel_index_pct": 15.78,
+      "capital_buffer_pct": 7.24,
+      "capital_principal_brl_b": 15.006902505,
+      "icp_pct": 12.989999999999998,
+      "rwa_total_brl_b": 115.562993658,
+      "year": 2024
+    },
+    {
+      "period": "2024-09-27",
+      "basel_index_pct": 15.78,
+      "capital_buffer_pct": 7.24,
+      "capital_principal_brl_b": 15.006902505,
+      "icp_pct": 12.989999999999998,
+      "rwa_total_brl_b": 115.562993658,
+      "year": 2024
+    },
+    {
+      "period": "2024-12-22",
+      "basel_index_pct": 18.08,
+      "capital_buffer_pct": 8.9,
+      "capital_principal_brl_b": 18.156195334,
+      "icp_pct": 14.649999999999999,
+      "rwa_total_brl_b": 123.915743421,
+      "year": 2024
+    },
+    {
+      "period": "2024-12-26",
+      "basel_index_pct": 18.08,
+      "capital_buffer_pct": 8.9,
+      "capital_principal_brl_b": 18.156195334,
+      "icp_pct": 14.649999999999999,
+      "rwa_total_brl_b": 123.915743421,
+      "year": 2024
+    },
+    {
+      "period": "2024-12-31",
+      "basel_index_pct": 18.08,
+      "capital_buffer_pct": 8.9,
+      "capital_principal_brl_b": 18.156195334,
+      "icp_pct": 14.649999999999999,
+      "rwa_total_brl_b": 123.915743421,
+      "year": 2024
+    },
+    {
+      "period": "2025-03-27",
+      "basel_index_pct": 15.86,
+      "capital_buffer_pct": 6.79,
+      "capital_principal_brl_b": 18.679283414,
+      "icp_pct": 13.79,
+      "rwa_total_brl_b": 135.437827025,
+      "year": 2025
+    },
+    {
+      "period": "2025-03-29",
+      "basel_index_pct": 16.86,
+      "capital_buffer_pct": 6.79,
+      "capital_principal_brl_b": 18.679283414,
+      "icp_pct": 13.79,
+      "rwa_total_brl_b": 135.437827025,
+      "year": 2025
+    },
+    {
+      "period": "2025-03-31",
+      "basel_index_pct": 16.86,
+      "capital_buffer_pct": 6.79,
+      "capital_principal_brl_b": 18.679283414,
+      "icp_pct": 13.79,
+      "rwa_total_brl_b": 135.437827025,
+      "year": 2025
+    },
+    {
+      "period": "2025-06-30",
+      "basel_index_pct": 15.9,
+      "capital_buffer_pct": 5.87,
+      "capital_principal_brl_b": 18.331501338,
+      "icp_pct": 12.870000000000001,
+      "rwa_total_brl_b": 142.412584712,
+      "year": 2025
+    },
+    {
+      "period": "2025-09-30",
+      "basel_index_pct": 14.59,
+      "capital_buffer_pct": 4.88,
+      "capital_principal_brl_b": 18.73091704098,
+      "icp_pct": 11.88,
+      "rwa_total_brl_b": 157.601626622,
+      "year": 2025
+    },
+    {
+      "period": "2025-12-31",
+      "basel_index_pct": 15.78,
+      "capital_buffer_pct": 5.17,
+      "capital_principal_brl_b": 22.232143532,
+      "icp_pct": 12.17,
+      "rwa_total_brl_b": 171.142037672,
+      "year": 2025
+    }
+  ],
+  "risk_2025": [
+    {
+      "quarter": "Q1",
+      "period": "2025-03-31",
+      "capital_principal_brl_b": 18.6793,
+      "nivel_1_brl_b": 20.4899,
+      "patrimonio_referencia_brl_b": 22.8304,
+      "rwa_total_brl_b": 135.4378,
+      "icp_pct": 13.79,
+      "basel_index_pct": 16.86,
+      "capital_buffer_pct": 6.79,
+      "rwa_credito_brl_b": 91.26,
+      "rwa_juros_brl_m": 204.3,
+      "rwa_cambio_brl_m": 791.8,
+      "source_url": "https://github.com/pfutagawa/nubank-financial-analysis-ds/tree/main/data/raw/pillar3/2025"
+    },
+    {
+      "quarter": "Q2",
+      "period": "2025-06-30",
+      "capital_principal_brl_b": 18.3315,
+      "nivel_1_brl_b": 20.2156,
+      "patrimonio_referencia_brl_b": 22.6446,
+      "rwa_total_brl_b": 142.4126,
+      "icp_pct": 12.87,
+      "basel_index_pct": 15.9,
+      "capital_buffer_pct": 5.87,
+      "rwa_credito_brl_b": 97.62,
+      "rwa_juros_brl_m": 28.1,
+      "rwa_cambio_brl_m": 522.1,
+      "source_url": "https://github.com/pfutagawa/nubank-financial-analysis-ds/tree/main/data/raw/pillar3/2025"
+    },
+    {
+      "quarter": "Q3",
+      "period": "2025-09-30",
+      "capital_principal_brl_b": 18.7309,
+      "nivel_1_brl_b": 20.5503,
+      "patrimonio_referencia_brl_b": 22.9913,
+      "rwa_total_brl_b": 157.6016,
+      "icp_pct": 11.88,
+      "basel_index_pct": 14.59,
+      "capital_buffer_pct": 4.88,
+      "rwa_credito_brl_b": 108.19,
+      "rwa_juros_brl_m": 14.9,
+      "rwa_cambio_brl_m": 5128.8,
+      "source_url": "https://github.com/pfutagawa/nubank-financial-analysis-ds/tree/main/data/raw/pillar3/2025"
+    }
+  ],
+  "customer": {
+    "total": 122,
+    "loss_share_pct": 13.1,
+    "security_signals": 5,
+    "categories": [
+      {
+        "categoria": "Problemas com Cartão",
+        "reclamacoes": 39
+      },
+      {
+        "categoria": "Cobrança Indevida",
+        "reclamacoes": 22
+      },
+      {
+        "categoria": "Outros",
+        "reclamacoes": 16
+      },
+      {
+        "categoria": "PIX & Transferências",
+        "reclamacoes": 12
+      },
+      {
+        "categoria": "Bloqueio & Acesso",
+        "reclamacoes": 10
+      },
+      {
+        "categoria": "Atendimento & Suporte",
+        "reclamacoes": 10
+      },
+      {
+        "categoria": "Empréstimo & Crédito",
+        "reclamacoes": 9
+      },
+      {
+        "categoria": "Instabilidade do Aplicativo",
+        "reclamacoes": 3
+      },
+      {
+        "categoria": "Fraude & Vazamento de Dados",
+        "reclamacoes": 1
+      }
+    ],
+    "severity": [
+      {
+        "severidade": "Média",
+        "reclamacoes": 73
+      },
+      {
+        "severidade": "Baixa",
+        "reclamacoes": 45
+      },
+      {
+        "severidade": "Alta",
+        "reclamacoes": 4
+      }
+    ],
+    "clusters": [
+      {
+        "cluster": 0,
+        "reclamacoes": 29
+      },
+      {
+        "cluster": 1,
+        "reclamacoes": 31
+      },
+      {
+        "cluster": 2,
+        "reclamacoes": 24
+      },
+      {
+        "cluster": 3,
+        "reclamacoes": 38
+      }
+    ],
+    "source_label": "Amostra acadêmica de reclamações públicas"
+  },
+  "sources": [
+    {
+      "dataset": "historico_diario",
+      "period": "Recente (contínuo)",
+      "source_type": "mercado (OHLCV)",
+      "source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
+      "notes": "Coletado via API Twelve Data e persistido no MongoDB Atlas sem manipulação manual de arquivos."
+    },
+    {
+      "dataset": "financial_history",
+      "period": "2021",
+      "source_type": "primary",
+      "source": "SEC / Nu Q4-FY21 Results",
+      "notes": "Official IFRS and operating metrics"
+    },
+    {
+      "dataset": "financial_history",
+      "period": "2022-2024",
+      "source_type": "primary",
+      "source": "SEC / Nu Form 20-F 2024",
+      "notes": "Comparable annual operating and financial metrics"
+    },
+    {
+      "dataset": "financial_history",
+      "period": "2025",
+      "source_type": "primary",
+      "source": "SEC / Nu Form 20-F 2025",
+      "notes": "Official annual financial and operating metrics"
+    },
+    {
+      "dataset": "capital_risk_history",
+      "period": "2021-2025",
+      "source_type": "regulatory",
+      "source": "Banco Central do Brasil / Relatório de Pilar 3",
+      "notes": "Versioned source files stored locally under data/raw/pillar3"
+    },
+    {
+      "dataset": "risk_2025_detail",
+      "period": "Q1-Q3 2025",
+      "source_type": "regulatory analysis",
+      "source": "Banco Central do Brasil / Relatório de Pilar 3",
+      "notes": "Local validated detail for selected risk components"
+    },
+    {
+      "dataset": "customer_complaints",
+      "period": "academic sample",
+      "source_type": "public consumer complaints",
+      "source": "Reclame Aqui",
+      "notes": "Complementary academic sample stored locally; not treated as a 2021-2025 time series"
+    },
+    {
+      "dataset": "selic_history",
+      "period": "reference macro series",
+      "source_type": "primary",
+      "source": "Banco Central do Brasil / SGS 4390",
+      "notes": "Versioned locally under data/raw/macro"
+    }
+  ]
+}

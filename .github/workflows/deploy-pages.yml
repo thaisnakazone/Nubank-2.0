@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
@@ -33,12 +33,14 @@ jobs:
         run: python -m pip install -r requirements.txt
 
       - name: Compile Python sources
-        run: python -m compileall -q app.py src
+        run: python -m compileall -q app.py src dashboard data_ingestion database
 
       - name: Validate project datasets
         run: python src/validate_data.py
 
       - name: Build static dashboard payload
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
         run: python -m src.build_web_data
 
       - name: Validate web payload and JavaScript
@@ -62,10 +64,10 @@ jobs:
           PY
 
       - name: Configure Pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
           path: docs
           include-hidden-files: true
@@ -80,4 +82,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4

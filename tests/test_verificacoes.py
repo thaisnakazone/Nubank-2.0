@@ -205,5 +205,102 @@ class TestIndiceDuplicatas(unittest.TestCase):
         self.assertFalse(success, "Deveria retornar False se duplicatas impedirem criação de índice único")
 
 
+class TestTwelveDataClient(unittest.TestCase):
+    @patch("data_ingestion.client.requests.get")
+    def test_fetch_time_series_success(self, mock_get):
+        from data_ingestion.client import TwelveDataClient
+        mock_resp = MagicMock()
+        mock_resp.status_code = 200
+        mock_resp.json.return_value = {
+            "status": "ok",
+            "values": [
+                {"datetime": "2026-10-01", "open": "14.0", "high": "14.5", "low": "13.8", "close": "14.2", "volume": "2000000"}
+            ]
+        }
+        mock_get.return_value = mock_resp
+
+        client = TwelveDataClient(api_key="teste_chave_123")
+        values, err = client.fetch_time_series("NU", outputsize=1)
+        self.assertEqual(err, "")
+        self.assertEqual(len(values), 1)
+        self.assertEqual(values[0]["datetime"], "2026-10-01")
+
+    @patch("data_ingestion.client.requests.get")
+    def test_fetch_time_series_api_error(self, mock_get):
+        from data_ingestion.client import TwelveDataClient
+        mock_resp = MagicMock()
+        mock_resp.status_code = 400
+        mock_resp.json.return_value = {
+            "status": "error",
+            "message": "apikey=teste_chave_123 is invalid",
+        }
+        mock_get.return_value = mock_resp
+
+        client = TwelveDataClient(api_key="teste_chave_123")
+        values, err = client.fetch_time_series("NU")
+        self.assertEqual(len(values), 0)
+        self.assertIn("Erro da API Twelve Data", err)
+        # Garante que a chave foi mascarada
+        self.assertNotIn("teste_chave_123", err)
+        self.assertIn("***REDACTED***", err)
+
+    def test_fetch_time_series_sem_chave(self):
+        from data_ingestion.client import TwelveDataClient
+        client = TwelveDataClient(api_key="")
+        values, err = client.fetch_time_series("NU")
+        self.assertEqual(len(values), 0)
+        self.assertIn("não configurada", err)
+
+
+class TestDatabaseOperations(unittest.TestCase):
+    def test_upsert_market_records(self):
+        from database.operations import upsert_market_records
+        mock_col = MagicMock()
+        mock_bulk_res = MagicMock()
+        mock_bulk_res.upserted_count = 2
+        mock_bulk_res.modified_count = 1
+        mock_bulk_res.matched_count = 3
+        mock_col.bulk_write.return_value = mock_bulk_res
+
+        records = [
+            {"ticker": "NU", "datetime": "2026-10-01", "close": 14.5},
+            {"ticker": "NU", "datetime": "2026-10-02", "close": 14.8},
+        ]
+        result = upsert_market_records(mock_col, records)
+        self.assertEqual(result["inserted"], 2)
+        self.assertEqual(result["modified"], 1)
+        mock_col.bulk_write.assert_called_once()
+
+    def test_upsert_market_records_vazio(self):
+        from database.operations import upsert_market_records
+        mock_col = MagicMock()
+        result = upsert_market_records(mock_col, [])
+        self.assertEqual(result["inserted"], 0)
+        mock_col.bulk_write.assert_not_called()
+
+    def test_get_collection_stats(self):
+        from database.operations import get_collection_stats
+        mock_col = MagicMock()
+        mock_col.count_documents.return_value = 60
+        mock_col.aggregate.return_value = [{"_id": "NU", "total": 30, "min_date": "2026-08-01", "max_date": "2026-09-30"}]
+
+        stats = get_collection_stats(mock_col)
+        self.assertEqual(stats["total_documents"], 60)
+        self.assertEqual(len(stats["tickers"]), 1)
+        self.assertEqual(stats["tickers"][0]["_id"], "NU")
+
+
+class TestWebDataPayload(unittest.TestCase):
+    def test_build_payload_includes_market_and_financial(self):
+        from src.build_web_data import build_payload
+        payload = build_payload()
+        self.assertIn("market", payload)
+        self.assertIn("financial", payload)
+        self.assertIn("risk", payload)
+        self.assertIn("customer", payload)
+        self.assertGreater(len(payload["financial"]), 0)
+        self.assertGreater(len(payload["market"]), 0)
+
+
 if __name__ == "__main__":
     unittest.main()

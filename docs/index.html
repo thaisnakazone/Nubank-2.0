@@ -20,13 +20,14 @@
         <span>Nubank em Dados</span>
       </a>
       <nav aria-label="Navegação principal">
+        <a href="#mercado">Mercado (Twelve Data)</a>
         <a href="#crescimento">Crescimento</a>
         <a href="#rentabilidade">Rentabilidade</a>
         <a href="#risco">Risco</a>
         <a href="#clientes">Clientes</a>
         <a href="#metodologia">Metodologia</a>
       </nav>
-      <a class="github-link" href="https://github.com/pfutagawa/nubank-financial-analysis-ds" target="_blank" rel="noreferrer">Ver código</a>
+      <a class="github-link" href="https://github.com/thaisnakazone/Nubank-2.0" target="_blank" rel="noreferrer">Ver código</a>
     </div>
   </header>
 
@@ -68,6 +69,41 @@
         <strong id="metric-deposits">—</strong>
         <small id="metric-deposits-note">Carregando série…</small>
       </article>
+    </section>
+
+    <section class="section shell" id="mercado">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow dark">00 · Mercado em tempo contínuo · API Twelve Data</p>
+          <h2>Cotações diárias e benchmark financeiro</h2>
+        </div>
+        <p>Ingestão automatizada de cotações OHLCV via <b>API Twelve Data</b> para o <b>MongoDB Atlas</b>. Visualização interativa e periódica sem necessidade de upload ou manipulação manual de planilhas.</p>
+      </div>
+
+      <div class="source-pill" id="market-source-pill">Twelve Data API · Conexão MongoDB Atlas</div>
+
+      <div class="mini-metrics" style="margin-bottom: 1.5rem;">
+        <article><span>Último Fechamento (NU)</span><strong id="market-nu-close">—</strong><small id="market-nu-date">Carregando…</small></article>
+        <article><span>Variação no Período</span><strong id="market-nu-var">—</strong><small>Retorno acumulado da série</small></article>
+        <article><span>Volume Médio Diário</span><strong id="market-nu-vol">—</strong><small>Ações negociadas / pregão</small></article>
+      </div>
+
+      <div class="chart-grid two">
+        <article class="panel chart-panel">
+          <div class="panel-copy">
+            <h3>Cotações Diárias · Nu Holdings (NYSE: NU)</h3>
+            <p>Evolução diária de fechamento e volume de negociação.</p>
+          </div>
+          <div id="chart-market-nu" class="chart" role="img" aria-label="Gráfico de cotações diárias de NU"></div>
+        </article>
+        <article class="panel chart-panel">
+          <div class="panel-copy">
+            <h3>Performance Relativa (Base 100)</h3>
+            <p>Comparativo normalizado de retornos: Nubank (NU) vs Itaú (ITUB) vs Bradesco (BBD).</p>
+          </div>
+          <div id="chart-market-comparison" class="chart" role="img" aria-label="Gráfico comparativo de performance com pares bancários"></div>
+        </article>
+      </div>
     </section>
 
     <section class="section shell" id="crescimento">
@@ -289,7 +325,7 @@
         <strong>Nubank em Dados</strong>
         <p>Projeto independente de portfólio. Não afiliado à Nu Holdings Ltd. Não constitui recomendação de investimento.</p>
       </div>
-      <a href="https://github.com/pfutagawa/nubank-financial-analysis-ds" target="_blank" rel="noreferrer">GitHub · pfutagawa</a>
+      <a href="https://github.com/thaisnakazone/Nubank-2.0" target="_blank" rel="noreferrer">GitHub · Nubank 2.0</a>
     </div>
   </footer>
 
