@@ -247,7 +247,9 @@ function renderMarket() {
   setText('mk-vol', volAvg >= 1e6 ? `${fmt1.format(volAvg / 1e6)} mi` : fmt0.format(volAvg));
   setText('price-title', `${TICKER_NAMES[state.ticker]} (${state.ticker}) · preço e médias móveis`);
 
-  const xaxis = { type: 'date', tickformat: '%d/%m', rangebreaks: [{ bounds: ['sat', 'mon'] }], showgrid: false };
+  // Faixa explícita: sem isso o Plotly às vezes estende o eixo além do último pregão
+  const pad = (iso, h) => new Date(new Date(`${iso.slice(0, 10)}T12:00:00Z`).getTime() + h * 3600e3).toISOString().slice(0, 16);
+  const xaxis = { type: 'date', tickformat: '%d/%m', rangebreaks: [{ bounds: ['sat', 'mon'] }], showgrid: false, range: [pad(first.datetime, -14), pad(last.datetime, 14)], autorange: false };
   const priceTrace = state.style === 'candle'
     ? {
       type: 'candlestick', x, open: values(rows, 'open'), high: values(rows, 'high'), low: values(rows, 'low'), close: values(rows, 'close'),
@@ -347,12 +349,14 @@ function renderCompare() {
   });
 
   const narrow = window.innerWidth < 640;
+  const allX = traces.flatMap((t) => t.x).map((d) => d.slice(0, 10)).sort();
+  const xRange = allX.length ? [allX[0], allX[allX.length - 1]] : undefined;
   plot('chart-compare', traces, layout({
     hovermode: 'x unified',
     showlegend: !narrow, // no celular, os rótulos diretos + tabela já identificam as linhas
     annotations,
     shapes: [{ type: 'line', xref: 'paper', x0: 0, x1: 1, y0: 100, y1: 100, line: { color: c.axis, width: 1, dash: 'dot' } }],
-    xaxis: { type: 'date', tickformat: '%d/%m', rangebreaks: [{ bounds: ['sat', 'mon'] }] },
+    xaxis: { type: 'date', tickformat: '%d/%m', rangebreaks: [{ bounds: ['sat', 'mon'] }], range: xRange, autorange: false },
     yaxis: { title: 'Base 100' },
     margin: { l: 8, r: 92, t: 30, b: 8 },
   }));
