@@ -339,7 +339,7 @@ with tab_market:
             norm_df = (pivoted / pivoted.iloc[0]) * 100
             fig_comp = go.Figure()
             color_map = {"NU": NU_PURPLE, "ITUB": "#E26B00", "BBD": "#CC092F"}
-            dash_map = {"NU": "solid", "ITUB": "dash", "BBD": "dot"}
+            dash_map = {"NU": "solid", "ITUB": "solid", "BBD": "solid"}
             for col in norm_df.columns:
                 fig_comp.add_trace(go.Scatter(
                     x=norm_df.index,

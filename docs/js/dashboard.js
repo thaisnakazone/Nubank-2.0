@@ -21,7 +21,7 @@ const PALETTE = {
   },
 };
 // Codificação secundária (além da cor) para cada banco
-const DASH = { NU: 'solid', ITUB: 'dash', BBD: 'dot' };
+const DASH = { NU: 'solid', ITUB: 'solid', BBD: 'solid' };
 const TICKER_NAMES = { NU: 'Nubank', ITUB: 'Itaú', BBD: 'Bradesco' };
 const TICKER_ORDER = ['NU', 'ITUB', 'BBD'];
 
@@ -297,7 +297,7 @@ function renderCompare() {
     const selected = t === state.ticker;
     traces.push({
       type: 'scatter', mode: 'lines', x: values(rows, 'datetime'), y, name: `${t} · ${TICKER_NAMES[t]}`,
-      line: { color: c[t], width: selected ? 3 : 2, dash: DASH[t] },
+      line: { color: c[t], width: selected ? 3.5 : 2.25, dash: DASH[t] },
       opacity: selected ? 1 : 0.85,
       hovertemplate: `${t}: %{y:.1f}<extra></extra>`,
     });
