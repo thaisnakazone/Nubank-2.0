@@ -147,9 +147,22 @@ function renderHeader(d) {
 }
 
 // ---------- Mercado ----------
+// Pregão ainda aberto quando os dados foram gerados? (NYSE fecha às 16h de Nova York)
+function partialSessionDate() {
+  const stamp = state.data?.meta?.updated_at;
+  if (!stamp) return null;
+  const at = new Date(stamp.replace(' UTC', 'Z').replace(' ', 'T'));
+  if (Number.isNaN(at.getTime())) return null;
+  const ny = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
+    .formatToParts(at).reduce((o, p) => ({ ...o, [p.type]: p.value }), {});
+  const minutes = Number(ny.hour) * 60 + Number(ny.minute);
+  return minutes < 16 * 60 + 15 ? `${ny.year}-${ny.month}-${ny.day}` : null;
+}
+
 function seriesFor(ticker) {
+  const partial = partialSessionDate();
   return (state.data.market || [])
-    .filter((r) => r.ticker === ticker)
+    .filter((r) => r.ticker === ticker && r.datetime.slice(0, 10) !== partial)
     .sort((a, b) => a.datetime.localeCompare(b.datetime));
 }
 
