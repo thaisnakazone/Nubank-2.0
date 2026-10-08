@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  # Commits feitos pelo GITHUB_TOKEN (ex.: a coleta diária) NÃO disparam o evento "push".
+  # Por isso o deploy também roda quando a coleta diária termina.
+  workflow_run:
+    workflows: ["Coleta Diária de Cotações"]
+    types: [completed]
 
 permissions:
   contents: read
@@ -18,10 +23,13 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || '' }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -47,6 +55,7 @@ jobs:
         shell: bash
         run: |
           node --check docs/js/dashboard.js
+          grep -q 'id="mercado"' docs/index.html
           python - <<'PY'
           import json
           from pathlib import Path

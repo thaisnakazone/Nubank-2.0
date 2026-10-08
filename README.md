@@ -102,6 +102,22 @@ O repositório conta com GitHub Actions configurado em `.github/workflows/coleta
 - **Publicação contínua:** Reconstrói o payload `docs/data/dashboard-data.json` e dispara o deploy no GitHub Pages.
 - **Zero manipulação manual de arquivos:** Todo o fluxo ocorre na nuvem de forma transparente e auditável.
 
+### 5.1 Publicação no GitHub Pages
+O dashboard público é o site estático da pasta `docs/` (HTML + CSS + Plotly.js), que lê `docs/data/dashboard-data.json`.
+
+1. No GitHub, abra **Settings → Pages** e, em **Build and deployment → Source**, escolha **GitHub Actions**.
+2. Em **Settings → Secrets and variables → Actions**, cadastre `MONGO_URI` e `TWELVE_DATA_API_KEY`.
+3. Faça push na branch `main` (ou rode o workflow **Build and deploy GitHub Pages** manualmente na aba *Actions*).
+4. O site fica disponível em `https://thaisnakazone.github.io/Nubank-2.0/`.
+
+Após cada coleta diária, o workflow de deploy é disparado automaticamente (`workflow_run`), então o site sempre reflete os dados mais recentes do MongoDB Atlas.
+
+Para visualizar localmente:
+```bash
+python -m src.build_web_data      # gera docs/data/dashboard-data.json
+python -m http.server -d docs     # abra http://localhost:8000
+```
+
 ### 6. Execução de Testes
 Para rodar a suíte de testes unitários:
 ```bash

@@ -74,6 +74,16 @@ st.markdown(
         }}
         .status-online {{ background: #E6F7ED; color: #127A45; border: 1px solid #B8E8CA; }}
         .status-offline {{ background: #FDE8E8; color: #9B1C1C; border: 1px solid #F8B4B4; }}
+        /* Abas: contraste garantido em qualquer tema do sistema */
+        .stTabs [role="tablist"] {{ gap: .4rem; border-bottom: 1px solid #E8DFEC; padding-bottom: .5rem; flex-wrap: wrap; }}
+        .stTabs [role="tab"] {{
+            background: #FFFFFF; border: 1px solid #DCCFE3; border-radius: 999px;
+            padding: .45rem 1rem; height: auto; color: {TEXT} !important;
+        }}
+        .stTabs [role="tab"] p {{ color: inherit !important; font-weight: 700; font-size: .9rem; }}
+        .stTabs [role="tab"]:hover {{ border-color: {NU_PURPLE}; color: {NU_PURPLE} !important; }}
+        .stTabs [role="tab"][aria-selected="true"] {{ background: {NU_PURPLE}; border-color: {NU_PURPLE}; color: #FFFFFF !important; }}
+        .stTabs [data-baseweb="tab-highlight"], .stTabs [data-baseweb="tab-border"] {{ display: none; }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -151,7 +161,11 @@ else:
 st.sidebar.markdown("---")
 st.sidebar.markdown("### 📈 Filtro de Mercado (Twelve Data)")
 available_tickers = sorted(market_df["ticker"].unique().tolist())
-selected_ticker = st.sidebar.selectbox("Selecione o ativo", available_tickers, index=0)
+selected_ticker = st.sidebar.selectbox(
+    "Selecione o ativo",
+    available_tickers,
+    index=available_tickers.index("NU") if "NU" in available_tickers else 0,
+)
 
 min_date = market_df["datetime"].min().date()
 max_date = market_df["datetime"].max().date()
@@ -324,14 +338,15 @@ with tab_market:
         if not pivoted.empty and len(pivoted.columns) > 1:
             norm_df = (pivoted / pivoted.iloc[0]) * 100
             fig_comp = go.Figure()
-            color_map = {"NU": NU_PURPLE, "ITUB": "#FF7A00", "BBD": "#D62828"}
+            color_map = {"NU": NU_PURPLE, "ITUB": "#E26B00", "BBD": "#CC092F"}
+            dash_map = {"NU": "solid", "ITUB": "dash", "BBD": "dot"}
             for col in norm_df.columns:
                 fig_comp.add_trace(go.Scatter(
                     x=norm_df.index,
                     y=norm_df[col],
                     mode="lines+markers",
                     name=col,
-                    line=dict(color=color_map.get(col, "#555"), width=3 if col == "NU" else 2),
+                    line=dict(color=color_map.get(col, "#555"), width=3 if col == "NU" else 2, dash=dash_map.get(col, "solid")),
                     marker=dict(size=6),
                 ))
             fig_comp.add_hline(y=100, line_dash="dash", line_color="#888")

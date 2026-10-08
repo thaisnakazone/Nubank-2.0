@@ -1,0 +1,9 @@
+# Força o tema claro: sem isso, quando o Windows/navegador está em modo escuro,
+# o Streamlit pinta o texto das abas de branco sobre o fundo claro do CSS customizado.
+[theme]
+base = "light"
+primaryColor = "#820AD1"
+backgroundColor = "#FCFBFD"
+secondaryBackgroundColor = "#F6F2F8"
+textColor = "#17131A"
+font = "sans serif"

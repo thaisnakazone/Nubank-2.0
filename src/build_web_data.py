@@ -73,7 +73,7 @@ def fetch_market_quotes_from_mongo() -> tuple[list[dict[str, Any]], str]:
         if client:
             client.close()
 
-    return _fallback_market_quotes(), "Twelve Data · Amostra sincronizada"
+    return _fallback_market_quotes(), "Twelve Data · Demonstração (falha ao ler o MongoDB Atlas)"
 
 
 def _fallback_market_quotes() -> list[dict[str, Any]]:
@@ -91,7 +91,7 @@ def _fallback_market_quotes() -> list[dict[str, Any]]:
                 "low": round(base * (1 + (i % 7 - 4) * 0.015), 2),
                 "close": round(base * (1 + (i % 7 - 2) * 0.013), 2),
                 "volume": 1_200_000 + (i * 25_000),
-                "source": "Twelve Data",
+                "source": "Twelve Data (demonstração)",
             })
     return items
 
