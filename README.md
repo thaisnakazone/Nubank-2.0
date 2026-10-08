@@ -118,6 +118,20 @@ python -m src.build_web_data      # gera docs/data/dashboard-data.json
 python -m http.server -d docs     # abra http://localhost:8000
 ```
 
+### 5.2 Reclamações no Banco Central (100% automático)
+O workflow **Reclamações BCB** (`.github/workflows/reclamacoes_bcb.yml`) roda toda segunda-feira e coleta, para Nubank, Itaú e Bradesco:
+- **Ranking trimestral** via API oficial do BCB: índice de reclamações, reclamações procedentes e clientes;
+- **Irregularidades por instituição**: o script navega pela página de histórico do ranking e baixa o CSV de cada trimestre (esse detalhamento não está na API).
+
+As irregularidades são agrupadas em temas (Segurança e fraude, Pix, Cartão de crédito, Crédito, Tarifas, Atendimento, Conta, Cadastros) e gravadas no MongoDB Atlas (`ranking_reclamacoes_bcb` e `irregularidades_bcb`) e em `data/processed/bcb_*.csv`. A coleta é incremental: só busca trimestres novos e atualiza o mais recente.
+
+```bash
+python -m src.ingest_bcb_ranking              # coleta incremental
+python -m src.ingest_bcb_ranking --completo   # recoleta tudo desde 2021
+```
+
+> Metodologia: a partir do 2º trimestre de 2024 o BCB passou a calcular o índice com reclamações procedentes **extrapoladas** a partir de uma amostra, o que eleva o patamar da série. O dashboard marca essa quebra no gráfico.
+
 ### 6. Execução de Testes
 Para rodar a suíte de testes unitários:
 ```bash

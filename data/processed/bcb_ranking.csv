@@ -1,0 +1,64 @@
+ticker,periodo,ano,periodicidade,periodo_num,instituicao,categoria,metodologia,indice,procedentes,procedentes_amostra,reguladas_outras,nao_reguladas,total,clientes
+BBD,2021-T1,2021,trimestre,1,BRADESCO (conglomerado),Top 10,reguladas procedentes,22.78,2248.0,,3913.0,2591.0,8752.0,98648524.0
+ITUB,2021-T1,2021,trimestre,1,ITAU (conglomerado),Top 10,reguladas procedentes,19.72,1636.0,,3086.0,2156.0,6878.0,82955510.0
+NU,2021-T1,2021,trimestre,1,NUBANK (conglomerado),Top 10,reguladas procedentes,0.0,0.0,,8.0,11.0,19.0,13774766.0
+BBD,2021-T2,2021,trimestre,2,BRADESCO (conglomerado),Top 10 - Bancos e Financeiras,reguladas procedentes,25.33,2515.0,,4076.0,3048.0,9639.0,99260817.0
+ITUB,2021-T2,2021,trimestre,2,ITAU (conglomerado),Top 10 - Bancos e Financeiras,reguladas procedentes,17.59,1508.0,,3312.0,1707.0,6527.0,85710724.0
+NU,2021-T2,2021,trimestre,2,NUBANK (conglomerado),Top 10 - Bancos e Financeiras,reguladas procedentes,0.0,0.0,,12.0,13.0,25.0,17916854.0
+BBD,2021-T3,2021,trimestre,3,BRADESCO (conglomerado),Top 10 - Bancos e Financeiras,reguladas procedentes,36.03,3613.0,,4188.0,2892.0,10693.0,100264792.0
+ITUB,2021-T3,2021,trimestre,3,ITAU (conglomerado),Top 10 - Bancos e Financeiras,reguladas procedentes,15.05,1318.0,,3194.0,2338.0,6850.0,87568455.0
+NU,2021-T3,2021,trimestre,3,NUBANK (conglomerado),Top 10 - Bancos e Financeiras,reguladas procedentes,0.13,3.0,,18.0,17.0,38.0,22267718.0
+BBD,2021-T4,2021,trimestre,4,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,25.3,2529.0,,3483.0,2092.0,8104.0,99921260.0
+ITUB,2021-T4,2021,trimestre,4,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,12.76,1153.0,,2810.0,1673.0,5636.0,90314397.0
+NU,2021-T4,2021,trimestre,4,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,5.26,263.0,,729.0,345.0,1337.0,49967783.0
+BBD,2022-T1,2022,trimestre,1,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,25.22,2587.0,,3473.0,1987.0,8047.0,102567618.0
+ITUB,2022-T1,2022,trimestre,1,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,12.26,1136.0,,2726.0,1560.0,5422.0,92631221.0
+NU,2022-T1,2022,trimestre,1,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,7.48,410.0,,859.0,272.0,1541.0,54748336.0
+BBD,2022-T3,2022,trimestre,3,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,25.18,2564.0,,4393.0,1765.0,8722.0,101788328.0
+ITUB,2022-T3,2022,trimestre,3,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,14.4,1375.0,,3171.0,1312.0,5858.0,95481328.0
+NU,2022-T3,2022,trimestre,3,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,9.76,633.0,,1423.0,322.0,2378.0,64841518.0
+BBD,2022-T4,2022,trimestre,4,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,21.64,2225.0,,3075.0,1578.0,6878.0,102814534.0
+ITUB,2022-T4,2022,trimestre,4,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,15.26,1492.0,,3154.0,1463.0,6109.0,97712980.0
+NU,2022-T4,2022,trimestre,4,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,6.9,477.0,,1150.0,319.0,1946.0,69077761.0
+BBD,2023-T1,2023,trimestre,1,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,23.05,2390.0,,3750.0,1645.0,7785.0,103666074.0
+ITUB,2023-T1,2023,trimestre,1,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,15.8,1565.0,,3533.0,1618.0,6716.0,99015603.0
+NU,2023-T1,2023,trimestre,1,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,6.58,482.0,,1245.0,377.0,2104.0,73168970.0
+BBD,2023-T2,2023,trimestre,2,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,30.9,3229.0,,4046.0,1823.0,9098.0,104486688.0
+ITUB,2023-T2,2023,trimestre,2,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,20.27,2026.0,,4320.0,1716.0,8062.0,99936353.0
+NU,2023-T2,2023,trimestre,2,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,7.82,608.0,,1363.0,487.0,2458.0,77665209.0
+BBD,2023-T3,2023,trimestre,3,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,29.02,3052.0,,4139.0,1488.0,8679.0,105159414.0
+ITUB,2023-T3,2023,trimestre,3,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,15.47,1553.0,,4615.0,1488.0,7656.0,100350109.0
+NU,2023-T3,2023,trimestre,3,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,8.44,695.0,,1778.0,609.0,3082.0,82303144.0
+BBD,2023-T4,2023,trimestre,4,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,18.96,2007.0,,2886.0,1099.0,5992.0,105844674.0
+ITUB,2023-T4,2023,trimestre,4,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,10.19,1027.0,,3384.0,1618.0,6029.0,100715079.0
+NU,2023-T4,2023,trimestre,4,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,7.97,687.0,,1881.0,577.0,3145.0,86110428.0
+BBD,2024-T1,2024,trimestre,1,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,15.43,1644.0,,2423.0,1041.0,5108.0,106523397.0
+ITUB,2024-T1,2024,trimestre,1,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,9.73,980.0,,2818.0,1309.0,5107.0,100630213.0
+NU,2024-T1,2024,trimestre,1,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",reguladas procedentes,6.23,560.0,,1923.0,467.0,2950.0,89797615.0
+BBD,2024-T2,2024,trimestre,2,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,38.43,4151.0,,,,17143.0,107964923.0
+ITUB,2024-T2,2024,trimestre,2,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,34.68,3444.0,,,,20036.0,99277343.0
+NU,2024-T2,2024,trimestre,2,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,21.58,2020.0,,,,9977.0,93532277.0
+BBD,2024-T3,2024,trimestre,3,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,29.88,3249.0,528.0,,,17532.0,108709671.0
+ITUB,2024-T3,2024,trimestre,3,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,49.97,4956.0,998.0,,,18777.0,99170086.0
+NU,2024-T3,2024,trimestre,3,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,15.26,1490.0,308.0,,,10760.0,97624655.0
+BBD,2024-T4,2024,trimestre,4,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,35.89,3917.0,717.0,,,18522.0,109110309.0
+ITUB,2024-T4,2024,trimestre,4,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,41.27,4066.0,681.0,,,19389.0,98503297.0
+NU,2024-T4,2024,trimestre,4,NUBANK (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,12.22,1232.0,168.0,,,15113.0,100770273.0
+BBD,2025-T1,2025,trimestre,1,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,69.63,7647.0,759.0,,,27053.0,109814454.0
+ITUB,2025-T1,2025,trimestre,1,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,34.11,3384.0,577.0,,,20211.0,99186353.0
+NU,2025-T1,2025,trimestre,1,NU PAGAMENTOS (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,10.6,1100.0,135.0,,,15087.0,103734267.0
+BBD,2025-T2,2025,trimestre,2,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,60.58,6672.0,648.0,,,29749.0,110113531.0
+ITUB,2025-T2,2025,trimestre,2,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,39.35,3933.0,567.0,,,24722.0,99941644.0
+NU,2025-T2,2025,trimestre,2,NU PAGAMENTOS (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,12.96,1381.0,121.0,,,22686.0,106495979.0
+BBD,2025-T3,2025,trimestre,3,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,51.74,5718.0,474.0,,,33228.0,110494968.0
+ITUB,2025-T3,2025,trimestre,3,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,45.13,4525.0,520.0,,,28923.0,100248541.0
+NU,2025-T3,2025,trimestre,3,NU PAGAMENTOS (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,12.67,1386.0,78.0,,,39389.0,109315016.0
+BBD,2025-T4,2025,trimestre,4,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,43.89,4849.0,420.0,,,34725.0,110474071.0
+ITUB,2025-T4,2025,trimestre,4,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,36.24,3636.0,401.0,,,31413.0,100321592.0
+NU,2025-T4,2025,trimestre,4,NU PAGAMENTOS (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,12.04,1350.0,64.0,,,42638.0,112017464.0
+BBD,2026-T1,2026,trimestre,1,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,48.92,5398.0,348.0,,,35387.0,110328071.0
+ITUB,2026-T1,2026,trimestre,1,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,34.12,3442.0,361.0,,,27703.0,100863694.0
+NU,2026-T1,2026,trimestre,1,NU PAGAMENTOS (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,10.65,1223.0,78.0,,,31143.0,114737784.0
+BBD,2026-T2,2026,trimestre,2,BRADESCO (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,84.9,9375.0,495.0,,,46204.0,110412514.0
+ITUB,2026-T2,2026,trimestre,2,ITAU (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,46.87,4596.0,426.0,,,28687.0,98052200.0
+NU,2026-T2,2026,trimestre,2,NU PAGAMENTOS (conglomerado),"Top 15 - Bancos, Financeiras e Instituições de Pagamento",procedentes extrapoladas,9.2,1080.0,83.0,,,26330.0,117259020.0

@@ -101,7 +101,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg>Capital &amp; Risco
         </button>
         <button class="tab" role="tab" id="tab-clientes" aria-controls="clientes" data-tab="clientes">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Clientes
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Reclamações
         </button>
         <button class="tab" role="tab" id="tab-metodologia" aria-controls="metodologia" data-tab="metodologia">
           <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V5.5M4.5 12v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V12"/></svg>Arquitetura
@@ -282,10 +282,55 @@
     <section class="panel-view shell" id="clientes" role="tabpanel" aria-labelledby="tab-clientes" hidden>
       <header class="view-head">
         <div>
-          <p class="eyebrow">04 · Experiência do cliente</p>
-          <h2>Uma lente complementar, sem extrapolação no tempo</h2>
+          <p class="eyebrow">04 · Reclamações · Banco Central</p>
+          <h2>Quais reclamações viram risco de conduta?</h2>
         </div>
-        <p>A amostra de reclamações mostra temas, severidade e agrupamentos. Ela não é tratada como série histórica 2021–2025.</p>
+        <p>O Banco Central classifica cada reclamação por tipo de irregularidade e marca como <b>procedente</b> quando confirma que o banco descumpriu uma norma — um sinal direto de risco operacional e de conduta.</p>
+      </header>
+
+      <div id="bcb-empty" class="callout" hidden>
+        <strong>Dados do Banco Central ainda não coletados.</strong> Eles são coletados automaticamente pelo workflow <em>Reclamações BCB</em> no GitHub Actions.
+      </div>
+
+      <div id="bcb-content">
+        <div class="stat-row" id="bcb-stats"></div>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-head"><div><h3>Índice de reclamações</h3><p>Reclamações procedentes por milhão de clientes, por trimestre. Quanto maior, pior.</p></div></div>
+            <div id="chart-bcb-index" class="chart" role="img" aria-label="Índice de reclamações do Banco Central por banco"></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><div><h3>Reclamações procedentes</h3><p>Quantidade confirmada pelo BC nos últimos 8 trimestres.</p></div></div>
+            <div id="chart-bcb-procedentes" class="chart" role="img" aria-label="Reclamações procedentes por trimestre"></div>
+          </article>
+        </div>
+
+        <article class="card">
+          <div class="card-head"><div><h3>Em que temas os problemas se concentram</h3><p id="tema-sub">Participação de cada tema nas reclamações procedentes de cada banco.</p></div></div>
+          <div id="chart-bcb-temas" class="chart tall" role="img" aria-label="Participação dos temas de irregularidade por banco"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div>
+              <h3>Irregularidades mais frequentes</h3>
+              <p id="irreg-sub">Top 10 por reclamações procedentes.</p>
+            </div>
+            <div class="segmented" role="radiogroup" aria-label="Banco" id="irreg-picker"></div>
+          </div>
+          <div id="chart-bcb-irreg" class="chart tall" role="img" aria-label="Irregularidades com mais reclamações procedentes"></div>
+          <p class="fineprint" id="irreg-empty" hidden>O detalhamento por irregularidade será preenchido na próxima coleta automática do BCB.</p>
+        </article>
+        <p class="source-line" id="bcb-source">—</p>
+      </div>
+
+      <header class="view-head sub-head">
+        <div>
+          <p class="eyebrow">Estudo de texto · amostra Reclame Aqui (coleta única)</p>
+          <h2>Temas, severidade e agrupamentos</h2>
+        </div>
+        <p>Amostra acadêmica coletada uma única vez, usada para classificar o texto das reclamações. Não é atualizada nem tratada como série histórica.</p>
       </header>
 
       <div class="stat-row three">
@@ -323,9 +368,9 @@
       </header>
 
       <ol class="flow" aria-label="Fluxo de dados">
-        <li><span class="flow-step">1</span><strong>Twelve Data API</strong><small>Cotações OHLCV de NU, ITUB e BBD</small></li>
+        <li><span class="flow-step">1</span><strong>Twelve Data + Banco Central</strong><small>Cotações diárias e ranking trimestral de reclamações de NU, ITUB e BBD</small></li>
         <li><span class="flow-step">2</span><strong>Validação</strong><small>Schema, faixas de preço e sanitização de credenciais</small></li>
-        <li><span class="flow-step">3</span><strong>MongoDB Atlas</strong><small><code>nubank_db.historico_diario</code> · upsert com índice único (ticker, datetime)</small></li>
+        <li><span class="flow-step">3</span><strong>MongoDB Atlas</strong><small><code>historico_diario</code>, <code>ranking_reclamacoes_bcb</code> e <code>irregularidades_bcb</code> · upserts idempotentes</small></li>
         <li><span class="flow-step">4</span><strong>build_web_data.py</strong><small>Gera <code>docs/data/dashboard-data.json</code></small></li>
         <li><span class="flow-step">5</span><strong>GitHub Pages</strong><small>Republicado automaticamente após cada coleta</small></li>
       </ol>

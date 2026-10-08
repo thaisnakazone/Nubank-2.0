@@ -96,6 +96,48 @@ def _fallback_market_quotes() -> list[dict[str, Any]]:
     return items
 
 
+def load_bcb_complaints() -> dict[str, Any]:
+    """
+    Ranking de Reclamações do Banco Central (NU, ITUB, BBD).
+    Lê do MongoDB Atlas quando disponível; caso contrário usa os CSVs processados
+    gerados por src/ingest_bcb_ranking.py.
+    """
+    ranking: list[dict[str, Any]] = []
+    irreg: list[dict[str, Any]] = []
+    source = "Banco Central do Brasil · Ranking de Reclamações"
+
+    mongo_uri = os.getenv("MONGO_URI")
+    if mongo_uri:
+        client = None
+        try:
+            from pymongo import MongoClient
+            client = MongoClient(mongo_uri, serverSelectionTimeoutMS=3000)
+            db = client["nubank_db"]
+            ranking = [
+                {k: clean_value(v) for k, v in d.items() if k != "coletado_em"}
+                for d in db["ranking_reclamacoes_bcb"].find({}, {"_id": 0}).sort("periodo", 1)
+            ]
+            irreg = [
+                {k: clean_value(v) for k, v in d.items() if k != "coletado_em"}
+                for d in db["irregularidades_bcb"].find({}, {"_id": 0}).sort("periodo", 1)
+            ]
+            if ranking:
+                source += " · via MongoDB Atlas"
+        except Exception:
+            ranking, irreg = [], []
+        finally:
+            if client:
+                client.close()
+
+    processed = ROOT / "data" / "processed"
+    if not ranking and (processed / "bcb_ranking.csv").exists():
+        ranking = records(pd.read_csv(processed / "bcb_ranking.csv"))
+    if not irreg and (processed / "bcb_irregularidades.csv").exists():
+        irreg = records(pd.read_csv(processed / "bcb_irregularidades.csv"))
+
+    return {"ranking": ranking, "irregularidades": irreg, "source": source}
+
+
 def build_payload() -> dict[str, Any]:
     financial = load_financial_history()
     risk, risk_source = load_capital_risk_history()
@@ -130,8 +172,17 @@ def build_payload() -> dict[str, Any]:
             pd.to_numeric(complaints["Problema_Seguranca"], errors="coerce").fillna(0).sum()
         )
 
+    bcb = load_bcb_complaints()
+
     # Adiciona a fonte Twelve Data ao manifesto de fontes
     sources_list = records(manifest)
+    sources_list.insert(1, {
+        "dataset": "ranking_reclamacoes_bcb",
+        "period": "Trimestral (desde 2021)",
+        "source_type": "regulatório",
+        "source": "Banco Central do Brasil / Ranking de Reclamações",
+        "notes": "Índice e reclamações procedentes via API do BCB; irregularidades a partir dos arquivos trimestrais.",
+    })
     sources_list.insert(0, {
         "dataset": "historico_diario",
         "period": "Recente (contínuo)",
@@ -164,6 +215,7 @@ def build_payload() -> dict[str, Any]:
         "risk": records(risk),
         "risk_2025": records(risk_detail),
         "customer": customer,
+        "bcb_complaints": bcb,
         "sources": sources_list,
     }
 

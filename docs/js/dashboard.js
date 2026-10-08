@@ -31,6 +31,7 @@ const state = {
   ticker: 'NU',
   range: 0,
   style: 'candle',
+  irregTicker: 'NU',
   rendered: new Set(),
 };
 
@@ -513,9 +514,157 @@ function renderRisk() {
   }
 }
 
+// ---------- Reclamações no Banco Central ----------
+// Rótulo curto e legível para as irregularidades (o nome completo aparece no tooltip)
+function compactIrregularity(name) {
+  let t = String(name || '').replace(/\s+/g, ' ').trim();
+  const rules = [
+    [/^Irregularidades relativas a integridade, confiabilidade, seguran[cç]a, sigilo (ou|e) legitimidade d(as|os) (opera[cç][oõ]es e )?servi[cç]os,? ?(prestados )?(relacionados a |relacionados [àa]s? |disponibilizados em )?/i, 'Segurança · '],
+    [/^Integridade, confiabilidade, seguran[cç]a, sigilo e legitimidade das opera[cç][oõ]es e servi[cç]os -? ?/i, 'Segurança · '],
+    [/^Oferta ou presta[cç][aã]o de informa[cç][aã]o (sobre|a respeito de) /i, 'Informação inadequada · '],
+    [/^Irregularidades relacionadas (ao|[àa]|a|aos) /i, ''],
+    [/^Irregularidades (no processo de|envolvendo a|relativas a|relativas [àa]) /i, ''],
+    [/^Transa[cç][oõ]es n[aã]o reconhecidas pelo titular da conta, realizadas por terceiros/i, 'Transações não reconhecidas'],
+  ];
+  rules.forEach(([re, rep]) => { t = t.replace(re, rep); });
+  t = t.replace(/ de forma inadequada,? ?/i, ' ').replace(/,? exceto .*/i, '').replace(/ \(.*?\)$/, (m) => (m.length < 8 ? m : ''));
+  t = t.replace(/· (o|a|os|as) /i, '· ').trim();
+  if (/·$/.test(t)) t += ' demais operações';
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+const perLabel = (p) => { const m = /^(\d{4})-([TSBM])(\d+)$/.exec(p || ''); return m ? `${m[3]}${m[2]}${m[1].slice(2)}` : p; };
+
+function renderBcb() {
+  const c = C();
+  const b = state.data.bcb_complaints || { ranking: [], irregularidades: [] };
+  const ranking = (b.ranking || []).filter((r) => TICKER_ORDER.includes(r.ticker));
+  const irreg = (b.irregularidades || []).filter((r) => TICKER_ORDER.includes(r.ticker));
+  $('bcb-empty').hidden = ranking.length > 0 || irreg.length > 0;
+  $('bcb-content').hidden = !$('bcb-empty').hidden;
+  if ($('bcb-content').hidden) return;
+  setText('bcb-source', `Fonte: ${b.source || 'Banco Central do Brasil'}. Índice = reclamações procedentes ÷ clientes × 1 milhão (desde 2T24 o BC usa procedentes extrapoladas a partir de uma amostra, o que eleva o patamar da série).`);
+
+  const periods = [...new Set(ranking.map((r) => r.periodo))].sort();
+  const byKey = new Map(ranking.map((r) => [`${r.ticker}|${r.periodo}`, r]));
+  const x = periods.map(perLabel);
+
+  // Indicadores do último trimestre
+  const last = periods[periods.length - 1];
+  const yearAgo = last ? last.replace(/^(\d{4})/, (y) => String(Number(y) - 1)) : null;
+  const nu = byKey.get(`NU|${last}`);
+  const nuPrev = byKey.get(`NU|${yearAgo}`);
+  const peers = ['ITUB', 'BBD'].map((t) => byKey.get(`${t}|${last}`)).filter(Boolean);
+  const stats = [];
+  if (nu) {
+    stats.push(['Índice NU', fmt2.format(nu.indice ?? 0), peers.map((p) => `${p.ticker} ${fmt2.format(p.indice ?? 0)}`).join(' · ') || perLabel(last)]);
+    const est = /extrapol/.test(nu.metodologia || '');
+    stats.push(['Procedentes NU', fmt0.format(nu.procedentes ?? 0), nu.total ? `${est ? 'estimativa do BC · ' : ''}${fmt0.format(nu.total)} reclamações ${est ? 'respondidas' : 'no total'}` : '']);
+    if (nuPrev && nuPrev.indice) {
+      const dv = (nu.indice / nuPrev.indice - 1) * 100;
+      stats.push(['Índice NU em 12 meses', signed(dv), `${perLabel(yearAgo)} → ${perLabel(last)} · ${dv <= 0 ? 'melhora' : 'piora'}`, dv <= 0 ? 'up' : 'down']);
+    } else {
+      stats.push(['Clientes NU (BCB)', `${fmt1.format((nu.clientes || 0) / 1e6)} mi`, 'base usada no índice']);
+    }
+  }
+  stats.push(['Trimestre de referência', perLabel(last) || '—', `${periods.length} trimestres na série`]);
+  $('bcb-stats').innerHTML = stats.map(([l, v, n, cls]) => `<article class="stat"><span>${escapeHtml(l)}</span><strong class="${cls || ''}">${escapeHtml(v)}</strong><small>${escapeHtml(n)}</small></article>`).join('');
+
+  const firstNew = ranking.filter((r) => /extrapol/.test(r.metodologia || '')).map((r) => r.periodo).sort()[0];
+  const methodBreak = firstNew && periods.indexOf(firstNew) > 0 ? perLabel(firstNew) : null;
+
+  const series = (key, extra) => TICKER_ORDER.filter((t) => ranking.some((r) => r.ticker === t)).map((t) => ({
+    x, y: periods.map((p) => byKey.get(`${t}|${p}`)?.[key] ?? null), name: `${t} · ${TICKER_NAMES[t]}`, marker: { color: c[t] }, ...extra(t),
+  }));
+
+  plot('chart-bcb-index', series('indice', (t) => ({
+    type: 'scatter', mode: 'lines+markers', line: { color: c[t], width: t === 'NU' ? 3 : 2.25 }, marker: { color: c[t], size: 7 }, connectgaps: false,
+    hovertemplate: `${t}: %{y:.2f}<extra></extra>`,
+  })), layout({
+    hovermode: 'x unified',
+    shapes: methodBreak ? [{ type: 'line', x0: methodBreak, x1: methodBreak, xref: 'x', yref: 'paper', y0: 0, y1: 1, line: { color: c.axis, width: 1, dash: 'dot' } }] : [],
+    annotations: methodBreak && window.innerWidth >= 640 ? [{ x: methodBreak, xref: 'x', yref: 'paper', y: 0.98, yanchor: 'top', xanchor: 'right', xshift: -4, showarrow: false, text: 'nova metodologia →', font: { size: 10, color: c.muted } }] : [],
+    xaxis: { tickangle: 0, tickvals: x.filter((l) => /^1T/.test(l)), ticktext: x.filter((l) => /^1T/.test(l)).map((l) => `20${l.slice(-2)}`) },
+    yaxis: { title: 'por milhão de clientes', rangemode: 'tozero' },
+  }));
+
+  const recent = series('procedentes', (t) => ({
+    type: 'bar', hovertemplate: `${t}: %{y:,.0f}<extra></extra>`,
+  })).map((tr) => ({ ...tr, x: tr.x.slice(-8), y: tr.y.slice(-8) }));
+  plot('chart-bcb-procedentes', recent, layout({ barmode: 'group', bargroupgap: 0.06, hovermode: 'x unified', xaxis: { tickangle: 0 }, yaxis: { title: 'reclamações' } }));
+
+  // Irregularidades por banco (últimos 4 trimestres disponíveis)
+  const tickers = TICKER_ORDER.filter((t) => irreg.some((r) => r.ticker === t));
+  $('chart-bcb-irreg').hidden = !tickers.length;
+  $('irreg-picker').hidden = !tickers.length;
+  $('irreg-empty').hidden = tickers.length > 0;
+  $('chart-bcb-temas').closest('.card').hidden = !tickers.length;
+  if (!tickers.length) { setText('irreg-sub', 'Detalhamento por tipo ainda não disponível.'); return; }
+  if (!tickers.includes(state.irregTicker)) state.irregTicker = tickers[0];
+
+  const picker = $('irreg-picker');
+  picker.innerHTML = tickers.map((t) => `<button role="radio" data-t="${t}" aria-checked="${t === state.irregTicker}"><span class="swatch" style="background:${c[t]}"></span>${t}</button>`).join('');
+  picker.onclick = (e) => { const btn = e.target.closest('button'); if (!btn) return; state.irregTicker = btn.dataset.t; renderBcb(); };
+
+  // Temas: participação nas procedentes (últimos 4 trimestres de cada banco)
+  const lastOf = (t) => [...new Set(irreg.filter((r) => r.ticker === t).map((r) => r.periodo))].sort().slice(-4);
+  const windowRows = tickers.flatMap((t) => { const ps = lastOf(t); return irreg.filter((r) => r.ticker === t && ps.includes(r.periodo)); });
+  const themeTot = new Map();
+  windowRows.forEach((r) => themeTot.set(r.tema || 'Outros', (themeTot.get(r.tema || 'Outros') || 0) + (r.procedentes || 0)));
+  const themes = [...themeTot.entries()].sort((a, b2) => a[1] - b2[1]).map(([k]) => k);
+  const narrowT = window.innerWidth < 640;
+  plot('chart-bcb-temas', [...tickers].reverse().map((t) => {
+    const rowsT = windowRows.filter((r) => r.ticker === t);
+    const tot = rowsT.reduce((a, r) => a + (r.procedentes || 0), 0) || 1;
+    const shares = themes.map((th) => rowsT.filter((r) => (r.tema || 'Outros') === th).reduce((a, r) => a + (r.procedentes || 0), 0) / tot * 100);
+    return {
+      type: 'bar', orientation: 'h', y: narrowT ? themes.map((th) => th.replace(/ \(.*\)$/, '')) : themes, x: shares, name: `${t} · ${TICKER_NAMES[t]}`, marker: { color: c[t] },
+      hovertemplate: `${t} · %{y}: %{x:.1f}% das procedentes<extra></extra>`,
+    };
+  }), layout({
+    barmode: 'group', bargap: 0.25, bargroupgap: 0.05, hovermode: 'closest',
+    legend: narrowT
+      ? { traceorder: 'reversed', orientation: 'h', xref: 'container', yref: 'container', x: 0, y: 0, yanchor: 'bottom' }
+      : { traceorder: 'reversed', orientation: 'h', x: 0, y: 1.06 },
+    xaxis: { showgrid: true, ticksuffix: '%', title: '% das reclamações procedentes', tickangle: 0, nticks: narrowT ? 4 : 8 },
+    yaxis: { showgrid: false, tickfont: { size: narrowT ? 10 : 12, color: c.muted } },
+    margin: { l: 8, r: 16, t: narrowT ? 8 : 30, b: narrowT ? 64 : 8 },
+  }));
+  setText('tema-sub', `Participação de cada tema nas reclamações procedentes · soma de ${lastOf(tickers[0]).map(perLabel).join(', ')}.`);
+
+  const rows = irreg.filter((r) => r.ticker === state.irregTicker);
+  const lastPeriods = lastOf(state.irregTicker);
+  const agg = new Map();
+  rows.filter((r) => lastPeriods.includes(r.periodo)).forEach((r) => {
+    const key = r.irregularidade_curta || r.irregularidade;
+    const a = agg.get(key) || { proc: 0, tema: r.tema || 'Outros' };
+    a.proc += r.procedentes || 0;
+    agg.set(key, a);
+  });
+  const top = [...agg.entries()].sort((a, b2) => b2[1].proc - a[1].proc).slice(0, 10).reverse();
+  const narrowIrr = window.innerWidth < 640;
+  const maxLen = narrowIrr ? 26 : 60;
+  const wrap = (txt) => (txt.length > maxLen ? `${txt.slice(0, maxLen - 1)}…` : txt);
+  const seen = new Map();
+  const labels = top.map(([k]) => {
+    let l = wrap(compactIrregularity(k));
+    const n = seen.get(l) || 0; seen.set(l, n + 1);
+    return n ? l + '\u200b'.repeat(n) : l; // garante rótulos únicos
+  });
+  setText('irreg-sub', `${TICKER_NAMES[state.irregTicker]} · top 10 por reclamações procedentes, soma de ${lastPeriods.map(perLabel).join(', ')}. Passe o mouse para ver o nome completo.`);
+  plot('chart-bcb-irreg', [{
+    type: 'bar', orientation: 'h', y: labels, x: top.map(([, v]) => v.proc), name: 'Procedentes',
+    marker: { color: c[state.irregTicker] }, customdata: top.map(([k, v]) => [k, v.tema]),
+    text: top.map(([, v]) => fmt0.format(v.proc)), textposition: 'outside', cliponaxis: false, textfont: { color: c.ink },
+    hovertemplate: '%{customdata[0]}<br><i>%{customdata[1]}</i><br>Procedentes: %{x:,.0f}<extra></extra>',
+  }], layout({ showlegend: false, bargap: 0.3, xaxis: { showgrid: true, title: 'reclamações procedentes', tickangle: 0, nticks: narrowIrr ? 3 : 8 }, yaxis: { showgrid: false, tickfont: { size: narrowIrr ? 10 : 12, color: c.muted } }, margin: { l: 8, r: 36, t: 8, b: 8 } }));
+
+}
+
 // ---------- Clientes ----------
 function renderCustomer() {
   const c = C();
+  renderBcb();
   const cu = state.data.customer;
   setText('customer-total', fmt0.format(cu.total));
   setText('customer-loss', cu.loss_share_pct == null ? '—' : pct(cu.loss_share_pct));

@@ -9,7 +9,7 @@ on:
   # Commits feitos pelo GITHUB_TOKEN (ex.: a coleta diária) NÃO disparam o evento "push".
   # Por isso o deploy também roda quando a coleta diária termina.
   workflow_run:
-    workflows: ["Coleta Diária de Cotações"]
+    workflows: ["Coleta Diária de Cotações", "Reclamações BCB"]
     types: [completed]
 
 permissions:
