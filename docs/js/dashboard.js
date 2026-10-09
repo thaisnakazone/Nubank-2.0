@@ -708,11 +708,51 @@ function renderCustomer() {
     hovertemplate: '%{y}: %{x} reclamações<extra></extra>',
   }], layout({ showlegend: false, bargap: 0.3, xaxis: { visible: false }, yaxis: { showgrid: false }, margin: { l: 8, r: 70, t: 4, b: 4 } }));
 
-  plot('chart-clusters', [{
-    type: 'bar', x: values(cu.clusters, 'cluster').map((v) => `Cluster ${v}`), y: values(cu.clusters, 'reclamacoes'),
-    marker: { color: c.nuSoft }, text: values(cu.clusters, 'reclamacoes'), textposition: 'outside', cliponaxis: false, textfont: { color: c.ink },
-    hovertemplate: '%{x}: %{y} reclamações<extra></extra>',
-  }], layout({ showlegend: false, yaxis: { visible: false }, margin: { l: 8, r: 8, t: 22, b: 8 } }));
+  // Grupos do K-Means: total por grupo e quantas tiveram perda financeira
+  const fallbackNames = { 0: 'Contestação de Pix', 1: 'Bloqueio e acesso à conta', 2: 'Cobranças e juros', 3: 'Cartão e limite' };
+  const cl = [...(cu.clusters || [])].map((r) => ({
+    nome: r.nome || fallbackNames[r.cluster] || `Grupo ${r.cluster}`,
+    total: r.reclamacoes || 0,
+    perda: r.perda ?? null,
+  })).sort((a, b) => a.total - b.total);
+  const hasLoss = cl.some((r) => r.perda != null);
+  const lossTotal = cl.reduce((a, r) => a + (r.perda || 0), 0);
+  const top = hasLoss ? [...cl].sort((a, b) => (b.perda || 0) - (a.perda || 0))[0] : null;
+  const neutralBar = currentMode() === 'dark' ? '#4a4050' : '#DDD5E2';
+  const narrowCl = window.innerWidth < 640;
+  const traces = [{
+    type: 'bar', orientation: 'h', name: 'Sem perda financeira', y: cl.map((r) => r.nome), x: cl.map((r) => r.total - (r.perda || 0)),
+    marker: { color: neutralBar },
+    hovertemplate: '%{y}: %{x} reclamações sem perda financeira<extra></extra>',
+  }];
+  if (hasLoss) {
+    traces.push({
+      type: 'bar', orientation: 'h', name: 'Com perda financeira', y: cl.map((r) => r.nome), x: cl.map((r) => r.perda || 0),
+      marker: { color: c.negative },
+      text: cl.map((r) => (narrowCl ? `${r.total} · ${r.perda || 0} c/ perda` : `${r.total} reclamações · ${r.perda || 0} com perda`)), textposition: 'outside', cliponaxis: false,
+      textfont: { color: c.ink },
+      hovertemplate: '%{y}: %{x} com perda financeira<extra></extra>',
+    });
+  }
+  plot('chart-clusters', traces, layout({
+    barmode: 'stack', bargap: 0.35, hovermode: 'closest',
+    legend: narrowCl
+      ? { traceorder: 'normal', orientation: 'h', xref: 'container', yref: 'container', x: 0, y: 0, yanchor: 'bottom' }
+      : { traceorder: 'normal', orientation: 'h', x: 0, y: 1.12 },
+    xaxis: { showgrid: true, title: 'reclamações', nticks: narrowCl ? 3 : 8, range: [0, Math.max(...cl.map((r) => r.total)) * (narrowCl ? 1.9 : 1.45)] },
+    yaxis: { showgrid: false, tickfont: { size: narrowCl ? 11 : 13, color: c.ink } },
+    margin: { l: 8, r: 8, t: narrowCl ? 8 : 30, b: narrowCl ? 60 : 8 },
+  }));
+
+  const insight = $('cluster-insight');
+  if (top && lossTotal > 0) {
+    const share = Math.round((top.perda / lossTotal) * 100);
+    insight.hidden = false;
+    insight.innerHTML = `<strong>Onde está o risco:</strong> das ${lossTotal} reclamações em que o cliente perdeu dinheiro, <b>${top.perda} (${share}%)</b> estão no grupo <b>“${escapeHtml(top.nome)}”</b>. `
+      + 'Não é o grupo com mais reclamações, mas é o que mais gera prejuízo real ao cliente, e por isso merece mais atenção numa análise de risco do que a simples contagem sugere.';
+  } else {
+    insight.hidden = true;
+  }
 }
 
 // ---------- Fontes ----------

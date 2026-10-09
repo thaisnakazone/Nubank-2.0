@@ -1635,19 +1635,27 @@
     "clusters": [
       {
         "cluster": 0,
-        "reclamacoes": 29
+        "nome": "Contestação de Pix",
+        "reclamacoes": 29,
+        "perda": 1
       },
       {
         "cluster": 1,
-        "reclamacoes": 31
+        "nome": "Bloqueio e acesso à conta",
+        "reclamacoes": 31,
+        "perda": 0
       },
       {
         "cluster": 2,
-        "reclamacoes": 24
+        "nome": "Cobranças e juros",
+        "reclamacoes": 24,
+        "perda": 15
       },
       {
         "cluster": 3,
-        "reclamacoes": 38
+        "nome": "Cartão e limite",
+        "reclamacoes": 38,
+        "perda": 0
       }
     ],
     "source_label": "Amostra acadêmica de reclamações públicas"

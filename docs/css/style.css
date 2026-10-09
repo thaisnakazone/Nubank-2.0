@@ -279,3 +279,5 @@ h1, h2, h3 { letter-spacing: -0.025em; margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media (forced-colors: active) { .tab[aria-selected="true"], .segmented button[aria-checked="true"] { outline: 2px solid CanvasText; } }
+
+.card .callout { margin: 4px 0 10px; }

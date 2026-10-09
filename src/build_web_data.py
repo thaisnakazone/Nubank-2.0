@@ -96,6 +96,37 @@ def _fallback_market_quotes() -> list[dict[str, Any]]:
     return items
 
 
+# Nomes dos grupos do K-Means (amostra Reclame Aqui, coleta única), definidos a partir do
+# conteúdo de cada cluster: categorias mais frequentes e leitura dos títulos.
+CLUSTER_NAMES = {
+    0: "Contestação de Pix",
+    1: "Bloqueio e acesso à conta",
+    2: "Cobranças e juros",
+    3: "Cartão e limite",
+}
+
+
+def cluster_records(complaints: pd.DataFrame) -> list[dict[str, Any]]:
+    """Reclamações por cluster, com nome e quantas foram marcadas com perda financeira."""
+    if complaints.empty or "Cluster" not in complaints.columns:
+        return []
+    df = complaints.copy()
+    df["Cluster"] = pd.to_numeric(df["Cluster"], errors="coerce").fillna(-1).astype(int)
+    df["_perda"] = (
+        pd.to_numeric(df["Perda_Financeira"], errors="coerce").fillna(0)
+        if "Perda_Financeira" in df.columns else 0
+    )
+    out = []
+    for cluster, g in df.groupby("Cluster"):
+        out.append({
+            "cluster": int(cluster),
+            "nome": CLUSTER_NAMES.get(int(cluster), f"Grupo {cluster}"),
+            "reclamacoes": int(len(g)),
+            "perda": int((g["_perda"] > 0).sum()),
+        })
+    return out
+
+
 def load_bcb_complaints() -> dict[str, Any]:
     """
     Ranking de Reclamações do Banco Central (NU, ITUB, BBD).
@@ -158,7 +189,7 @@ def build_payload() -> dict[str, Any]:
         "security_signals": None,
         "categories": records(summary["categories"]),
         "severity": records(summary["severity"]),
-        "clusters": records(summary["clusters"]),
+        "clusters": cluster_records(complaints),
         "source_label": complaints_source,
     }
 

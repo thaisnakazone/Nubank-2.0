@@ -349,12 +349,19 @@
             <div class="card-head"><div><h3>Severidade estimada</h3><p>Participação de cada classe.</p></div></div>
             <div id="chart-severity" class="chart sev" role="img" aria-label="Severidade das reclamações"></div>
           </article>
-          <article class="card">
-            <div class="card-head"><div><h3>Clusters</h3><p>Agrupamentos do estudo acadêmico.</p></div></div>
-            <div id="chart-clusters" class="chart short" role="img" aria-label="Clusters de reclamações"></div>
-          </article>
         </div>
       </div>
+
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <h3>Grupos de reclamações descobertos por machine learning</h3>
+            <p>Um algoritmo de agrupamento (K-Means) leu os títulos das 122 reclamações e juntou as que usam palavras parecidas, sem receber categorias prontas. Os nomes resumem o tema de cada grupo.</p>
+          </div>
+        </div>
+        <div id="chart-clusters" class="chart" role="img" aria-label="Reclamações por grupo, com destaque para as que tiveram perda financeira"></div>
+        <div class="callout warn" id="cluster-insight"></div>
+      </article>
     </section>
 
     <!-- ===================== METODOLOGIA ===================== -->
