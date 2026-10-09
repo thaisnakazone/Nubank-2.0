@@ -2,9 +2,9 @@ name: Reclamações BCB
 
 on:
   schedule:
-    # Toda segunda-feira às 12:00 UTC: o BCB publica o ranking trimestralmente,
-    # então uma checagem semanal basta para pegar novos trimestres.
-    - cron: '0 12 * * 1'
+    # Toda sexta-feira às 12:00 UTC (9h em Brasília): o BCB costuma publicar o ranking numa quinta,
+    # ~3,5 semanas após o fim do trimestre. Fora dessa janela o script entra em modo dormir.
+    - cron: '0 12 * * 5'
   push:
     branches: [main]
     paths:

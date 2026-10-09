@@ -25,8 +25,16 @@ Saídas:
 - data/processed/bcb_ranking.csv e data/processed/bcb_irregularidades.csv (versionados)
 - MongoDB Atlas: coleções `ranking_reclamacoes_bcb` e `irregularidades_bcb` (upsert idempotente)
 
+Calendário ("modo dormir"):
+- O ranking de um trimestre só pode existir depois que o trimestre termina. Depois de
+  coletar o trimestre N, o script não consulta o BC até o fim do trimestre N+1; a partir
+  daí volta a checar a cada execução (o workflow roda às sextas) até o novo dado sair.
+- Nos últimos dois anos o BC publicou sempre numa quinta-feira, cerca de 3 semanas e meia
+  após o fim do trimestre, e não houve correção de rankings já publicados.
+
 Uso:
-    python -m src.ingest_bcb_ranking              # coleta incremental (só trimestres novos + o mais recente)
+    python -m src.ingest_bcb_ranking              # coleta incremental (respeita o modo dormir)
+    python -m src.ingest_bcb_ranking --forcar     # ignora o modo dormir e consulta o BC agora
     python -m src.ingest_bcb_ranking --completo   # recoleta todos os trimestres desde 2021
 """
 from __future__ import annotations
@@ -37,7 +45,7 @@ import re
 import sys
 import time
 import unicodedata
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Iterable
@@ -511,12 +519,53 @@ def save_to_mongo(ranking: pd.DataFrame, irreg: pd.DataFrame) -> str:
             client.close()
 
 
-def run(full: bool = False) -> int:
-    import requests
+def _quarter_of(periodo: object) -> tuple[int, int] | None:
+    m = re.fullmatch(r"(\d{4})-T([1-4])", str(periodo).strip())
+    return (int(m.group(1)), int(m.group(2))) if m else None
 
+
+def _quarter_end(ano: int, tri: int) -> date:
+    return {1: date(ano, 3, 31), 2: date(ano, 6, 30), 3: date(ano, 9, 30), 4: date(ano, 12, 31)}[tri]
+
+
+def sleep_until(ranking: pd.DataFrame, irreg: pd.DataFrame, today: date) -> date | None:
+    """
+    Devolve a data até a qual não vale consultar o BC, ou None se é hora de checar.
+
+    Regra: com o trimestre N já coletado (ranking E irregularidades), o próximo dado
+    possível é o do trimestre N+1, que só pode ser publicado depois que ele termina.
+    """
+    if ranking.empty or irreg.empty:
+        return None
+    qs_r = [q for q in map(_quarter_of, ranking["periodo"]) if q]
+    qs_i = [q for q in map(_quarter_of, irreg["periodo"]) if q]
+    if not qs_r or not qs_i:
+        return None
+    latest = max(qs_r)
+    if max(qs_i) != latest:  # irregularidades do último trimestre faltando: tenta de novo
+        return None
+    ano, tri = latest
+    nxt = (ano + 1, 1) if tri == 4 else (ano, tri + 1)
+    end = _quarter_end(*nxt)
+    return end if today <= end else None
+
+
+def run(full: bool = False, force: bool = False, today: date | None = None) -> int:
     PROCESSED.mkdir(parents=True, exist_ok=True)
     ranking = _load_existing(RANKING_CSV, RANKING_COLUMNS)
     irreg = _load_existing(IRREG_CSV, IRREG_COLUMNS)
+
+    today = today or datetime.now(timezone.utc).date()
+    wake = None if (full or force) else sleep_until(ranking, irreg, today)
+    if wake:
+        last = max(q for q in map(_quarter_of, ranking["periodo"]) if q)
+        print(
+            f"Modo dormir: o último trimestre coletado é {last[0]}-T{last[1]}; o próximo ranking "
+            f"só pode sair depois de {wake:%d/%m/%Y}. Nada a consultar hoje ({today:%d/%m/%Y})."
+        )
+        return 0
+
+    import requests
 
     session = requests.Session()
     session.headers["User-Agent"] = "Nubank-2.0 (projeto academico; github.com/thaisnakazone/Nubank-2.0)"
@@ -573,8 +622,9 @@ def main(argv: list[str] | None = None) -> int:
         sys.path.insert(0, str(ROOT))
     parser = argparse.ArgumentParser(description="Ingestão automática do Ranking de Reclamações do BCB")
     parser.add_argument("--completo", action="store_true", help="recoleta todos os trimestres desde 2021")
+    parser.add_argument("--forcar", action="store_true", help="ignora o modo dormir e consulta o BC agora")
     args = parser.parse_args(argv)
-    return run(full=args.completo)
+    return run(full=args.completo, force=args.forcar)
 
 
 if __name__ == "__main__":

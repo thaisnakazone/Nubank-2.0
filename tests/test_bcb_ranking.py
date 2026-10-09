@@ -10,6 +10,7 @@ from src.ingest_bcb_ranking import (  # noqa: E402
     _parse_history,
     classify_theme,
     short_irregularity,
+    sleep_until,
     available_quarters,
     decode_bytes,
     parse_number,
@@ -132,6 +133,34 @@ class TestTemas(unittest.TestCase):
     def test_nome_curto(self):
         self.assertEqual(short_irregularity("Pix - liquidação - instituição de pagamento"), "Pix - liquidação")
         self.assertEqual(short_irregularity("Pix  - chaves"), "Pix - chaves")
+
+
+class TestModoDormir(unittest.TestCase):
+    def _dfs(self, ultimo_ranking, ultimo_irreg):
+        import pandas as pd
+        return (pd.DataFrame({"periodo": ["2026-T1", ultimo_ranking]}),
+                pd.DataFrame({"periodo": ["2026-T1", ultimo_irreg]}))
+
+    def test_dorme_ate_fim_do_proximo_trimestre(self):
+        from datetime import date
+        r, i = self._dfs("2026-T2", "2026-T2")
+        self.assertEqual(sleep_until(r, i, date(2026, 8, 15)), date(2026, 9, 30))
+        self.assertEqual(sleep_until(r, i, date(2026, 9, 30)), date(2026, 9, 30))
+
+    def test_acorda_quando_o_trimestre_fecha(self):
+        from datetime import date
+        r, i = self._dfs("2026-T2", "2026-T2")
+        self.assertIsNone(sleep_until(r, i, date(2026, 10, 9)))
+
+    def test_virada_de_ano(self):
+        from datetime import date
+        r, i = self._dfs("2026-T4", "2026-T4")
+        self.assertEqual(sleep_until(r, i, date(2027, 2, 1)), date(2027, 3, 31))
+
+    def test_nao_dorme_se_faltam_irregularidades(self):
+        from datetime import date
+        r, i = self._dfs("2026-T2", "2026-T1")
+        self.assertIsNone(sleep_until(r, i, date(2026, 8, 15)))
 
 
 class TestHistorico(unittest.TestCase):
