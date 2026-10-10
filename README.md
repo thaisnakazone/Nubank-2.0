@@ -1,5 +1,8 @@
 # Nubank-2.0
 
+> 📊 **Acesse o dashboard:** [thaisnakazone.github.io/Nubank-2.0](https://thaisnakazone.github.io/Nubank-2.0/)  
+> Atualizado automaticamente todo dia útil com dados da Twelve Data e do Banco Central.
+
 Projeto Integrador 4 – Fatec Sebrae (2026)  
 
 Este repositório é uma continuação e aprimoramento do projeto [Nubank Financial Analysis](https://github.com/pfutagawa/nubank-financial-analysis-ds).
