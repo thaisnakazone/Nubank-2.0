@@ -83,6 +83,12 @@ Para executar a coleta direta da API Twelve Data e persistir no MongoDB Atlas:
 python ingestao.py
 ```
 
+Por padrão a coleta busca os últimos 30 pregões de cada ativo. Para carregar o histórico longo (cerca de 4 anos), rode **uma única vez** com `--historico` (máximo 5000). Como a gravação é feita com upsert, nada é duplicado:
+```bash
+python ingestao.py --historico 1000
+```
+O mesmo pode ser feito pelo GitHub: **Actions › Coleta Diária de Cotações › Run workflow**, preenchendo o campo de pregões com `1000`.
+
 Para inspecionar o status e dados no MongoDB Atlas:
 ```bash
 python consultar.py
@@ -143,4 +149,4 @@ python -m unittest discover tests
 
 ---
 
-📌 **Nota:** Este projeto é acadêmico e não possui vínculo oficial com o Nubank.  
+📌 **Nota:** Este projeto é acadêmico e não possui vínculo oficial com o Nubank.  

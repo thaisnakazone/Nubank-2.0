@@ -29,7 +29,7 @@ const state = {
   data: null,
   tab: 'mercado',
   ticker: 'NU',
-  range: 0,
+  range: 252, // 1 ano de pregões; "Tudo" mostra o histórico completo
   style: 'candle',
   irregTicker: 'NU',
   rendered: new Set(),
@@ -179,6 +179,12 @@ function sliceRange(arr) {
   return state.range > 0 ? arr.slice(-state.range) : arr;
 }
 
+// Eixo de datas: dia/mês em janelas curtas; mês/ano quando a janela passa de ~6 meses
+function dateAxisFormat(firstIso, lastIso) {
+  const days = (new Date(lastIso.slice(0, 10)) - new Date(firstIso.slice(0, 10))) / 864e5;
+  return { tickformat: days > 200 ? '%m/%Y' : '%d/%m', hoverformat: '%d/%m/%Y' };
+}
+
 function setupMarketControls() {
   const tickers = TICKER_ORDER.filter((t) => seriesFor(t).length);
   $('ticker-picker').innerHTML = tickers.map((t) => `
@@ -249,7 +255,7 @@ function renderMarket() {
 
   // Faixa explícita: sem isso o Plotly às vezes estende o eixo além do último pregão
   const pad = (iso, h) => new Date(new Date(`${iso.slice(0, 10)}T12:00:00Z`).getTime() + h * 3600e3).toISOString().slice(0, 16);
-  const xaxis = { type: 'date', tickformat: '%d/%m', rangebreaks: [{ bounds: ['sat', 'mon'] }], showgrid: false, range: [pad(first.datetime, -14), pad(last.datetime, 14)], autorange: false };
+  const xaxis = { type: 'date', ...dateAxisFormat(first.datetime, last.datetime), rangebreaks: [{ bounds: ['sat', 'mon'] }], showgrid: false, range: [pad(first.datetime, -14), pad(last.datetime, 14)], autorange: false };
   const priceTrace = state.style === 'candle'
     ? {
       type: 'candlestick', x, open: values(rows, 'open'), high: values(rows, 'high'), low: values(rows, 'low'), close: values(rows, 'close'),
@@ -356,7 +362,7 @@ function renderCompare() {
     showlegend: !narrow, // no celular, os rótulos diretos + tabela já identificam as linhas
     annotations,
     shapes: [{ type: 'line', xref: 'paper', x0: 0, x1: 1, y0: 100, y1: 100, line: { color: c.axis, width: 1, dash: 'dot' } }],
-    xaxis: { type: 'date', tickformat: '%d/%m', rangebreaks: [{ bounds: ['sat', 'mon'] }], range: xRange, autorange: false },
+    xaxis: { type: 'date', ...(xRange ? dateAxisFormat(xRange[0], xRange[1]) : {}), rangebreaks: [{ bounds: ['sat', 'mon'] }], range: xRange, autorange: false },
     yaxis: { title: 'Base 100' },
     margin: { l: 8, r: 92, t: 30, b: 8 },
   }));
