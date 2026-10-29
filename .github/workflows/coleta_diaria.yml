@@ -7,6 +7,11 @@ on:
     # Formato cron: minuto hora dia-do-mês mês dia-da-semana (1 = segunda-feira, 5 = sexta-feira)
     - cron: '0 22 * * 1-5'
   workflow_dispatch: # Permite disparo manual diretamente pela aba Actions do GitHub
+    inputs:
+      historico:
+        description: 'Quantos pregões buscar por ativo (30 = coleta normal; 1000 = carga histórica de ~4 anos, só uma vez)'
+        required: false
+        default: '30'
 
 permissions:
   contents: write
@@ -18,12 +23,12 @@ jobs:
 
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Configurar o ambiente Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
           cache: 'pip'
@@ -37,8 +42,9 @@ jobs:
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          HISTORICO: ${{ inputs.historico || '30' }}
         run: |
-          python ingestao.py
+          python ingestao.py --historico "$HISTORICO"
 
       - name: Reconstruir payload do dashboard a partir do MongoDB Atlas
         env:
