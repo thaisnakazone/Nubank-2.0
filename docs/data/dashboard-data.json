@@ -5,7 +5,7 @@
     "generated_from": "Twelve Data API & MongoDB Atlas + Relatórios Oficiais",
     "risk_source": "Pilar 3 · dados regulatórios locais 2021–2025",
     "market_source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
-    "updated_at": "2026-11-03 03:18:30 UTC"
+    "updated_at": "2026-11-04 01:53:16 UTC"
   },
   "headline": {
     "latest_year": 2025,
@@ -30056,7 +30056,7 @@
       "low": 11.48,
       "open": 11.75,
       "source": "Twelve Data",
-      "volume": 92947100.0
+      "volume": 92979500.0
     },
     {
       "ticker": "ITUB",
@@ -30076,7 +30076,7 @@
       "low": 2.54,
       "open": 2.54,
       "source": "Twelve Data",
-      "volume": 66476100.0
+      "volume": 66517900.0
     },
     {
       "ticker": "NU",
@@ -30086,17 +30086,17 @@
       "low": 11.59,
       "open": 11.79,
       "source": "Twelve Data",
-      "volume": 68928203.0
+      "volume": 68994700.0
     },
     {
       "ticker": "ITUB",
       "datetime": "2026-11-02",
       "close": 7.17,
       "high": 7.31,
-      "low": 7.1416,
+      "low": 7.14,
       "open": 7.25,
       "source": "Twelve Data",
-      "volume": 22020013.0
+      "volume": 22020300.0
     },
     {
       "datetime": "2026-11-02",
@@ -30106,7 +30106,37 @@
       "low": 2.55,
       "open": 2.6,
       "source": "Twelve Data",
-      "volume": 40499441.0
+      "volume": 40503000.0
+    },
+    {
+      "ticker": "NU",
+      "datetime": "2026-11-03",
+      "close": 11.61,
+      "high": 11.7,
+      "low": 11.45,
+      "open": 11.62,
+      "source": "Twelve Data",
+      "volume": 88987478.0
+    },
+    {
+      "ticker": "ITUB",
+      "datetime": "2026-11-03",
+      "close": 7.05,
+      "high": 7.05,
+      "low": 6.94,
+      "open": 7.01,
+      "source": "Twelve Data",
+      "volume": 26348271.0
+    },
+    {
+      "ticker": "BBD",
+      "datetime": "2026-11-03",
+      "close": 2.47,
+      "high": 2.5,
+      "low": 2.44,
+      "open": 2.48,
+      "source": "Twelve Data",
+      "volume": 73194292.0
     }
   ],
   "financial": [
