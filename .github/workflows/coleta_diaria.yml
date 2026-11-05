@@ -46,6 +46,13 @@ jobs:
         run: |
           python ingestao.py --historico "$HISTORICO"
 
+      - name: Atualizar a Selic (API do Banco Central)
+        continue-on-error: true # se a API do BC falhar, a coleta de cotações segue normalmente
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          python -m src.ingest_selic
+
       - name: Reconstruir payload do dashboard a partir do MongoDB Atlas
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
@@ -57,10 +64,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data/dashboard-data.json
+          git add docs/data/dashboard-data.json data/processed/selic.csv
           if git diff --cached --quiet; then
             echo "Dashboard já se encontra com a versão mais recente dos dados."
             exit 0
           fi
           git commit -m "chore(data): atualização automática do dashboard via Twelve Data e MongoDB Atlas"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
