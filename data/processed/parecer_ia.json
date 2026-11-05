@@ -1,0 +1,30 @@
+{
+  "resumo": "O Nubank está bem: teve lucro de US$ 2,87 bi em 2025 (contra US$ 1,97 bi em 2024), margem líquida de 18,2% e 131 milhões de clientes. Pontos de atenção são a queda do Índice de Basileia (15,78%, acima dos 10,5% exigidos) e o desempenho recente da ação.",
+  "areas": {
+    "crescimento": {
+      "status": "bom",
+      "motivo": "Clientes subiram para 131 milhões (+14,7%), mas o ritmo caiu em relação aos 21,6% do ano anterior."
+    },
+    "rentabilidade": {
+      "status": "bom",
+      "motivo": "Receita cresceu 37% e a margem líquida subiu de 17,1% para 18,2%, com lucro em alta pelo terceiro ano seguido."
+    },
+    "capital": {
+      "status": "atencao",
+      "motivo": "Basileia de 15,78% tem folga de 5,28 pp sobre o mínimo, mas caiu de 18,08% há um ano, com ativos de risco crescendo 38,1%."
+    },
+    "mercado": {
+      "status": "atencao",
+      "motivo": "Ação caiu 24,1% em 1 ano e 23% em 1 mês, ficando atrás de Itaú (+1,6% em 1 ano); desde 2022 acumula alta de 150,3%."
+    },
+    "clientes": {
+      "status": "bom",
+      "motivo": "Reclamações procedentes são 10,68 por milhão de clientes, bem abaixo de Itaú (43,2) e Bradesco (57,23), mas segurança e fraude somam 40,9% dos temas."
+    }
+  },
+  "conselho": "Priorizar a segurança contra fraudes, tema de quase metade dos problemas recorrentes, e manter a folga de capital conforme a carteira de crédito cresce.",
+  "gerado_em": "2026-11-05T14:18:32Z",
+  "modelo": "claude-haiku-5-5",
+  "dados_ate": "2026-11-05 14:18:24 UTC",
+  "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
+}
