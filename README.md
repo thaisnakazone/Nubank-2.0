@@ -128,7 +128,7 @@ python -m http.server -d docs     # abra http://localhost:8000
 ```
 
 ### 5.2 Reclamações no Banco Central (100% automático)
-O workflow **Reclamações BCB** (`.github/workflows/reclamacoes_bcb.yml`) roda toda segunda-feira e coleta, para Nubank, Itaú e Bradesco:
+O workflow **Reclamações BCB** (`.github/workflows/reclamacoes_bcb.yml`) roda toda sexta-feira de manhã (e "dorme" até o trimestre seguinte fechar quando já tem os dados mais recentes) e coleta, para Nubank, Itaú e Bradesco:
 - **Ranking trimestral** via API oficial do BCB: índice de reclamações, reclamações procedentes e clientes;
 - **Irregularidades por instituição**: o script navega pela página de histórico do ranking e baixa o CSV de cada trimestre (esse detalhamento não está na API).
 
@@ -141,6 +141,15 @@ python -m src.ingest_bcb_ranking --completo   # recoleta tudo desde 2021
 
 > Metodologia: a partir do 2º trimestre de 2024 o BCB passou a calcular o índice com reclamações procedentes **extrapoladas** a partir de uma amostra, o que eleva o patamar da série. O dashboard marca essa quebra no gráfico.
 
+### 5.3 Selic (100% automático)
+A **meta Selic** definida pelo Copom (série 432 do SGS) é buscada na API pública do Banco Central dentro do workflow **Coleta Diária de Cotações**, antes de reconstruir o dashboard. Como a taxa só muda nas reuniões do Copom, guardamos apenas os dias de mudança (mais o último dia publicado) no MongoDB Atlas (`selic_meta`, upsert por data) e em `data/processed/selic.csv`. Se a API estiver fora do ar, a coleta de cotações segue normalmente e a Selic fica como estava.
+
+```bash
+python -m src.ingest_selic
+```
+
+O gráfico aparece na aba **Rentabilidade**, como contexto para lucro, crédito e ações.
+
 ### 6. Execução de Testes
 Para rodar a suíte de testes unitários:
 ```bash
@@ -149,4 +158,4 @@ python -m unittest discover tests
 
 ---
 
-📌 **Nota:** Este projeto é acadêmico e não possui vínculo oficial com o Nubank.  
+📌 **Nota:** Este projeto é acadêmico e não possui vínculo oficial com o Nubank.  

@@ -467,6 +467,47 @@ function renderProfitability() {
   $('profit-insight').innerHTML = firstPositive
     ? `<strong>Ponto de inflexão:</strong> o lucro líquido IFRS fica positivo em <b>${firstPositive.year}</b> e chega a <b>${usdB(latest.net_income_usd_b)}</b> em ${latest.year}, com margem líquida de <b>${pct(net[net.length - 1])}</b>.`
     : '<strong>Leitura:</strong> a série ainda não apresenta lucro líquido positivo.';
+
+  renderSelic();
+}
+
+// ---------- Selic (contexto macro) ----------
+function renderSelic() {
+  const c = C();
+  const sel = (state.data.selic && state.data.selic.serie) || [];
+  const node = $('chart-selic');
+  if (!node) return;
+  if (!sel.length) {
+    node.closest('.card').hidden = true;
+    return;
+  }
+  const x = sel.map((r) => r.data);
+  const y = sel.map((r) => r.selic_meta_pct);
+  const pctBR = (v) => `${fmt2.format(v)}%`;
+  plot('chart-selic', [{
+    type: 'scatter', mode: 'lines', x, y, name: 'Meta Selic',
+    line: { color: c.NU, width: 3, shape: 'hv' }, fill: 'tozeroy', fillcolor: `${c.NU}14`,
+    hovertemplate: '%{x|%d/%m/%Y}: %{y:.2f}% a.a.<extra></extra>',
+  }], layout({
+    showlegend: false,
+    xaxis: { type: 'date', tickformat: '%m/%Y', hoverformat: '%d/%m/%Y' },
+    yaxis: { title: '% ao ano', ticksuffix: '%', rangemode: 'tozero' },
+    margin: { l: 8, r: 12, t: 16, b: 8 },
+  }));
+
+  const last = sel[sel.length - 1];
+  // último ponto é o dia mais recente publicado; a última decisão é a última mudança de valor
+  let decisionIdx = sel.length - 1;
+  while (decisionIdx > 0 && sel[decisionIdx - 1].selic_meta_pct === last.selic_meta_pct) decisionIdx -= 1;
+  const decision = sel[decisionIdx];
+  const prev = decisionIdx > 0 ? sel[decisionIdx - 1] : null;
+  const peak = Math.max(...y);
+  const peakStart = sel.find((r) => r.selic_meta_pct === peak);
+  const delta = prev ? decision.selic_meta_pct - prev.selic_meta_pct : 0;
+  const move = !prev ? '' : delta < 0 ? `, depois de um corte de ${fmt2.format(-delta)} p.p.` : `, depois de uma alta de ${fmt2.format(delta)} p.p.`;
+  $('selic-insight').innerHTML = `<strong>Hoje:</strong> Selic em <b>${pctBR(last.selic_meta_pct)} ao ano</b>, valendo desde ${dateBR(decision.data)}${move} `
+    + `O pico do período foi <b>${pctBR(peak)}</b> (a partir de ${dateBR(peakStart.data)}); em ${dateBR(sel[0].data)} era ${pctBR(sel[0].selic_meta_pct)}.`;
+  setText('selic-source', `Fonte: ${state.data.selic.source}`);
 }
 
 // ---------- Risco ----------

@@ -169,6 +169,39 @@ def load_bcb_complaints() -> dict[str, Any]:
     return {"ranking": ranking, "irregularidades": irreg, "source": source}
 
 
+def load_selic() -> dict[str, Any]:
+    """
+    Meta Selic definida pelo Copom (SGS 432), gerada por src/ingest_selic.py.
+    Lê do MongoDB Atlas quando disponível; caso contrário usa data/processed/selic.csv.
+    """
+    serie: list[dict[str, Any]] = []
+    source = "Banco Central do Brasil · SGS 432 (meta Selic definida pelo Copom)"
+
+    mongo_uri = os.getenv("MONGO_URI")
+    if mongo_uri:
+        client = None
+        try:
+            from pymongo import MongoClient
+            client = MongoClient(mongo_uri, serverSelectionTimeoutMS=3000)
+            serie = [
+                {"data": d["data"], "selic_meta_pct": clean_value(d["selic_meta_pct"])}
+                for d in client["nubank_db"]["selic_meta"].find({}, {"_id": 0}).sort("data", 1)
+            ]
+            if serie:
+                source += " · via MongoDB Atlas"
+        except Exception:
+            serie = []
+        finally:
+            if client:
+                client.close()
+
+    csv_path = ROOT / "data" / "processed" / "selic.csv"
+    if not serie and csv_path.exists():
+        serie = records(pd.read_csv(csv_path))
+
+    return {"serie": serie, "source": source}
+
+
 def build_payload() -> dict[str, Any]:
     financial = load_financial_history()
     risk, risk_source = load_capital_risk_history()
@@ -204,6 +237,7 @@ def build_payload() -> dict[str, Any]:
         )
 
     bcb = load_bcb_complaints()
+    selic = load_selic()
 
     # Adiciona a fonte Twelve Data ao manifesto de fontes
     sources_list = records(manifest)
@@ -213,6 +247,13 @@ def build_payload() -> dict[str, Any]:
         "source_type": "regulatório",
         "source": "Banco Central do Brasil / Ranking de Reclamações",
         "notes": "Índice e reclamações procedentes via API do BCB; irregularidades a partir dos arquivos trimestrais.",
+    })
+    sources_list.insert(2, {
+        "dataset": "selic_meta",
+        "period": "Desde 2021 (a cada reunião do Copom)",
+        "source_type": "macroeconômico",
+        "source": "Banco Central do Brasil / SGS 432",
+        "notes": "Meta Selic coletada automaticamente na API do BCB; guardamos só as mudanças de taxa.",
     })
     sources_list.insert(0, {
         "dataset": "historico_diario",
@@ -247,6 +288,7 @@ def build_payload() -> dict[str, Any]:
         "risk_2025": records(risk_detail),
         "customer": customer,
         "bcb_complaints": bcb,
+        "selic": selic,
         "sources": sources_list,
     }
 
