@@ -150,6 +150,23 @@ python -m src.ingest_selic
 
 O gráfico aparece na aba **Rentabilidade**, como contexto para lucro, crédito e ações.
 
+### 5.4 Parecer da IA (Claude)
+Depois de reconstruir o dashboard, o workflow **Coleta Diária de Cotações** roda `src/ai_parecer.py`:
+1. calcula um resumo de indicadores a partir do próprio `dashboard-data.json` (crescimento, rentabilidade, capital, mercado, reclamações e Selic);
+2. envia **só esse resumo** para a API do Claude (modelo `claude-haiku-5-5`), pedindo uma resposta em JSON com formato fixo: status por área (bom / atenção / ruim), um resumo e um conselho para a empresa;
+3. valida a resposta (formato, tamanho e bloqueio de recomendação de compra/venda de ações) e tenta de novo uma vez se algo vier errado;
+4. grava o parecer em `data/processed/parecer_ia.json`, no MongoDB Atlas (`pareceres_ia`, histórico diário) e no dashboard, no card **Parecer da IA**.
+
+O parecer é gerado no máximo uma vez por dia. Sem a chave `ANTHROPIC_API_KEY` (secret do GitHub) ou com a API fora do ar, o site mantém o parecer anterior.
+
+```bash
+python -m src.ai_parecer --mostrar-dados   # mostra o que é enviado para a IA (não chama a API)
+python -m src.ai_parecer                   # gera o parecer (precisa de ANTHROPIC_API_KEY no .env)
+python -m src.ai_parecer --forcar          # gera de novo mesmo já existindo o de hoje
+```
+
+> O parecer é educacional e não é recomendação de investimento.
+
 ### 6. Execução de Testes
 Para rodar a suíte de testes unitários:
 ```bash

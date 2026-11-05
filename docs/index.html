@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2026-11-05">
   <script>
     // Aplica o tema salvo antes da pintura para evitar "piscar"
     try {
@@ -19,7 +19,7 @@
     } catch (e) { /* armazenamento indisponível */ }
   </script>
   <script defer src="https://cdn.plot.ly/plotly-3.1.0.min.js"></script>
-  <script defer src="js/dashboard.js"></script>
+  <script defer src="js/dashboard.js?v=2026-11-05"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -84,6 +84,20 @@
           <span class="kpi-note" id="kpi-nu-note">&nbsp;</span>
         </article>
       </div>
+    </section>
+
+    <section class="shell ai-panel" id="ai-panel" aria-labelledby="ai-title" hidden>
+      <div class="ai-head">
+        <div>
+          <p class="eyebrow">Parecer da IA</p>
+          <h2 id="ai-title">O Nubank está bem?</h2>
+        </div>
+        <p class="ai-meta" id="ai-meta">—</p>
+      </div>
+      <p class="ai-resumo" id="ai-resumo"></p>
+      <ul class="ai-areas" id="ai-areas"></ul>
+      <div class="callout ai-conselho" id="ai-conselho"></div>
+      <p class="fineprint" id="ai-aviso"></p>
     </section>
 
     <div class="tabbar-wrap">

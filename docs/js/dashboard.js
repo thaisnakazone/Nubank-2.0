@@ -471,6 +471,33 @@ function renderProfitability() {
   renderSelic();
 }
 
+// ---------- Parecer da IA ----------
+const AI_AREAS = {
+  crescimento: 'Crescimento', rentabilidade: 'Rentabilidade', capital: 'Capital', mercado: 'Mercado', clientes: 'Clientes',
+};
+const AI_STATUS = { bom: 'Bom', atencao: 'Atenção', ruim: 'Ruim' };
+
+function renderAI() {
+  const p = state.data.parecer_ia;
+  const panel = $('ai-panel');
+  if (!panel) return;
+  if (!p || !p.areas) { panel.hidden = true; return; }
+  panel.hidden = false;
+  setText('ai-resumo', p.resumo || '');
+  $('ai-areas').innerHTML = Object.entries(AI_AREAS).map(([key, label]) => {
+    const a = p.areas[key] || {};
+    const st = AI_STATUS[a.status] ? a.status : 'atencao';
+    return `<li class="ai-area" data-status="${st}">
+      <div class="ai-area-top"><span class="ai-area-name">${escapeHtml(label)}</span><span class="ai-badge"><span class="dot" aria-hidden="true"></span>${AI_STATUS[st]}</span></div>
+      <p>${escapeHtml(a.motivo || '')}</p>
+    </li>`;
+  }).join('');
+  $('ai-conselho').innerHTML = `<strong>Conselho:</strong> ${escapeHtml(p.conselho || '')}`;
+  const modelo = String(p.modelo || 'Claude').replace(/^claude-/, 'Claude ').replace(/-(\d+)-(\d+)$/, ' $1.$2').replace(/haiku/i, 'Haiku').replace(/sonnet/i, 'Sonnet').replace(/opus/i, 'Opus');
+  setText('ai-meta', `Gerado por ${modelo} em ${dateBR((p.gerado_em || '').slice(0, 10))}, com os dados do dashboard`);
+  setText('ai-aviso', p.aviso || 'Análise automática para fins educacionais. Não é recomendação de investimento.');
+}
+
 // ---------- Selic (contexto macro) ----------
 function renderSelic() {
   const c = C();
@@ -873,6 +900,7 @@ async function init() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     state.data = await res.json();
     renderHeader(state.data);
+    renderAI();
     setupMarketControls();
     showTab(state.tab, { push: false });
   } catch (err) {

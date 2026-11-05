@@ -59,15 +59,24 @@ jobs:
         run: |
           python -m src.build_web_data
 
+      - name: Parecer da IA (Claude)
+        continue-on-error: true # sem chave ou com a API fora do ar, o site mantém o parecer anterior
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          python -m src.ai_parecer
+
       - name: Commit e atualização periódica dos dados do dashboard
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data/dashboard-data.json data/processed/selic.csv
+          if [ -f data/processed/parecer_ia.json ]; then git add data/processed/parecer_ia.json; fi
           if git diff --cached --quiet; then
             echo "Dashboard já se encontra com a versão mais recente dos dados."
             exit 0
           fi
           git commit -m "chore(data): atualização automática do dashboard via Twelve Data e MongoDB Atlas"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

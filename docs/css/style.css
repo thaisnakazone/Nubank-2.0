@@ -281,3 +281,30 @@ h1, h2, h3 { letter-spacing: -0.025em; margin: 0; }
 @media (forced-colors: active) { .tab[aria-selected="true"], .segmented button[aria-checked="true"] { outline: 2px solid CanvasText; } }
 
 .card .callout { margin: 4px 0 10px; }
+
+/* ---------- Parecer da IA ---------- */
+.ai-panel { margin-top: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 20px 20px 10px; box-shadow: var(--shadow-sm); }
+.ai-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 6px 20px; }
+.ai-head h2 { margin: 0; font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 800; letter-spacing: -.02em; }
+.ai-meta { margin: 0; font-size: .8rem; color: var(--muted); font-weight: 600; }
+.ai-resumo { margin: 10px 0 14px; font-size: 1rem; line-height: 1.5; color: var(--ink); max-width: 75ch; }
+.ai-areas { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.ai-area { --st: #127a50; border: 1px solid var(--line); border-top: 4px solid var(--st); border-radius: var(--r-md); padding: 10px 12px; min-width: 0; }
+.ai-area[data-status="atencao"] { --st: #b45309; }
+.ai-area[data-status="ruim"] { --st: #b42318; }
+.ai-area-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ai-area-name { font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ai-badge { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 800; color: var(--st); }
+.ai-badge .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--st); }
+.ai-area p { margin: 6px 0 0; font-size: .86rem; line-height: 1.45; color: var(--ink-2); }
+.ai-conselho { margin-bottom: 4px; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ai-area { --st: #3ecf8e; }
+  :root:not([data-theme="light"]) .ai-area[data-status="atencao"] { --st: #f5a524; }
+  :root:not([data-theme="light"]) .ai-area[data-status="ruim"] { --st: #ff6b6b; }
+}
+:root[data-theme="dark"] .ai-area { --st: #3ecf8e; }
+:root[data-theme="dark"] .ai-area[data-status="atencao"] { --st: #f5a524; }
+:root[data-theme="dark"] .ai-area[data-status="ruim"] { --st: #ff6b6b; }
+@media (max-width: 1000px) { .ai-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .ai-areas { grid-template-columns: 1fr; } .ai-panel { padding: 16px 14px 8px; } }

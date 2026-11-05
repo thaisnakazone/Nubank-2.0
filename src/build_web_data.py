@@ -239,6 +239,15 @@ def build_payload() -> dict[str, Any]:
     bcb = load_bcb_complaints()
     selic = load_selic()
 
+    # Parecer da IA (gerado por src/ai_parecer.py); mantido entre reconstruções do payload
+    parecer_path = ROOT / "data" / "processed" / "parecer_ia.json"
+    parecer_ia = None
+    if parecer_path.exists():
+        try:
+            parecer_ia = json.loads(parecer_path.read_text(encoding="utf-8"))
+        except ValueError:
+            parecer_ia = None
+
     # Adiciona a fonte Twelve Data ao manifesto de fontes
     sources_list = records(manifest)
     sources_list.insert(1, {
@@ -289,6 +298,7 @@ def build_payload() -> dict[str, Any]:
         "customer": customer,
         "bcb_complaints": bcb,
         "selic": selic,
+        "parecer_ia": parecer_ia,
         "sources": sources_list,
     }
 
