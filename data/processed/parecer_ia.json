@@ -1,30 +1,30 @@
 {
-  "resumo": "O Nubank segue forte no operacional: 131 milhões de clientes em 2025 e lucro líquido de US$ 2,87 bi, alta de 46% sobre o ano anterior, com margem de 18,2%. O capital está acima do mínimo exigido, com Basileia de 15,78% contra 10,5%. O ponto de atenção é o desempenho recente da ação, que caiu 40,8% no último mês e 27,4% no ano, embora ainda acumule alta de 145% no período total.",
+  "resumo": "O Nubank segue forte em receita e lucro, com margem líquida subindo para 18,2% em 2025. Ao mesmo tempo, o crescimento de clientes desacelerou e o índice de capital caiu, embora continue acima do mínimo exigido. A ação teve queda forte recente, mas no período total supera Itaú e Bradesco.",
   "areas": {
     "crescimento": {
-      "status": "bom",
-      "motivo": "Clientes subiram de 114,2 para 131 milhões (+14,7%), ainda forte, mas em desaceleração frente aos 21,6% do ano anterior."
+      "status": "atencao",
+      "motivo": "Clientes chegaram a 131 milhões, mas o ritmo caiu: +14,7% em 2025, contra +21,6% no ano anterior."
     },
     "rentabilidade": {
       "status": "bom",
-      "motivo": "Receita de US$ 15,77 bi (+37%), lucro de US$ 2,87 bi e margem líquida de 18,2%, com lucro nos últimos três anos."
+      "motivo": "Receita subiu 37% e o lucro foi de US$ 2,87 bi (US$ 1,97 bi antes), com margem líquida de 18,2%."
     },
     "capital": {
-      "status": "bom",
-      "motivo": "Basileia de 15,78% está 5,28 pontos acima do mínimo de 10,5%, embora tenha caído de 18,08% no ano anterior."
+      "status": "atencao",
+      "motivo": "Índice de Basileia de 15,78%, acima do mínimo de 10,5% (folga de 5,28 p.p.), mas caiu de 18,08% em um ano."
     },
     "mercado": {
       "status": "atencao",
-      "motivo": "Ação caiu 27,4% no ano e 40,8% no mês, mas subiu 145,1% no período total, acima de ITUB (44,4%) e BBD (-32,3%)."
+      "motivo": "Ação caiu 24,5% em 1 ano, enquanto Itaú subiu 1,6%; no período total, porém, NU subiu 151,1% contra 46,4% do Itaú."
     },
     "clientes": {
       "status": "bom",
-      "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo de ITUB (43,2) e BBD (57,23)."
+      "motivo": "Reclamações procedentes caíram para 10,68 por milhão de clientes, contra 43,2 do Itaú e 57,23 do Bradesco."
     }
   },
-  "conselho": "A empresa deve priorizar segurança e prevenção a fraudes, principal tema de reclamações, e manter o crescimento de crédito com a Basileia acima do mínimo.",
-  "gerado_em": "2026-11-06T01:59:32Z",
+  "conselho": "Priorizar o crescimento da carteira de crédito com controle de risco, mantendo o Índice de Basileia com folga, e reforçar a segurança contra fraudes, principal tema de reclamações.",
+  "gerado_em": "2026-11-07T01:36:43Z",
   "modelo": "claude-haiku-5-5",
-  "dados_ate": "2026-11-06 01:59:28 UTC",
+  "dados_ate": "2026-11-07 01:36:33 UTC",
   "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
 }
