@@ -5,7 +5,7 @@
     "generated_from": "Twelve Data API & MongoDB Atlas + Relatórios Oficiais",
     "risk_source": "Pilar 3 · dados regulatórios locais 2021–2025",
     "market_source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
-    "updated_at": "2026-11-10 03:57:50 UTC"
+    "updated_at": "2026-11-11 01:42:10 UTC"
   },
   "headline": {
     "latest_year": 2025,
@@ -30109,14 +30109,14 @@
       "volume": 40503000.0
     },
     {
-      "ticker": "BBD",
+      "ticker": "NU",
       "datetime": "2026-11-03",
-      "close": 2.47,
-      "high": 2.5,
-      "low": 2.44,
-      "open": 2.48,
+      "close": 11.61,
+      "high": 11.7,
+      "low": 11.45,
+      "open": 11.62,
       "source": "Twelve Data",
-      "volume": 73195300.0
+      "volume": 89030600.0
     },
     {
       "ticker": "ITUB",
@@ -30129,14 +30129,14 @@
       "volume": 26350200.0
     },
     {
-      "ticker": "NU",
+      "ticker": "BBD",
       "datetime": "2026-11-03",
-      "close": 11.61,
-      "high": 11.7,
-      "low": 11.45,
-      "open": 11.62,
+      "close": 2.47,
+      "high": 2.5,
+      "low": 2.44,
+      "open": 2.48,
       "source": "Twelve Data",
-      "volume": 89030600.0
+      "volume": 73195300.0
     },
     {
       "datetime": "2026-11-04",
@@ -30149,16 +30149,6 @@
       "volume": 87546000.0
     },
     {
-      "ticker": "ITUB",
-      "datetime": "2026-11-04",
-      "close": 7.28,
-      "high": 7.3,
-      "low": 7.07,
-      "open": 7.2,
-      "source": "Twelve Data",
-      "volume": 31164900.0
-    },
-    {
       "ticker": "BBD",
       "datetime": "2026-11-04",
       "close": 2.57,
@@ -30167,6 +30157,16 @@
       "open": 2.54,
       "source": "Twelve Data",
       "volume": 79277100.0
+    },
+    {
+      "ticker": "ITUB",
+      "datetime": "2026-11-04",
+      "close": 7.28,
+      "high": 7.3,
+      "low": 7.07,
+      "open": 7.2,
+      "source": "Twelve Data",
+      "volume": 31164900.0
     },
     {
       "ticker": "NU",
@@ -30226,7 +30226,7 @@
       "low": 2.54,
       "open": 2.55,
       "source": "Twelve Data",
-      "volume": 44152700.0
+      "volume": 44171800.0
     },
     {
       "ticker": "NU",
@@ -30236,7 +30236,7 @@
       "low": 12.0,
       "open": 12.14,
       "source": "Twelve Data",
-      "volume": 49118900.0
+      "volume": 49201200.0
     },
     {
       "datetime": "2026-11-09",
@@ -30246,17 +30246,47 @@
       "low": 7.41,
       "open": 7.48,
       "source": "Twelve Data",
-      "volume": 22853162.0
+      "volume": 22854400.0
     },
     {
       "datetime": "2026-11-09",
       "ticker": "BBD",
       "close": 2.63,
-      "high": 2.6599,
+      "high": 2.66,
       "low": 2.59,
       "open": 2.59,
       "source": "Twelve Data",
-      "volume": 36414091.0
+      "volume": 36415000.0
+    },
+    {
+      "ticker": "NU",
+      "datetime": "2026-11-10",
+      "close": 12.08,
+      "high": 12.3885,
+      "low": 11.92,
+      "open": 12.37,
+      "source": "Twelve Data",
+      "volume": 57897146.0
+    },
+    {
+      "datetime": "2026-11-10",
+      "ticker": "ITUB",
+      "close": 7.39,
+      "high": 7.54,
+      "low": 7.36,
+      "open": 7.51,
+      "source": "Twelve Data",
+      "volume": 16472085.0
+    },
+    {
+      "datetime": "2026-11-10",
+      "ticker": "BBD",
+      "close": 2.57,
+      "high": 2.63,
+      "low": 2.54,
+      "open": 2.63,
+      "source": "Twelve Data",
+      "volume": 39613942.0
     }
   ],
   "financial": [
@@ -69078,40 +69108,40 @@
         "selic_meta_pct": 13.75
       },
       {
-        "data": "2026-11-10",
+        "data": "2026-11-11",
         "selic_meta_pct": 13.75
       }
     ],
     "source": "Banco Central do Brasil · SGS 432 (meta Selic definida pelo Copom) · via MongoDB Atlas"
   },
   "parecer_ia": {
-    "resumo": "O Nubank segue forte no operacional: a receita cresceu 37% em 2025 para US$ 15,77 bi e o lucro subiu para US$ 2,87 bi, com margem de 18,2%. O Índice de Basileia de 15,78% fica 5,28 pp acima do mínimo de 10,5%, mas caiu ante 18,08% de um ano antes. Na bolsa, a ação acumula queda de 22,1% em 1 ano, embora siga 158% acima do início do período total.",
+    "resumo": "O Nubank está bem em rentabilidade e atendimento: lucro líquido de US$ 2,87 bi em 2025 (alta frente a US$ 1,97 bi) e reclamações procedentes bem abaixo de Itaú e Bradesco. Os pontos de atenção são o crescimento de clientes, que desacelerou, e a queda do índice de Basileia.",
     "areas": {
       "crescimento": {
-        "status": "bom",
-        "motivo": "Clientes chegaram a 131 milhões (+14,7% em 2025), mas o ritmo caiu frente aos 21,6% do ano anterior."
+        "status": "atencao",
+        "motivo": "Clientes chegaram a 131 mi, mas o crescimento caiu de 21,6% para 14,7% no ano."
       },
       "rentabilidade": {
         "status": "bom",
-        "motivo": "Lucro de US$ 2,87 bi com margem de 18,2%, acima dos 17,1% de 2024, e lucro em 2023, 2024 e 2025."
+        "motivo": "Receita subiu 37% e a margem líquida foi de 18,2%, acima dos 17,1% do ano anterior."
       },
       "capital": {
         "status": "atencao",
-        "motivo": "Basileia de 15,78% está 5,28 pp acima do mínimo de 10,5%, mas caiu de 18,08% em um ano."
+        "motivo": "Basileia de 15,78% está 5,28 pp acima do mínimo de 10,5%, mas caiu de 18,08% um ano antes."
       },
       "mercado": {
         "status": "atencao",
-        "motivo": "Ação caiu 22,1% em 1 ano e 22,8% em 1 mês, enquanto Itaú subiu 2,9% em 1 ano; no período total, NU subiu 158% contra 49,7% do ITUB."
+        "motivo": "Ação caiu 24,6% em 1 ano (Itaú -0,2%), mas subiu 152,2% desde 2022; o resultado depende do período."
       },
       "clientes": {
         "status": "bom",
-        "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo das 43,2 do Itaú e 57,23 do Bradesco."
+        "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, contra 43,2 do Itaú e 57,23 do Bradesco."
       }
     },
-    "conselho": "Priorizar a segurança contra fraudes, que concentra 40,9% dos principais temas de reclamação, e manter a folga de capital conforme a carteira de crédito cresce 58% no ano.",
-    "gerado_em": "2026-11-10T03:57:56Z",
+    "conselho": "Priorizar a prevenção de fraudes e a segurança, que concentram 40,9% dos temas de reclamação, e manter a folga de capital enquanto a carteira de crédito cresce 58%.",
+    "gerado_em": "2026-11-11T01:42:17Z",
     "modelo": "claude-haiku-5-5",
-    "dados_ate": "2026-11-10 03:57:50 UTC",
+    "dados_ate": "2026-11-11 01:42:10 UTC",
     "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
   },
   "sources": [
