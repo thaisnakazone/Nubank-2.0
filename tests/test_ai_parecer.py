@@ -72,5 +72,14 @@ class TestGeracao(unittest.TestCase):
         inject.assert_called_once_with(None)
 
 
+class TestLinhasPilar3(unittest.TestCase):
+    def test_usa_linha_principal_do_basileia(self):
+        from src.data_pipeline import _metric_name
+        self.assertEqual(_metric_name("Índice de Basileia"), "basel_index_pct")
+        self.assertEqual(_metric_name("Índice de Basileia (IB)"), "basel_index_pct")
+        self.assertIsNone(_metric_name("Índice de Basileia, considerando:\n- Numerador: corresponde à linha 3a"))
+        self.assertIsNone(_metric_name("Margem excedente de Capital Principal (%) considerando o Capital Principal conforme linha 1a"))
+
+
 if __name__ == "__main__":
     unittest.main()

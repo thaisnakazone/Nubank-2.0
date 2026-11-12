@@ -22,6 +22,7 @@ Uso:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -356,8 +357,12 @@ def run(force: bool = False, show_only: bool = False) -> int:
 
     previous = load_previous()
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    if previous and previous.get("gerado_em", "")[:10] == today and not force:
-        print("Parecer de hoje já existe; reaproveitando (use --forcar para gerar de novo).")
+    # Assinatura dos indicadores, sem a data de atualização: se os números mudaram, gera de novo
+    assinatura = hashlib.sha256(json.dumps({k: v for k, v in indicators.items() if k != "dados_atualizados_em"},
+                                           ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()[:16]
+    if (previous and previous.get("gerado_em", "")[:10] == today and previous.get("indicadores_hash") == assinatura
+            and not force):
+        print("Parecer de hoje já existe para estes mesmos números; reaproveitando (use --forcar para gerar de novo).")
         inject(previous)
         return 0
 
@@ -379,6 +384,7 @@ def run(force: bool = False, show_only: bool = False) -> int:
         "gerado_em": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "modelo": MODEL,
         "dados_ate": indicators.get("dados_atualizados_em"),
+        "indicadores_hash": assinatura,
         "aviso": AVISO,
     }
     PARECER_JSON.parent.mkdir(parents=True, exist_ok=True)

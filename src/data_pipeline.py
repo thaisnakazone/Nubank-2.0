@@ -27,6 +27,10 @@ def _normalize(text: object) -> str:
 
 def _metric_name(description: object) -> str | None:
     d = _normalize(description)
+    # O Pilar 3 traz linhas alternativas ("7a", "5a", "12a"...) "considerando" outro numerador/denominador.
+    # Usamos só as linhas principais (ex.: linha 7, Índice de Basileia), as mesmas das projeções.
+    if "considerando" in d or "conforme linha" in d:
+        return None
     if d == "capital principal":
         return "capital_principal_brl_b"
     if "rwa total" in d:
