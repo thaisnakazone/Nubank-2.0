@@ -2,10 +2,12 @@ name: Coleta Diária de Cotações
 
 on:
   schedule:
-    # Executa de segunda a sexta-feira às 22:00 UTC (19:00 no horário de Brasília - BRT),
-    # logo após o fechamento da B3 (17:00/18:00 BRT) e NYSE (16:00 EST / 21:00 UTC)
+    # Executa de segunda a sexta-feira às 21:43 UTC (18:43 em Brasília), depois do fechamento
+    # da NYSE (16:00 em Nova York = 18:00 em Brasília no inverno dos EUA; 17:00 no verão).
+    # O minuto "quebrado" (43) foge do pico de agendamentos na hora cheia, que o GitHub atrasa mais.
+    # Mesmo assim o GitHub pode atrasar a execução; por isso o site diz "a partir das 18h45".
     # Formato cron: minuto hora dia-do-mês mês dia-da-semana (1 = segunda-feira, 5 = sexta-feira)
-    - cron: '0 22 * * 1-5'
+    - cron: '43 21 * * 1-5'
   workflow_dispatch: # Permite disparo manual diretamente pela aba Actions do GitHub
     inputs:
       historico:

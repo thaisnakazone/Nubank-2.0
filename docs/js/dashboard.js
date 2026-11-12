@@ -47,6 +47,15 @@ const years = (rows) => rows.map((r) => String(r.year));
 const $ = (id) => document.getElementById(id);
 const setText = (id, text) => { const n = $(id); if (n) n.textContent = text; };
 const dateBR = (iso) => { if (!iso) return '—'; const [y, m, d] = iso.slice(0, 10).split('-'); return `${d}/${m}/${y}`; };
+// Carimbo UTC ("2026-11-12 02:41:19 UTC" ou "2026-11-12T02:41:19Z") → data e hora de Brasília
+function brasilia(stamp) {
+  if (!stamp) return null;
+  const at = new Date(String(stamp).replace(' UTC', 'Z').replace(' ', 'T'));
+  if (Number.isNaN(at.getTime())) return null;
+  const p = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })
+    .formatToParts(at).reduce((o, x) => ({ ...o, [x.type]: x.value }), {});
+  return { date: `${p.day}/${p.month}/${p.year}`, time: `${p.hour}h${p.minute}` };
+}
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));
@@ -122,7 +131,8 @@ function renderHeader(d) {
   setText('kpi-income-note', `IFRS · ${h.latest_year}`);
 
   const updated = d.meta.updated_at || '';
-  setText('meta-updated', updated ? `${dateBR(updated)} · ${updated.slice(11, 16)} UTC` : '—');
+  const br = brasilia(updated);
+  setText('meta-updated', br ? `${br.date} · ${br.time} (Brasília)` : '—');
   setText('meta-period', d.meta.period || '—');
 
   const src = d.meta.market_source || '';
@@ -494,7 +504,8 @@ function renderAI() {
   }).join('');
   $('ai-conselho').innerHTML = `<strong>Conselho:</strong> ${escapeHtml(p.conselho || '')}`;
   const modelo = String(p.modelo || 'Claude').replace(/^claude-/, 'Claude ').replace(/-(\d+)-(\d+)$/, ' $1.$2').replace(/haiku/i, 'Haiku').replace(/sonnet/i, 'Sonnet').replace(/opus/i, 'Opus');
-  setText('ai-meta', `Gerado por ${modelo} em ${dateBR((p.gerado_em || '').slice(0, 10))}, com os dados do dashboard`);
+  const gen = brasilia(p.gerado_em);
+  setText('ai-meta', `Gerado por ${modelo} em ${gen ? `${gen.date}, às ${gen.time}` : '—'} (Brasília), com os dados do dashboard`);
   setText('ai-aviso', p.aviso || 'Análise automática para fins educacionais. Não é recomendação de investimento.');
 }
 

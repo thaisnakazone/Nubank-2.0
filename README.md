@@ -13,7 +13,7 @@ Automatizar a coleta e análise de dados financeiros do Nubank, aplicando concei
 ## 🔑 Principais melhorias
 - **Substituição da ingestão de dados via arquivos CSV/XLSX** por integração direta com a **API Twelve Data** (ativos `NU`, `ITUB` e `BBD`).  
 - **Armazenamento automatizado em MongoDB Atlas**, garantindo idempotência com upserts (`UpdateOne`), índice único composto em `(ticker, datetime)` e atualização contínua dos dados.  
-- **Dashboard interativo atualizado periodicamente** via GitHub Actions (agendamento cron de seg a sex às 22h UTC), eliminando a necessidade de manipulação manual de planilhas.  
+- **Dashboard interativo atualizado periodicamente** via GitHub Actions (agendamento cron de seg a sex, a partir das 18h45 de Brasília), eliminando a necessidade de manipulação manual de planilhas.  
 - **Estrutura modular e colaborativa** pensada para trabalho em equipe com branches e pull requests.
 
 ## 🛠️ Tecnologias utilizadas
@@ -106,7 +106,7 @@ O dashboard conectará diretamente ao MongoDB Atlas e exibirá as cotações em 
 
 ### 5. Atualização Periódica e Automatizada (Sem manipulação manual)
 O repositório conta com GitHub Actions configurado em `.github/workflows/coleta_diaria.yml`:
-- **Disparo periódico:** Executa de segunda a sexta-feira às 22:00 UTC (após o fechamento dos mercados).
+- **Disparo periódico:** Agendado de segunda a sexta-feira às 21:43 UTC (18h43 em Brasília), depois do fechamento da bolsa de Nova York. O minuto "quebrado" foge do pico de agendamentos; mesmo assim, o GitHub pode atrasar a execução em algumas horas.
 - **Ingestão automática:** Coleta os dados da Twelve Data e atualiza o MongoDB Atlas via `ingestao.py`.
 - **Publicação contínua:** Reconstrói o payload `docs/data/dashboard-data.json` e dispara o deploy no GitHub Pages.
 - **Zero manipulação manual de arquivos:** Todo o fluxo ocorre na nuvem de forma transparente e auditável.
