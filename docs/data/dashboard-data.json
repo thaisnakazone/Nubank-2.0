@@ -5,7 +5,7 @@
     "generated_from": "Twelve Data API & MongoDB Atlas + Relatórios Oficiais",
     "risk_source": "Pilar 3 · dados regulatórios locais 2021–2025",
     "market_source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
-    "updated_at": "2026-11-13 02:07:19 UTC"
+    "updated_at": "2026-11-14 01:44:16 UTC"
   },
   "headline": {
     "latest_year": 2025,
@@ -30079,6 +30079,16 @@
       "volume": 66517900.0
     },
     {
+      "ticker": "NU",
+      "datetime": "2026-11-02",
+      "close": 11.62,
+      "high": 12.03,
+      "low": 11.59,
+      "open": 11.79,
+      "source": "Twelve Data",
+      "volume": 68994700.0
+    },
+    {
       "ticker": "ITUB",
       "datetime": "2026-11-02",
       "close": 7.17,
@@ -30097,16 +30107,6 @@
       "open": 2.6,
       "source": "Twelve Data",
       "volume": 40503000.0
-    },
-    {
-      "ticker": "NU",
-      "datetime": "2026-11-02",
-      "close": 11.62,
-      "high": 12.03,
-      "low": 11.59,
-      "open": 11.79,
-      "source": "Twelve Data",
-      "volume": 68994700.0
     },
     {
       "ticker": "NU",
@@ -30169,16 +30169,6 @@
       "volume": 79277100.0
     },
     {
-      "ticker": "NU",
-      "datetime": "2026-11-05",
-      "close": 11.74,
-      "high": 12.02,
-      "low": 11.21,
-      "open": 12.02,
-      "source": "Twelve Data",
-      "volume": 99882900.0
-    },
-    {
       "datetime": "2026-11-05",
       "ticker": "BBD",
       "close": 2.51,
@@ -30187,6 +30177,16 @@
       "open": 2.59,
       "source": "Twelve Data",
       "volume": 52929100.0
+    },
+    {
+      "ticker": "NU",
+      "datetime": "2026-11-05",
+      "close": 11.74,
+      "high": 12.02,
+      "low": 11.21,
+      "open": 12.02,
+      "source": "Twelve Data",
+      "volume": 99882900.0
     },
     {
       "datetime": "2026-11-05",
@@ -30259,14 +30259,14 @@
       "volume": 36415000.0
     },
     {
-      "ticker": "NU",
       "datetime": "2026-11-10",
-      "close": 12.08,
-      "high": 12.389,
-      "low": 11.92,
-      "open": 12.37,
+      "ticker": "BBD",
+      "close": 2.57,
+      "high": 2.63,
+      "low": 2.54,
+      "open": 2.63,
       "source": "Twelve Data",
-      "volume": 57980300.0
+      "volume": 39615900.0
     },
     {
       "datetime": "2026-11-10",
@@ -30279,14 +30279,14 @@
       "volume": 16472100.0
     },
     {
+      "ticker": "NU",
       "datetime": "2026-11-10",
-      "ticker": "BBD",
-      "close": 2.57,
-      "high": 2.63,
-      "low": 2.54,
-      "open": 2.63,
+      "close": 12.08,
+      "high": 12.389,
+      "low": 11.92,
+      "open": 12.37,
       "source": "Twelve Data",
-      "volume": 39615900.0
+      "volume": 57980300.0
     },
     {
       "ticker": "NU",
@@ -30326,7 +30326,7 @@
       "low": 11.79,
       "open": 12.08,
       "source": "Twelve Data",
-      "volume": 58495495.0
+      "volume": 60179800.0
     },
     {
       "datetime": "2026-11-12",
@@ -30336,7 +30336,7 @@
       "low": 7.31,
       "open": 7.42,
       "source": "Twelve Data",
-      "volume": 23124977.0
+      "volume": 23127700.0
     },
     {
       "ticker": "BBD",
@@ -30346,7 +30346,37 @@
       "low": 2.48,
       "open": 2.52,
       "source": "Twelve Data",
-      "volume": 31131974.0
+      "volume": 31134600.0
+    },
+    {
+      "ticker": "NU",
+      "datetime": "2026-11-13",
+      "close": 13.22,
+      "high": 13.25,
+      "low": 12.1,
+      "open": 12.36,
+      "source": "Twelve Data",
+      "volume": 152420449.0
+    },
+    {
+      "datetime": "2026-11-13",
+      "ticker": "ITUB",
+      "close": 7.53,
+      "high": 7.575,
+      "low": 7.386,
+      "open": 7.386,
+      "source": "Twelve Data",
+      "volume": 18901548.0
+    },
+    {
+      "datetime": "2026-11-13",
+      "ticker": "BBD",
+      "close": 2.57,
+      "high": 2.58,
+      "low": 2.51,
+      "open": 2.51,
+      "source": "Twelve Data",
+      "volume": 28115493.0
     }
   ],
   "financial": [
@@ -69168,41 +69198,41 @@
         "selic_meta_pct": 13.75
       },
       {
-        "data": "2026-11-13",
+        "data": "2026-11-14",
         "selic_meta_pct": 13.75
       }
     ],
     "source": "Banco Central do Brasil · SGS 432 (meta Selic definida pelo Copom) · via MongoDB Atlas"
   },
   "parecer_ia": {
-    "resumo": "O Nubank segue forte: a receita cresceu 37% em 2025 para US$ 15,77 bi e o lucro subiu para US$ 2,87 bi, com margem de 18,2%. O índice de Basileia de 16,57% está 6,07 pontos acima do mínimo exigido de 10,5%. Na bolsa, a ação caiu no último ano e no último mês, embora ainda esteja bem acima do início do período total.",
+    "resumo": "O Nubank segue forte: a receita cresceu 37% em 2025, para US$ 15,77 bi, e o lucro líquido subiu para US$ 2,87 bi, com margem de 18,2%. A base chegou a 131 milhões de clientes, e o índice de Basileia de 16,57% está bem acima do mínimo de 10,5%. O ponto de atenção é o desempenho recente da ação, que caiu 15,2% no último ano e 35,1% no último mês.",
     "areas": {
       "crescimento": {
-        "status": "atencao",
-        "motivo": "Os clientes chegaram a 131 milhões, mas o ritmo caiu de 21,6% para 14,7% no ano."
+        "status": "bom",
+        "motivo": "Clientes subiram de 114,2 mi para 131 mi em 2025 (+14,7%), mas o ritmo caiu em relação a 2024 (+21,6%)."
       },
       "rentabilidade": {
         "status": "bom",
-        "motivo": "Lucro de US$ 2,87 bi, alta de 46% sobre 2024, e margem subiu de 17,1% para 18,2%."
+        "motivo": "Lucro de US$ 2,87 bi, alta de 46% sobre o ano anterior, com margem líquida de 18,2%."
       },
       "capital": {
         "status": "bom",
-        "motivo": "Basileia de 16,57%, com folga de 6,07 pontos sobre o mínimo de 10,5%, embora abaixo dos 18,08% de um ano atrás."
+        "motivo": "Basileia de 16,57%, com folga de 6,07 pontos acima do mínimo de 10,5%, embora abaixo dos 18,08% de um ano antes."
       },
       "mercado": {
         "status": "atencao",
-        "motivo": "A ação caiu 26,9% em 1 ano e 19,7% em 1 mês, mas subiu 147% no período total, acima de Itaú (46%) e Bradesco (-32,3%)."
+        "motivo": "Ação caiu 15,2% em 1 ano, enquanto Itaú subiu 2,2% e Bradesco caiu 29,8%; no período total, NU subiu 176%."
       },
       "clientes": {
         "status": "bom",
-        "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo de Itaú (43,2) e Bradesco (57,23)."
+        "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, abaixo de ITUB (43,2) e BBD (57,23)."
       }
     },
-    "conselho": "Priorizar segurança contra fraudes, que concentra 40,9% dos temas de reclamação, e manter o crescimento de clientes com qualidade de atendimento e controle de risco.",
-    "gerado_em": "2026-11-13T02:07:23Z",
+    "conselho": "Priorizar a segurança contra fraudes, principal tema de reclamações, e manter o crescimento de crédito com controle de risco e de inadimplência.",
+    "gerado_em": "2026-11-14T01:44:22Z",
     "modelo": "claude-haiku-5-5",
-    "dados_ate": "2026-11-13 02:07:19 UTC",
-    "indicadores_hash": "708087ca8784274c",
+    "dados_ate": "2026-11-14 01:44:16 UTC",
+    "indicadores_hash": "0789e3bbe354107e",
     "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
   },
   "sources": [
