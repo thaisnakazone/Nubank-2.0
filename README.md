@@ -16,7 +16,7 @@ Automatizar a coleta e análise de dados financeiros do Nubank, aplicando concei
 - **Dashboard interativo atualizado periodicamente** via GitHub Actions (agendamento cron de seg a sex, a partir das 18h45 de Brasília), eliminando a necessidade de manipulação manual de planilhas.  
 - **Estrutura modular e colaborativa** pensada para trabalho em equipe com branches e pull requests.
 
-## 🛠️ Tecnologias utilizadas
+##  Tecnologias utilizadas
 - Python 3.12 (pandas, requests, streamlit, plotly)  
 - MongoDB Atlas (NoSQL - PyMongo)  
 - API Twelve Data (cotações financeiras OHLCV)  
