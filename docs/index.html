@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2026-11-12">
+  <link rel="stylesheet" href="css/style.css?v=2026-11-16">
   <script>
     // Aplica o tema salvo antes da pintura para evitar "piscar"
     try {
@@ -19,7 +19,9 @@
     } catch (e) { /* armazenamento indisponível */ }
   </script>
   <script defer src="https://cdn.plot.ly/plotly-3.1.0.min.js"></script>
-  <script defer src="js/dashboard.js?v=2026-11-12"></script>
+  <script defer src="js/chat-config.js?v=2026-11-16"></script>
+  <script defer src="js/chat.js?v=2026-11-16"></script>
+  <script defer src="js/dashboard.js?v=2026-11-16"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -98,6 +100,31 @@
       <ul class="ai-areas" id="ai-areas"></ul>
       <div class="callout ai-conselho" id="ai-conselho"></div>
       <p class="fineprint" id="ai-aviso"></p>
+    </section>
+
+    <section class="shell chat-panel" id="chat-panel" aria-labelledby="chat-title" hidden>
+      <div class="ai-head">
+        <div>
+          <p class="eyebrow">Pergunte à IA</p>
+          <h2 id="chat-title">Tire suas dúvidas sobre o Nubank</h2>
+        </div>
+        <p class="ai-meta" id="chat-meta"></p>
+      </div>
+      <div id="chat-prontas" hidden>
+        <p class="chat-label">Perguntas prontas</p>
+        <div class="chat-chips" id="chat-chips"></div>
+        <button type="button" class="chat-more" id="chat-more" aria-expanded="false" aria-controls="chat-chips">Mais perguntas</button>
+      </div>
+      <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Conversa com a IA" hidden></div>
+      <form class="chat-form" id="chat-form" autocomplete="off" hidden>
+        <label class="chat-label" for="chat-input">Ou escreva a sua pergunta</label>
+        <div class="chat-row">
+          <input id="chat-input" type="text" placeholder="Ex.: O Nubank teve lucro em 2025? Quanto?" maxlength="300" enterkeyhint="send">
+          <button id="chat-send" type="submit" class="chat-send">Perguntar</button>
+        </div>
+        <span class="chat-count" id="chat-count" aria-hidden="true">0/300</span>
+      </form>
+      <p class="fineprint" id="chat-aviso"></p>
     </section>
 
     <div class="tabbar-wrap">
@@ -410,6 +437,15 @@
             <thead><tr><th>Dataset</th><th>Período</th><th>Tipo</th><th>Fonte</th></tr></thead>
             <tbody id="source-table"></tbody>
           </table>
+        </div>
+      </article>
+
+      <article class="card" id="chat-usage" hidden>
+        <div class="card-head"><div><h3>Uso do chat “Pergunte à IA”</h3><p>Cada pergunta é registrada sem identificação (data, hora, texto e custo). O chat livre tem um teto diário para o custo ficar sob controle.</p></div></div>
+        <div class="chat-usage-stats" id="chat-usage-stats"></div>
+        <div id="chat-usage-top-wrap" hidden>
+          <p class="chat-label">Perguntas prontas mais clicadas</p>
+          <ol class="chat-usage-top" id="chat-usage-top"></ol>
         </div>
       </article>
 

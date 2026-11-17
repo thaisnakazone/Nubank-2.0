@@ -69,6 +69,21 @@ jobs:
         run: |
           python -m src.ai_parecer
 
+      - name: Perguntas prontas e contexto do chat (Claude)
+        continue-on-error: true # sem chave ou com a API fora do ar, o site mantém as respostas anteriores
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python -m src.ai_faq
+
+      - name: Copiar registros do chat para o MongoDB Atlas
+        continue-on-error: true # o chat é opcional: sem endereço ou token, este passo só avisa
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          CHAT_EXPORT_TOKEN: ${{ secrets.CHAT_EXPORT_TOKEN }}
+        run: |
+          python -m src.sync_chat_logs
+
       - name: Commit e atualização periódica dos dados do dashboard
         shell: bash
         run: |
@@ -76,6 +91,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data/dashboard-data.json data/processed/selic.csv
           if [ -f data/processed/parecer_ia.json ]; then git add data/processed/parecer_ia.json; fi
+          if [ -f data/processed/chat_faq.json ]; then git add data/processed/chat_faq.json; fi
+          if [ -f docs/data/chat-context.json ]; then git add docs/data/chat-context.json; fi
           if git diff --cached --quiet; then
             echo "Dashboard já se encontra com a versão mais recente dos dados."
             exit 0

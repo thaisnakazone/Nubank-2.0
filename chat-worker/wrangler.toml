@@ -1,0 +1,18 @@
+# Configuração para publicar pelo terminal:  npx wrangler deploy
+# (também dá para publicar colando src/worker.js no painel da Cloudflare; veja o README desta pasta)
+name = "nubank-chat"
+main = "src/worker.js"
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nubank-chat"
+database_id = "COLE_AQUI_O_ID_DO_BANCO_D1"
+
+[vars]
+ALLOWED_ORIGIN = "https://thaisnakazone.github.io"
+CONTEXT_URL = "https://thaisnakazone.github.io/Nubank-2.0/data/chat-context.json"
+LIMITE_DIARIO = "30"
+LIMITE_POR_MINUTO = "6"
+
+# Segredos (NUNCA neste arquivo):  npx wrangler secret put ANTHROPIC_API_KEY   e   npx wrangler secret put EXPORT_TOKEN

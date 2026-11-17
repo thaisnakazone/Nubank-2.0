@@ -249,6 +249,15 @@ def build_payload() -> dict[str, Any]:
             parecer_ia = None
 
     # Adiciona a fonte Twelve Data ao manifesto de fontes
+    # Perguntas prontas do chat (geradas por src/ai_faq.py); mantidas entre reconstruções do payload
+    faq_path = ROOT / "data" / "processed" / "chat_faq.json"
+    chat_faq = None
+    if faq_path.exists():
+        try:
+            chat_faq = json.loads(faq_path.read_text(encoding="utf-8"))
+        except ValueError:
+            chat_faq = None
+
     sources_list = records(manifest)
     sources_list.insert(1, {
         "dataset": "ranking_reclamacoes_bcb",
@@ -299,6 +308,7 @@ def build_payload() -> dict[str, Any]:
         "bcb_complaints": bcb,
         "selic": selic,
         "parecer_ia": parecer_ia,
+        "chat_faq": chat_faq,
         "sources": sources_list,
     }
 

@@ -167,6 +167,24 @@ python -m src.ai_parecer --forcar          # gera de novo mesmo já existindo o 
 
 > O parecer é educacional e não é recomendação de investimento.
 
+### 5.5 Pergunte à IA (chat com custo controlado)
+O dashboard tem um chat em duas camadas, pensado para custar o mínimo possível:
+
+1. **Perguntas prontas (sem custo por visitante).** Na coleta diária, `src/ai_faq.py` pede ao Claude, em uma única chamada, a resposta de um conjunto fixo de perguntas ("O Nubank está bem?", "Dá lucro ou prejuízo? Quanto?", "O que deveria fazer para melhorar?"...). As respostas ficam em `data/processed/chat_faq.json` e aparecem como botões no site. Clicar não chama a IA.
+2. **Pergunta livre (com teto diário).** O site é estático e a chave da IA não pode ficar no navegador; por isso a pergunta vai para um intermediário, um Cloudflare Worker (pasta `chat-worker/`), que guarda a chave, envia ao Claude **só** o resumo `docs/data/chat-context.json` e aplica os limites: 30 perguntas livres por dia (somando todos os visitantes), 6 por minuto, 300 caracteres por pergunta e respostas curtas. As regras são as do Parecer da IA: só os números do dashboard, só sobre o Nubank e sem recomendação de compra ou venda de ações.
+
+**Registro de uso.** Cada pergunta livre e cada clique em pergunta pronta é gravado num banco D1 da Cloudflare com data, hora, texto, resposta, situação, tokens e custo estimado, **sem IP nem identificação**. A coleta diária copia os registros para o MongoDB Atlas (`chat_perguntas`) com `src/sync_chat_logs.py`, e a aba Arquitetura mostra o resumo (perguntas do dia, do mês e custo estimado).
+
+**Custo.** Com o Claude Haiku 5.5 (US$ 0,10 por milhão de tokens de entrada e US$ 0,50 de saída), uma pergunta livre custa em torno de US$ 0,0003. No teto de 30 por dia, são menos de US$ 0,02 por dia. O crédito da API é pré-pago, então o gasto máximo é o saldo.
+
+Para ligar o chat livre, siga o passo a passo de [`chat-worker/README.md`](chat-worker/README.md) e coloque o endereço do Worker em `docs/js/chat-config.js`. Sem esse endereço, o site mostra só as perguntas prontas.
+
+```bash
+python -m src.ai_faq --so-contexto   # só gera docs/data/chat-context.json (não chama a IA)
+python -m src.ai_faq                 # gera também as respostas das perguntas prontas
+cd chat-worker && npm install && npm test   # testes do intermediário (IA simulada)
+```
+
 ### 6. Execução de Testes
 Para rodar a suíte de testes unitários:
 ```bash

@@ -912,6 +912,7 @@ async function init() {
     state.data = await res.json();
     renderHeader(state.data);
     renderAI();
+    document.dispatchEvent(new CustomEvent('nu:data', { detail: state.data })); // avisa o chat (js/chat.js)
     setupMarketControls();
     showTab(state.tab, { push: false });
   } catch (err) {

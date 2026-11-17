@@ -9,3 +9,6 @@ powershell.cmd
 *.log
 .vscode/
 database/*.db
+
+# Dependências de teste do intermediário do chat
+node_modules/
