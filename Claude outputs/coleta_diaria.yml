@@ -1,0 +1,101 @@
+name: Coleta Diária de Cotações
+
+on:
+  schedule:
+    # Executa de segunda a sexta-feira às 21:43 UTC (18:43 em Brasília), depois do fechamento
+    # da NYSE (16:00 em Nova York = 18:00 em Brasília no inverno dos EUA; 17:00 no verão).
+    # O minuto "quebrado" (43) foge do pico de agendamentos na hora cheia, que o GitHub atrasa mais.
+    # Mesmo assim o GitHub pode atrasar a execução; por isso o site diz "a partir das 18h45".
+    # Formato cron: minuto hora dia-do-mês mês dia-da-semana (1 = segunda-feira, 5 = sexta-feira)
+    - cron: '43 21 * * 1-5'
+  workflow_dispatch: # Permite disparo manual diretamente pela aba Actions do GitHub
+    inputs:
+      historico:
+        description: 'Quantos pregões buscar por ativo (30 = coleta normal; 1000 = carga histórica de ~4 anos, só uma vez)'
+        required: false
+        default: '30'
+
+permissions:
+  contents: write
+
+jobs:
+  coleta-e-ingestao:
+    name: Ingestão de Cotações OHLCV e Atualização do Dashboard
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Configurar o ambiente Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Executar script de ingestão da API Twelve Data para MongoDB Atlas
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          HISTORICO: ${{ inputs.historico || '30' }}
+        run: |
+          python ingestao.py --historico "$HISTORICO"
+
+      - name: Atualizar a Selic (API do Banco Central)
+        continue-on-error: true # se a API do BC falhar, a coleta de cotações segue normalmente
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          python -m src.ingest_selic
+
+      - name: Reconstruir payload do dashboard a partir do MongoDB Atlas
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          python -m src.build_web_data
+
+      - name: Parecer da IA (Claude)
+        continue-on-error: true # sem chave ou com a API fora do ar, o site mantém o parecer anterior
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          python -m src.ai_parecer
+
+      - name: Perguntas prontas e contexto do chat (Claude)
+        continue-on-error: true # sem chave ou com a API fora do ar, o site mantém as respostas anteriores
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python -m src.ai_faq
+
+      - name: Copiar registros do chat para o MongoDB Atlas
+        continue-on-error: true # o chat é opcional: sem endereço ou token, este passo só avisa
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          CHAT_EXPORT_TOKEN: ${{ secrets.CHAT_EXPORT_TOKEN }}
+        run: |
+          python -m src.sync_chat_logs
+
+      - name: Commit e atualização periódica dos dados do dashboard
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/dashboard-data.json data/processed/selic.csv
+          if [ -f data/processed/parecer_ia.json ]; then git add data/processed/parecer_ia.json; fi
+          if [ -f data/processed/chat_faq.json ]; then git add data/processed/chat_faq.json; fi
+          if [ -f docs/data/chat-context.json ]; then git add docs/data/chat-context.json; fi
+          if git diff --cached --quiet; then
+            echo "Dashboard já se encontra com a versão mais recente dos dados."
+            exit 0
+          fi
+          git commit -m "chore(data): atualização automática do dashboard via Twelve Data e MongoDB Atlas"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
