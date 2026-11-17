@@ -7,10 +7,10 @@ Projeto Integrador 4 – Fatec Sebrae (2026)
 
 Este repositório é uma continuação e aprimoramento do projeto [Nubank Financial Analysis](https://github.com/pfutagawa/nubank-financial-analysis-ds).
 
-## 🚀 Objetivo
+##  Objetivo
 Automatizar a coleta e análise de dados financeiros do Nubank, aplicando conceitos de **Big Data, NoSQL e Data Visualization** aprendidos no semestre.
 
-## 🔑 Principais melhorias
+##  Principais melhorias
 - **Substituição da ingestão de dados via arquivos CSV/XLSX** por integração direta com a **API Twelve Data** (ativos `NU`, `ITUB` e `BBD`).  
 - **Armazenamento automatizado em MongoDB Atlas**, garantindo idempotência com upserts (`UpdateOne`), índice único composto em `(ticker, datetime)` e atualização contínua dos dados.  
 - **Dashboard interativo atualizado periodicamente** via GitHub Actions (agendamento cron de seg a sex, a partir das 18h45 de Brasília), eliminando a necessidade de manipulação manual de planilhas.  
@@ -23,7 +23,7 @@ Automatizar a coleta e análise de dados financeiros do Nubank, aplicando concei
 - GitHub Actions (CI/CD, agendamento diário e deploy)  
 - GitHub Pages / Firebase Hosting (publicação estática do dashboard)  
 
-## 📂 Estrutura do projeto   
+##  Estrutura do projeto   
 ```text
 Nubank-2.0/
 │
@@ -54,7 +54,7 @@ Nubank-2.0/
 └── README.md              # Documentação do projeto
 ```
 
-## ⚙️ Como configurar e executar
+##  Como configurar e executar
 
 ### 1. Pré-requisitos
 - Python 3.12 instalado
