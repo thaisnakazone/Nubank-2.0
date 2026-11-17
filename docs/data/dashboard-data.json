@@ -5,7 +5,7 @@
     "generated_from": "Twelve Data API & MongoDB Atlas + Relatórios Oficiais",
     "risk_source": "Pilar 3 · dados regulatórios locais 2021–2025",
     "market_source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
-    "updated_at": "2026-11-17 01:16:29 UTC"
+    "updated_at": "2026-11-17 03:23:07 UTC"
   },
   "headline": {
     "latest_year": 2025,
@@ -30396,7 +30396,7 @@
       "low": 7.09,
       "open": 7.3,
       "source": "Twelve Data",
-      "volume": 16366359.0
+      "volume": 16366400.0
     },
     {
       "datetime": "2026-11-16",
@@ -30406,7 +30406,7 @@
       "low": 2.42,
       "open": 2.5,
       "source": "Twelve Data",
-      "volume": 40945719.0
+      "volume": 40946500.0
     }
   ],
   "financial": [
