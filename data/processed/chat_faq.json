@@ -3,61 +3,61 @@
     {
       "id": "esta_bem",
       "pergunta": "O Nubank está bem?",
-      "resposta": "Em 2025 o Nubank teve 131 milhões de clientes, receita de US$ 15,77 bi (+37%) e lucro de US$ 2,87 bi, com margem líquida de 18,2%. Pelos números operacionais está forte, mas os clientes cresceram menos (14,7% contra 21,6% em 2024) e as ações caíram 19,8% no último ano."
+      "resposta": "Em 2025 o Nubank combina crescimento e lucro: 131 milhões de clientes, receita de US$ 15,77 bilhões (+37%) e lucro de US$ 2,87 bilhões. O capital está acima do mínimo, com Basileia de 16,57% contra 10,5% exigidos. Os pontos de atenção são a queda da ação (-21% em 1 ano) e as reclamações sobre fraude."
     },
     {
       "id": "lucro_prejuizo",
       "pergunta": "O Nubank dá lucro ou prejuízo? Quanto?",
-      "resposta": "O Nubank teve lucro em 2025: US$ 2,87 bi, acima dos US$ 1,97 bi de 2024. Os dados mostram lucro em 2023, 2024 e 2025."
+      "resposta": "Em 2025 o Nubank teve lucro líquido de US$ 2,87 bilhões, ante US$ 1,97 bilhão em 2024. A margem líquida subiu de 17,1% para 18,2%."
     },
     {
       "id": "quando_lucro",
       "pergunta": "Quando o Nubank começou a dar lucro?",
-      "resposta": "O Nubank começou a dar lucro em 2023, com US$ 1,03 bi, depois de prejuízos de US$ 0,17 bi em 2021 e US$ 0,36 bi em 2022."
+      "resposta": "O Nubank teve prejuízo em 2021 (US$ -0,17 bilhão) e em 2022 (US$ -0,36 bilhão). O primeiro ano com lucro foi 2023, com US$ 1,03 bilhão, e desde então o lucro seguiu em 2024 e 2025."
     },
     {
       "id": "por_que_lucro",
       "pergunta": "Por que o lucro cresceu?",
-      "resposta": "O lucro subiu de US$ 1,97 bi (2024) para US$ 2,87 bi (2025) porque a receita cresceu 37%, chegando a US$ 15,77 bi, e a margem líquida foi de 17,1% para 18,2%. Também ajudou o crescimento da carteira de crédito, de 58% no ano, para US$ 32,7 bi, e o custo mensal por cliente de apenas US$ 0,80 frente à receita de US$ 13,30."
+      "resposta": "O lucro subiu de US$ 1,97 bilhão (2024) para US$ 2,87 bilhões (2025) porque a receita cresceu 37%, para US$ 15,77 bilhões. Cada cliente ativo gera cerca de US$ 13,30 por mês de receita, contra custo de US$ 0,80, e a carteira de crédito cresceu 58%, para US$ 32,7 bilhões."
     },
     {
       "id": "crescimento",
       "pergunta": "O Nubank ainda está crescendo?",
-      "resposta": "Sim, mas mais devagar: os clientes chegaram a 131 milhões em 2025, alta de 14,7%, contra 21,6% no ano anterior. A receita, porém, continuou crescendo forte, com alta de 37% em 2025."
+      "resposta": "Sim, mas em ritmo menor de clientes: a base cresceu 14,7% em 2025, ante 21,6% em 2024, chegando a 131 milhões. A receita (+37%) e a carteira de crédito (+58%) seguem crescendo fortemente em 2025."
     },
     {
       "id": "capital",
       "pergunta": "O capital do Nubank é suficiente?",
-      "resposta": "Sim, pelos dados do dashboard. Em 31/12/2025 o Índice de Basileia era de 16,57%, acima do mínimo exigido de 10,5%, com folga de 6,07 pontos percentuais. Ele caiu de 18,08% um ano antes, pois os ativos ponderados por risco cresceram 38,1%."
+      "resposta": "Sim, segundo o dashboard. Em 31/12/2025 o Índice de Basileia era 16,57%, acima do mínimo exigido com colchão de 10,5%, com folga de 6,07 pontos percentuais. Ele caiu de 18,08% um ano antes, pois os ativos ponderados pelo risco cresceram 38,1%."
     },
     {
       "id": "acao",
       "pergunta": "Como está a ação do Nubank na bolsa?",
-      "resposta": "O dashboard mostra que a ação NU fechou em US$ 12,68 em 16/11/2026, com queda de 19,8% no último ano, mas alta de 164,7% desde 02/11/2022. Não damos recomendação de compra, venda ou manutenção."
+      "resposta": "O dashboard mostra que a ação NU fechou em US$ 12,33 em 17/11/2026. Ela caiu 21,0% em 1 ano e 18,3% em 1 mês, mas subiu 157,4% desde 02/11/2022. No mesmo período, ITUB subiu 39,2% e BBD caiu 33,4%. Não há recomendação de compra ou venda."
     },
     {
       "id": "reclamacoes",
       "pergunta": "Os clientes reclamam muito do Nubank?",
-      "resposta": "Pelo indicador do Banco Central, o Nubank teve 10,68 reclamações procedentes por milhão de clientes no 3º tri de 2026, bem abaixo de Itaú (43,2) e Bradesco (57,23). Ainda assim, subiu em relação a 12,67 de um ano antes."
+      "resposta": "Não em termos de volume relativo: o Nubank teve 10,68 reclamações procedentes por milhão de clientes no 3º trimestre de 2026, contra 43,2 do Itaú e 57,23 do Bradesco. Ainda assim, o número subiu em relação a 12,67 de um ano antes. O tema mais citado é segurança e fraude, com 40,9%."
     },
     {
       "id": "selic",
       "pergunta": "Como os juros (Selic) afetam o Nubank?",
-      "resposta": "Os dados do dashboard não mostram o efeito direto da Selic sobre os resultados do Nubank. Eles apenas informam que a Selic meta está em 13,75% desde 17/09/2026, abaixo de 14,0% antes e do pico de 15,0% no período."
+      "resposta": "O dashboard não mede diretamente o efeito da Selic sobre os resultados do Nubank. Ele mostra que a Selic meta está em 13,75% ao ano desde 17/09/2026, abaixo de 14,0% antes e do pico de 15,0% no período. Não há dados para afirmar o impacto no lucro ou na carteira."
     },
     {
       "id": "riscos",
       "pergunta": "Quais são os principais riscos do Nubank?",
-      "resposta": "Pelos dados, o principal risco operacional é segurança e fraude, que concentram 40,9% dos temas de reclamação. Também há risco de crédito e capital, já que a carteira cresceu 58% e o Basileia caiu de 18,08% para 16,57%."
+      "resposta": "Pelos dados, o principal risco é segurança e fraude, tema de 40,9% das reclamações dos últimos 4 trimestres. Também pesam cadastros (21,9%) e problemas de conta (12,0%). Além disso, a Basileia caiu de 18,08% para 16,57% com a carteira crescendo rápido."
     },
     {
       "id": "melhorar",
       "pergunta": "O que o Nubank deveria fazer para melhorar?",
-      "resposta": "Segundo o próprio parecer do dashboard, o Nubank deveria priorizar a segurança e a prevenção de fraudes, que concentram 40,9% dos temas de reclamação. Também deve manter o crescimento do crédito com controle de risco e de capital, já que o Basileia caiu para 16,57%."
+      "resposta": "A empresa deveria priorizar a segurança contra fraudes, tema de 40,9% das reclamações nos últimos 4 trimestres. Também vale melhorar os cadastros (21,9%) e controlar o risco da carteira de crédito, que cresceu 58% em 2025."
     }
   ],
-  "gerado_em": "2026-11-17T01:16:43Z",
+  "gerado_em": "2026-11-18T03:08:14Z",
   "modelo": "claude-haiku-5-5",
-  "contexto_hash": "5926a33f275437e5",
+  "contexto_hash": "6cc0508564ae900b",
   "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
 }

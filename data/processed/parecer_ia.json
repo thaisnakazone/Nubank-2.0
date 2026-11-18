@@ -1,31 +1,31 @@
 {
-  "resumo": "O Nubank segue forte no operacional: 131 milhões de clientes em 2025, receita de US$ 15,77 bi (+37%) e lucro de US$ 2,87 bi, com margem de 18,2%. Porém, o crescimento de clientes desacelerou (14,7% contra 21,6% no ano anterior) e as ações caíram 19,8% no último ano. O capital está acima do mínimo exigido, com folga de 6,07 pontos percentuais.",
+  "resumo": "O Nubank segue em forte crescimento, com 131 milhões de clientes em 2025 e lucro de US$ 2,87 bilhões, alta de cerca de 46% sobre o ano anterior. Capital está acima do mínimo exigido, com folga de 6,07 pontos percentuais. Ainda assim, a ação caiu forte no último ano e o número de clientes cresceu menos que antes.",
   "areas": {
     "crescimento": {
-      "status": "atencao",
-      "motivo": "Clientes subiram 14,7% em 2025, abaixo dos 21,6% do ano anterior, embora a base chegue a 131 milhões."
+      "status": "bom",
+      "motivo": "Clientes subiram de 114,2 para 131 milhões em 2025, mas o ritmo caiu de 21,6% para 14,7%."
     },
     "rentabilidade": {
       "status": "bom",
-      "motivo": "Lucro subiu de US$ 1,97 bi para US$ 2,87 bi e a margem líquida foi de 18,2%, acima dos 17,1% anteriores."
+      "motivo": "Receita cresceu 37% e a margem líquida subiu de 17,1% para 18,2%, com lucro em três anos seguidos."
     },
     "capital": {
-      "status": "atencao",
-      "motivo": "Índice de Basileia de 16,57% está 6,07 pp acima do mínimo de 10,5%, mas caiu de 18,08% no ano anterior."
+      "status": "bom",
+      "motivo": "Índice de Basileia de 16,57%, acima do mínimo de 10,5%, com folga de 6,07 pontos, mas abaixo dos 18,08% de um ano antes."
     },
     "mercado": {
       "status": "atencao",
-      "motivo": "Em 1 ano a ação caiu 19,8%, mais que ITUB (-3,9%), mas no período total subiu 164,7%, bem acima de ITUB (41,2%)."
+      "motivo": "Ação caiu 21% em 1 ano e 18,3% em 1 mês, enquanto ITUB caiu 4,2% e BBD caiu 31,8% no mesmo período; no total desde 2022, NU subiu 157,4%."
     },
     "clientes": {
-      "status": "bom",
-      "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo de ITUB (43,2) e BBD (57,23)."
+      "status": "atencao",
+      "motivo": "Reclamações procedentes por milhão caíram para 10,68, abaixo de ITUB (43,2) e BBD (57,23), mas temas de segurança e fraude somam 40,9%."
     }
   },
-  "conselho": "Priorizar a segurança e a prevenção de fraudes, que concentram 40,9% dos temas de reclamação, e manter o crescimento de crédito com controle do risco e do capital.",
-  "gerado_em": "2026-11-17T01:16:34Z",
+  "conselho": "A empresa deve priorizar a segurança contra fraudes, que é o tema que mais gera reclamações, e manter o crescimento da carteira de crédito com controle de risco.",
+  "gerado_em": "2026-11-18T03:08:00Z",
   "modelo": "claude-haiku-5-5",
-  "dados_ate": "2026-11-17 01:16:29 UTC",
-  "indicadores_hash": "2804bb988237f284",
+  "dados_ate": "2026-11-18 03:07:55 UTC",
+  "indicadores_hash": "e6c8d646aa1b68d6",
   "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
 }
