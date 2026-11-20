@@ -1,31 +1,31 @@
 {
-  "resumo": "O Nubank segue forte: a receita cresceu 37% em 2025 para US$ 15,77 bi e o lucro subiu para US$ 2,87 bi, com margem de 18,2%. Ainda assim, a ação caiu 21,1% no último ano e o Índice de Basileia caiu de 18,08% para 16,57%, embora siga acima do mínimo de 10,5%.",
+  "resumo": "O Nubank segue forte no lado operacional: 131 milhões de clientes em 2025, lucro de US$ 2,87 bi e margem líquida de 18,2%. Porém, o crescimento de clientes desacelerou (14,7% contra 21,6% no ano anterior) e a ação caiu no último ano, com queda de 24,5%. O capital segue acima do mínimo exigido, com Basileia de 16,57% contra 10,5% exigidos.",
   "areas": {
     "crescimento": {
-      "status": "bom",
-      "motivo": "Clientes chegaram a 131 milhões em 2025, alta de 14,7%, mas abaixo dos 21,6% do ano anterior."
+      "status": "atencao",
+      "motivo": "Clientes subiram 14,7% em 2025, abaixo dos 21,6% do ano anterior, embora a base chegue a 131 milhões."
     },
     "rentabilidade": {
       "status": "bom",
-      "motivo": "Lucro líquido subiu de US$ 1,97 bi para US$ 2,87 bi e a margem líquida foi de 18,2%."
+      "motivo": "Lucro líquido subiu de US$ 1,97 bi para US$ 2,87 bi e a margem líquida foi de 18,2%, acima dos 17,1% do ano anterior."
     },
     "capital": {
       "status": "atencao",
-      "motivo": "Basileia de 16,57% está 6,07 pontos acima do mínimo de 10,5%, mas caiu em relação a 18,08% de um ano antes."
+      "motivo": "Basileia de 16,57% está 6,07 pontos acima do mínimo de 10,5%, mas caiu de 18,08% no ano anterior."
     },
     "mercado": {
       "status": "atencao",
-      "motivo": "Ação do Nu caiu 21,1% em 1 ano, pior que Itaú (-6,5%), mas subiu 152,2% desde 2022, acima de Itaú (35,3%) e Bradesco (-35,6%)."
+      "motivo": "Ação do Nu caiu 24,5% em 1 ano, mas subiu 146,8% no período total; Itaú teve 32,5% e Bradesco caiu 38%."
     },
     "clientes": {
-      "status": "atencao",
-      "motivo": "Reclamações procedentes são 10,68 por milhão de clientes, bem abaixo de Itaú (43,2) e Bradesco (57,23), mas subiram de 12,67 um ano antes? Não: caíram de 12,67."
+      "status": "bom",
+      "motivo": "Reclamações procedentes do Nu são 10,68 por milhão de clientes, abaixo do Itaú (43,2) e do Bradesco (57,23)."
     }
   },
-  "conselho": "Priorizar a segurança contra fraudes, tema de 40,9% das queixas, e manter a folga de capital conforme a carteira de crédito cresce 58% no ano.",
-  "gerado_em": "2026-11-19T02:47:32Z",
+  "conselho": "Priorizar a segurança contra fraudes e a qualidade do cadastro, que concentram a maior parte dos temas de reclamação, enquanto mantém o crescimento da carteira de crédito com controle da Basileia.",
+  "gerado_em": "2026-11-20T02:35:05Z",
   "modelo": "claude-haiku-5-5",
-  "dados_ate": "2026-11-19 02:47:27 UTC",
-  "indicadores_hash": "334bfeb0e8cd0820",
+  "dados_ate": "2026-11-20 02:35:00 UTC",
+  "indicadores_hash": "77795edbc298e79f",
   "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
 }
