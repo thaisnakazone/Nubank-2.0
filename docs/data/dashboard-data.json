@@ -5,7 +5,7 @@
     "generated_from": "Twelve Data API & MongoDB Atlas + Relatórios Oficiais",
     "risk_source": "Pilar 3 · dados regulatórios locais 2021–2025",
     "market_source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
-    "updated_at": "2026-11-20 02:35:00 UTC"
+    "updated_at": "2026-11-21 02:48:41 UTC"
   },
   "headline": {
     "latest_year": 2025,
@@ -30020,6 +30020,16 @@
     },
     {
       "datetime": "2026-10-29",
+      "ticker": "NU",
+      "close": 12.05,
+      "high": 12.185,
+      "low": 11.85,
+      "open": 11.98,
+      "source": "Twelve Data",
+      "volume": 80210200.0
+    },
+    {
+      "datetime": "2026-10-29",
       "ticker": "ITUB",
       "close": 7.37,
       "high": 7.48,
@@ -30037,16 +30047,6 @@
       "open": 2.7,
       "source": "Twelve Data",
       "volume": 80682100.0
-    },
-    {
-      "datetime": "2026-10-29",
-      "ticker": "NU",
-      "close": 12.05,
-      "high": 12.185,
-      "low": 11.85,
-      "open": 11.98,
-      "source": "Twelve Data",
-      "volume": 80210200.0
     },
     {
       "ticker": "NU",
@@ -30109,14 +30109,14 @@
       "volume": 40503000.0
     },
     {
-      "ticker": "BBD",
+      "ticker": "NU",
       "datetime": "2026-11-03",
-      "close": 2.47,
-      "high": 2.5,
-      "low": 2.44,
-      "open": 2.48,
+      "close": 11.61,
+      "high": 11.7,
+      "low": 11.45,
+      "open": 11.62,
       "source": "Twelve Data",
-      "volume": 73195300.0
+      "volume": 89030600.0
     },
     {
       "ticker": "ITUB",
@@ -30129,14 +30129,14 @@
       "volume": 26350200.0
     },
     {
-      "ticker": "NU",
+      "ticker": "BBD",
       "datetime": "2026-11-03",
-      "close": 11.61,
-      "high": 11.7,
-      "low": 11.45,
-      "open": 11.62,
+      "close": 2.47,
+      "high": 2.5,
+      "low": 2.44,
+      "open": 2.48,
       "source": "Twelve Data",
-      "volume": 89030600.0
+      "volume": 73195300.0
     },
     {
       "datetime": "2026-11-04",
@@ -30149,16 +30149,6 @@
       "volume": 87546000.0
     },
     {
-      "ticker": "ITUB",
-      "datetime": "2026-11-04",
-      "close": 7.28,
-      "high": 7.3,
-      "low": 7.07,
-      "open": 7.2,
-      "source": "Twelve Data",
-      "volume": 31164900.0
-    },
-    {
       "ticker": "BBD",
       "datetime": "2026-11-04",
       "close": 2.57,
@@ -30167,6 +30157,16 @@
       "open": 2.54,
       "source": "Twelve Data",
       "volume": 79277100.0
+    },
+    {
+      "ticker": "ITUB",
+      "datetime": "2026-11-04",
+      "close": 7.28,
+      "high": 7.3,
+      "low": 7.07,
+      "open": 7.2,
+      "source": "Twelve Data",
+      "volume": 31164900.0
     },
     {
       "ticker": "NU",
@@ -30229,16 +30229,6 @@
       "volume": 44171800.0
     },
     {
-      "datetime": "2026-11-09",
-      "ticker": "BBD",
-      "close": 2.63,
-      "high": 2.66,
-      "low": 2.59,
-      "open": 2.59,
-      "source": "Twelve Data",
-      "volume": 36415000.0
-    },
-    {
       "ticker": "NU",
       "datetime": "2026-11-09",
       "close": 12.36,
@@ -30259,6 +30249,16 @@
       "volume": 22854400.0
     },
     {
+      "datetime": "2026-11-09",
+      "ticker": "BBD",
+      "close": 2.63,
+      "high": 2.66,
+      "low": 2.59,
+      "open": 2.59,
+      "source": "Twelve Data",
+      "volume": 36415000.0
+    },
+    {
       "ticker": "NU",
       "datetime": "2026-11-10",
       "close": 12.08,
@@ -30270,16 +30270,6 @@
     },
     {
       "datetime": "2026-11-10",
-      "ticker": "ITUB",
-      "close": 7.39,
-      "high": 7.54,
-      "low": 7.36,
-      "open": 7.51,
-      "source": "Twelve Data",
-      "volume": 16472100.0
-    },
-    {
-      "datetime": "2026-11-10",
       "ticker": "BBD",
       "close": 2.57,
       "high": 2.63,
@@ -30287,6 +30277,16 @@
       "open": 2.63,
       "source": "Twelve Data",
       "volume": 39615900.0
+    },
+    {
+      "datetime": "2026-11-10",
+      "ticker": "ITUB",
+      "close": 7.39,
+      "high": 7.54,
+      "low": 7.36,
+      "open": 7.51,
+      "source": "Twelve Data",
+      "volume": 16472100.0
     },
     {
       "ticker": "NU",
@@ -30349,14 +30349,14 @@
       "volume": 31134600.0
     },
     {
+      "ticker": "NU",
       "datetime": "2026-11-13",
-      "ticker": "BBD",
-      "close": 2.57,
-      "high": 2.58,
-      "low": 2.51,
-      "open": 2.51,
+      "close": 13.22,
+      "high": 13.25,
+      "low": 12.1,
+      "open": 12.36,
       "source": "Twelve Data",
-      "volume": 28116600.0
+      "volume": 152617300.0
     },
     {
       "datetime": "2026-11-13",
@@ -30369,24 +30369,24 @@
       "volume": 18901700.0
     },
     {
-      "ticker": "NU",
       "datetime": "2026-11-13",
-      "close": 13.22,
-      "high": 13.25,
-      "low": 12.1,
-      "open": 12.36,
+      "ticker": "BBD",
+      "close": 2.57,
+      "high": 2.58,
+      "low": 2.51,
+      "open": 2.51,
       "source": "Twelve Data",
-      "volume": 152617300.0
+      "volume": 28116600.0
     },
     {
       "datetime": "2026-11-16",
-      "ticker": "NU",
-      "close": 12.68,
-      "high": 13.185,
-      "low": 12.64,
-      "open": 12.96,
+      "ticker": "BBD",
+      "close": 2.44,
+      "high": 2.51,
+      "low": 2.42,
+      "open": 2.5,
       "source": "Twelve Data",
-      "volume": 89794500.0
+      "volume": 40946500.0
     },
     {
       "ticker": "ITUB",
@@ -30400,13 +30400,13 @@
     },
     {
       "datetime": "2026-11-16",
-      "ticker": "BBD",
-      "close": 2.44,
-      "high": 2.51,
-      "low": 2.42,
-      "open": 2.5,
+      "ticker": "NU",
+      "close": 12.68,
+      "high": 13.185,
+      "low": 12.64,
+      "open": 12.96,
       "source": "Twelve Data",
-      "volume": 40946500.0
+      "volume": 89794500.0
     },
     {
       "ticker": "NU",
@@ -30472,11 +30472,11 @@
       "datetime": "2026-11-19",
       "ticker": "NU",
       "close": 11.82,
-      "high": 12.395,
+      "high": 12.4,
       "low": 11.8,
       "open": 12.2,
       "source": "Twelve Data",
-      "volume": 55558281.0
+      "volume": 55616600.0
     },
     {
       "ticker": "ITUB",
@@ -30486,7 +30486,7 @@
       "low": 6.69,
       "open": 6.82,
       "source": "Twelve Data",
-      "volume": 40814591.0
+      "volume": 40815800.0
     },
     {
       "datetime": "2026-11-19",
@@ -30496,7 +30496,37 @@
       "low": 2.3,
       "open": 2.38,
       "source": "Twelve Data",
-      "volume": 61510793.0
+      "volume": 61525500.0
+    },
+    {
+      "ticker": "NU",
+      "datetime": "2026-11-20",
+      "close": 11.27,
+      "high": 11.91,
+      "low": 11.24,
+      "open": 11.7,
+      "source": "Twelve Data",
+      "volume": 68649563.0
+    },
+    {
+      "ticker": "ITUB",
+      "datetime": "2026-11-20",
+      "close": 6.52,
+      "high": 6.7,
+      "low": 6.51,
+      "open": 6.62,
+      "source": "Twelve Data",
+      "volume": 18154035.0
+    },
+    {
+      "datetime": "2026-11-20",
+      "ticker": "BBD",
+      "close": 2.23,
+      "high": 2.29,
+      "low": 2.22,
+      "open": 2.25,
+      "source": "Twelve Data",
+      "volume": 50467966.0
     }
   ],
   "financial": [
@@ -69318,41 +69348,41 @@
         "selic_meta_pct": 13.75
       },
       {
-        "data": "2026-11-20",
+        "data": "2026-11-21",
         "selic_meta_pct": 13.75
       }
     ],
     "source": "Banco Central do Brasil · SGS 432 (meta Selic definida pelo Copom) · via MongoDB Atlas"
   },
   "parecer_ia": {
-    "resumo": "O Nubank segue forte no lado operacional: 131 milhões de clientes em 2025, lucro de US$ 2,87 bi e margem líquida de 18,2%. Porém, o crescimento de clientes desacelerou (14,7% contra 21,6% no ano anterior) e a ação caiu no último ano, com queda de 24,5%. O capital segue acima do mínimo exigido, com Basileia de 16,57% contra 10,5% exigidos.",
+    "resumo": "O Nubank segue forte no operacional: a receita cresceu 37% em 2025 para US$ 15,77 bi e o lucro subiu para US$ 2,87 bi, com margem de 18,2%. A carteira de crédito cresceu 58% e o índice de Basileia de 16,57% está bem acima do mínimo de 10,5%. O principal ponto de atenção é o desempenho da ação, que caiu no último ano enquanto Itaú e Bradesco tiveram comportamento diferente.",
     "areas": {
       "crescimento": {
         "status": "atencao",
-        "motivo": "Clientes subiram 14,7% em 2025, abaixo dos 21,6% do ano anterior, embora a base chegue a 131 milhões."
+        "motivo": "Clientes subiram para 131 milhões, mas o ritmo caiu de 21,6% para 14,7% no ano."
       },
       "rentabilidade": {
         "status": "bom",
-        "motivo": "Lucro líquido subiu de US$ 1,97 bi para US$ 2,87 bi e a margem líquida foi de 18,2%, acima dos 17,1% do ano anterior."
+        "motivo": "Lucro subiu de US$ 1,97 bi para US$ 2,87 bi e a margem líquida foi de 18,2%, acima dos 17,1% do ano anterior."
       },
       "capital": {
-        "status": "atencao",
-        "motivo": "Basileia de 16,57% está 6,07 pontos acima do mínimo de 10,5%, mas caiu de 18,08% no ano anterior."
+        "status": "bom",
+        "motivo": "Basileia de 16,57% fica 6,07 pontos acima do mínimo exigido de 10,5%, embora tenha caído de 18,08% um ano antes."
       },
       "mercado": {
-        "status": "atencao",
-        "motivo": "Ação do Nu caiu 24,5% em 1 ano, mas subiu 146,8% no período total; Itaú teve 32,5% e Bradesco caiu 38%."
+        "status": "ruim",
+        "motivo": "Ação NU caiu 26,4% no último ano e 25,7% no último mês, enquanto ITUB caiu 8,6% no ano."
       },
       "clientes": {
         "status": "bom",
-        "motivo": "Reclamações procedentes do Nu são 10,68 por milhão de clientes, abaixo do Itaú (43,2) e do Bradesco (57,23)."
+        "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo de ITUB (43,2) e BBD (57,23)."
       }
     },
-    "conselho": "Priorizar a segurança contra fraudes e a qualidade do cadastro, que concentram a maior parte dos temas de reclamação, enquanto mantém o crescimento da carteira de crédito com controle da Basileia.",
-    "gerado_em": "2026-11-20T02:35:05Z",
+    "conselho": "Priorizar a segurança contra fraudes, que concentra 40,9% dos temas de reclamação, e manter o crescimento de crédito com controle de risco e capital.",
+    "gerado_em": "2026-11-21T02:48:46Z",
     "modelo": "claude-haiku-5-5",
-    "dados_ate": "2026-11-20 02:35:00 UTC",
-    "indicadores_hash": "77795edbc298e79f",
+    "dados_ate": "2026-11-21 02:48:41 UTC",
+    "indicadores_hash": "851e44e22d78770d",
     "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
   },
   "chat_faq": {
@@ -69360,62 +69390,62 @@
       {
         "id": "esta_bem",
         "pergunta": "O Nubank está bem?",
-        "resposta": "Em 2025 o Nubank teve receita de US$ 15,77 bi (alta de 37%), lucro de US$ 2,87 bi e margem líquida de 18,2%, com 131 milhões de clientes. Pontos de atenção são a desaceleração de clientes (14,7% contra 21,6% no ano anterior) e a queda de 24,5% da ação em 1 ano."
+        "resposta": "Sim, nos indicadores do dashboard o Nubank vai bem: em 2025 a receita cresceu 37% para US$ 15,77 bi e o lucro líquido chegou a US$ 2,87 bi, com margem de 18,2%. O capital (Basileia de 16,57%) está acima do mínimo de 10,5%. O ponto de atenção é o desempenho da ação, que caiu no último ano."
       },
       {
         "id": "lucro_prejuizo",
         "pergunta": "O Nubank dá lucro ou prejuízo? Quanto?",
-        "resposta": "Em 2025 o Nubank teve lucro líquido de US$ 2,87 bi, acima dos US$ 1,97 bi de 2024. Antes disso, teve prejuízos em 2021 (US$ -0,17 bi) e 2022 (US$ -0,36 bi)."
+        "resposta": "Em 2025 o Nubank teve lucro líquido de US$ 2,87 bi, acima dos US$ 1,97 bi de 2024. Nos anos anteriores, em 2021 e 2022, houve prejuízo (de US$ 0,17 bi e US$ 0,36 bi)."
       },
       {
         "id": "quando_lucro",
         "pergunta": "Quando o Nubank começou a dar lucro?",
-        "resposta": "O primeiro ano com lucro no dashboard foi 2023, com lucro líquido de US$ 1,03 bi. Em 2021 e 2022 a empresa teve prejuízo."
+        "resposta": "O Nubank começou a dar lucro em 2023, com lucro líquido de US$ 1,03 bi, depois de prejuízos em 2021 e 2022."
       },
       {
         "id": "por_que_lucro",
         "pergunta": "Por que o lucro cresceu?",
-        "resposta": "O lucro subiu de US$ 1,97 bi (2024) para US$ 2,87 bi (2025) porque a receita cresceu 37%, chegando a US$ 15,77 bi, e a margem líquida foi de 17,1% para 18,2%. A receita mensal por cliente ativo foi de US$ 13,30 contra custo de US$ 0,80, e a carteira de crédito cresceu 58%, para US$ 32,7 bi."
+        "resposta": "O lucro cresceu porque a receita subiu 37% em 2025 (para US$ 15,77 bi) e a clientela chegou a 131 milhões, com receita mensal de US$ 13,30 por cliente ativo contra custo de US$ 0,80. Além disso, a margem líquida subiu de 17,1% para 18,2% e a carteira de crédito cresceu 58%."
       },
       {
         "id": "crescimento",
         "pergunta": "O Nubank ainda está crescendo?",
-        "resposta": "Sim, mas em ritmo menor: os clientes chegaram a 131 milhões em 2025, alta de 14,7%, contra 21,6% no ano anterior. A taxa de atividade é de 83,4% e a receita cresceu 37% no ano."
+        "resposta": "Sim, mas em ritmo menor: os clientes chegaram a 131 milhões em 2025, alta de 14,7%, abaixo dos 21,6% do ano anterior. A receita e a carteira de crédito seguem crescendo fortemente (37% e 58%)."
       },
       {
         "id": "capital",
         "pergunta": "O capital do Nubank é suficiente?",
-        "resposta": "Sim, em 31/12/2025 o Índice de Basileia era de 16,57%, acima do mínimo exigido de 10,5%, com folga de 6,07 pontos percentuais. Porém, ele caiu de 18,08% no ano anterior, pois os ativos ponderados por risco cresceram 38,1%."
+        "resposta": "Sim, pelos dados do dashboard. Em 31/12/2025 o índice de Basileia era 16,57%, acima do mínimo exigido de 10,5%, com folga de 6,07 pontos percentuais. Porém, o índice caiu de 18,08% um ano antes, pois os ativos ponderados por risco cresceram 38,1%."
       },
       {
         "id": "acao",
         "pergunta": "Como está a ação do Nubank na bolsa?",
-        "resposta": "No último fechamento disponível (19/11/2026), a ação NU custava US$ 11,82. Ela caiu 24,5% em 1 ano e 19,8% em 1 mês, mas subiu 146,8% desde 02/11/2022. Este dashboard não faz recomendação de compra ou venda."
+        "resposta": "Em 20/11/2026 a ação NU fechou em US$ 11,27. Ela caiu 25,7% no último mês e 26,4% no último ano, mas subiu 135,3% desde 02/11/2022. No mesmo período, ITUB caiu 8,6% no ano e BBD caiu 35,9%. Esses são apenas dados históricos, não uma recomendação de investimento."
       },
       {
         "id": "reclamacoes",
         "pergunta": "Os clientes reclamam muito do Nubank?",
-        "resposta": "Não em termos gerais: no 3º trimestre de 2026, o Nubank teve 10,68 reclamações procedentes por milhão de clientes, abaixo de Itaú (43,2) e Bradesco (57,23). Mesmo assim, subiu em relação a 12,67 de um ano antes."
+        "resposta": "Os dados mostram um índice menor que o de concorrentes: no 3º trimestre de 2026, o Nubank teve 10,68 reclamações procedentes por milhão de clientes, contra 43,2 do Itaú e 57,23 do Bradesco. Ainda assim, o índice subiu em relação a 12,67 de um ano antes, em que os dados do Nubank eram menores."
       },
       {
         "id": "selic",
         "pergunta": "Como os juros (Selic) afetam o Nubank?",
-        "resposta": "A Selic meta está em 13,75% ao ano desde 17/09/2026, abaixo dos 14,0% anteriores e do pico de 15,0% do período. O dashboard não traz dados que mostrem o efeito direto da Selic sobre o lucro ou a carteira do Nubank."
+        "resposta": "O dashboard não traz uma análise direta do impacto da Selic sobre o Nubank. Ele informa apenas que a meta está em 13,75% ao ano desde 17/09/2026, abaixo dos 14,0% anteriores e do pico de 15,0% no período. Não há dados sobre como isso afeta a carteira de crédito ou o lucro."
       },
       {
         "id": "riscos",
         "pergunta": "Quais são os principais riscos do Nubank?",
-        "resposta": "Pelos dados, o principal risco operacional é segurança e fraude, que concentra 40,9% dos temas de reclamação nos últimos 4 trimestres. Também pesam cadastros (21,9%) e problemas com conta (12,0%), além do crescimento acelerado da carteira de crédito (58%) e da queda do Basileia."
+        "resposta": "Pelos dados, os principais riscos são segurança e fraude, que concentram 40,9% dos temas de reclamação, e a queda do índice de Basileia (de 18,08% para 16,57%) com crescimento de 38,1% dos ativos de risco. Também há a queda da ação no último ano (-26,4%)."
       },
       {
         "id": "melhorar",
         "pergunta": "O que o Nubank deveria fazer para melhorar?",
-        "resposta": "A empresa deveria priorizar a segurança contra fraudes e a qualidade do cadastro, que concentram a maior parte das reclamações. Também deveria controlar o crescimento da carteira de crédito para manter o Índice de Basileia acima do mínimo de 10,5%."
+        "resposta": "A empresa deveria priorizar a segurança contra fraudes, que concentra 40,9% dos temas de reclamação dos últimos quatro trimestres. Também deve manter o crescimento de crédito (58%) com controle de risco e capital, de modo a preservar a folga sobre o mínimo de 10,5%."
       }
     ],
-    "gerado_em": "2026-11-20T02:35:14Z",
+    "gerado_em": "2026-11-21T02:48:56Z",
     "modelo": "claude-haiku-5-5",
-    "contexto_hash": "64bd9287346f3db8",
+    "contexto_hash": "ba478ccd9848c14c",
     "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
   },
   "sources": [
