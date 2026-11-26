@@ -1,31 +1,31 @@
 {
-  "resumo": "O Nubank segue forte em clientes e receita, com lucro de US$ 2,87 bi em 2025 (alta de 46% sobre 2024) e margem líquida de 18,2%. Capital continua acima do mínimo exigido, com Basileia de 16,57% contra 10,5%. O ponto de atenção é o desempenho recente da ação, que caiu 25,5% em 1 ano, embora siga em alta de 147,6% no período total.",
+  "resumo": "O Nubank cresceu forte em 2025: receita de US$ 15,77 bi (+37%) e lucro de US$ 2,87 bi, com margem de 18,2%. A base chegou a 131 milhões de clientes, mas o ritmo de crescimento caiu de 21,6% para 14,7%. O índice de Basileia (16,57%) segue bem acima do mínimo de 10,5%.",
   "areas": {
     "crescimento": {
-      "status": "bom",
-      "motivo": "Clientes chegaram a 131 milhões, alta de 14,7% no ano, mas menor que os 21,6% do ano anterior."
+      "status": "atencao",
+      "motivo": "Base de 131 milhões de clientes, mas o crescimento desacelerou de 21,6% para 14,7% no ano."
     },
     "rentabilidade": {
       "status": "bom",
-      "motivo": "Receita de US$ 15,77 bi (+37%) e margem líquida de 18,2%, acima de 17,1% no ano anterior."
+      "motivo": "Lucro subiu de US$ 1,97 bi para US$ 2,87 bi e a margem líquida foi de 17,1% para 18,2%."
     },
     "capital": {
       "status": "bom",
-      "motivo": "Basileia de 16,57% está 6,07 pontos acima do mínimo de 10,5%, mas caiu frente a 18,08% de um ano antes."
+      "motivo": "Basileia de 16,57% fica 6,07 pontos acima do mínimo de 10,5%, mas caiu em relação a 18,08% do ano anterior."
     },
     "mercado": {
       "status": "atencao",
-      "motivo": "Ação caiu 25,5% em 1 ano, pior que Itaú (-6,2%) e Bradesco (-34,2%), mas segue com alta de 147,6% no período total."
+      "motivo": "Ação caiu 25,6% em 1 ano, mais que Itaú (-4,5%) e Bradesco (-31,4%), mas subiu 158% desde 2022."
     },
     "clientes": {
       "status": "bom",
-      "motivo": "Reclamações procedentes de 10,68 por milhão, bem abaixo de Itaú (43,2) e Bradesco (57,23)."
+      "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo de Itaú (43,2) e Bradesco (57,23)."
     }
   },
-  "conselho": "Manter o crescimento da carteira de crédito com controle de risco e reforçar a segurança contra fraudes, que concentram 40,9% dos principais temas de reclamação.",
-  "gerado_em": "2026-11-25T04:34:42Z",
+  "conselho": "A empresa deveria priorizar a segurança contra fraudes, tema de 40,9% das queixas, e recuperar o ritmo de crescimento de clientes sem perder a folga de capital.",
+  "gerado_em": "2026-11-26T03:45:55Z",
   "modelo": "claude-haiku-5-5",
-  "dados_ate": "2026-11-25 04:34:37 UTC",
-  "indicadores_hash": "8aba35b34dd9ee2e",
+  "dados_ate": "2026-11-26 03:45:49 UTC",
+  "indicadores_hash": "8c41f301f6b426d7",
   "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
 }
