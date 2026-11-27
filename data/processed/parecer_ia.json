@@ -1,31 +1,31 @@
 {
-  "resumo": "O Nubank cresceu forte em 2025: receita de US$ 15,77 bi (+37%) e lucro de US$ 2,87 bi, com margem de 18,2%. A base chegou a 131 milhões de clientes, mas o ritmo de crescimento caiu de 21,6% para 14,7%. O índice de Basileia (16,57%) segue bem acima do mínimo de 10,5%.",
+  "resumo": "O Nubank está bem em lucro e rentabilidade: o lucro líquido subiu de US$ 1,97 bi para US$ 2,87 bi em 2025 e a margem chegou a 18,2%. Os clientes somam 131 milhões e o Índice de Basileia (16,57%) segue acima do mínimo de 10,5%. Pontos de atenção são o crescimento de clientes, que desacelerou, e a queda da ação no último ano.",
   "areas": {
     "crescimento": {
       "status": "atencao",
-      "motivo": "Base de 131 milhões de clientes, mas o crescimento desacelerou de 21,6% para 14,7% no ano."
+      "motivo": "Clientes chegaram a 131 mi, mas o crescimento caiu de 21,6% para 14,7% no ano."
     },
     "rentabilidade": {
       "status": "bom",
-      "motivo": "Lucro subiu de US$ 1,97 bi para US$ 2,87 bi e a margem líquida foi de 17,1% para 18,2%."
+      "motivo": "Receita cresceu 37% e margem líquida subiu de 17,1% para 18,2%, com lucro de US$ 2,87 bi."
     },
     "capital": {
       "status": "bom",
-      "motivo": "Basileia de 16,57% fica 6,07 pontos acima do mínimo de 10,5%, mas caiu em relação a 18,08% do ano anterior."
+      "motivo": "Basileia de 16,57% está 6,07 p.p. acima do mínimo de 10,5%, mas caiu em relação aos 18,08% de um ano antes."
     },
     "mercado": {
       "status": "atencao",
-      "motivo": "Ação caiu 25,6% em 1 ano, mais que Itaú (-4,5%) e Bradesco (-31,4%), mas subiu 158% desde 2022."
+      "motivo": "No último ano, NU caiu 25,6%, melhor que BBD (-31,4%) mas pior que ITUB (-4,5%); no período total, NU subiu 158%."
     },
     "clientes": {
       "status": "bom",
-      "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo de Itaú (43,2) e Bradesco (57,23)."
+      "motivo": "Reclamações procedentes somam 10,68 por milhão de clientes, bem abaixo de ITUB (43,2) e BBD (57,23)."
     }
   },
-  "conselho": "A empresa deveria priorizar a segurança contra fraudes, tema de 40,9% das queixas, e recuperar o ritmo de crescimento de clientes sem perder a folga de capital.",
-  "gerado_em": "2026-11-26T03:45:55Z",
+  "conselho": "Priorizar a segurança contra fraudes, tema de 40,9% das queixas, e manter a folga de capital enquanto a carteira de crédito cresce 58% no ano.",
+  "gerado_em": "2026-11-27T03:47:23Z",
   "modelo": "claude-haiku-5-5",
-  "dados_ate": "2026-11-26 03:45:49 UTC",
+  "dados_ate": "2026-11-27 03:47:15 UTC",
   "indicadores_hash": "8c41f301f6b426d7",
   "aviso": "Análise automática gerada por IA a partir dos dados do dashboard, para fins educacionais. Não é recomendação de investimento."
 }
