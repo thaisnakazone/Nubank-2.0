@@ -5,7 +5,7 @@
     "generated_from": "Twelve Data API & MongoDB Atlas + Relatórios Oficiais",
     "risk_source": "Pilar 3 · dados regulatórios locais 2021–2025",
     "market_source": "Twelve Data API via MongoDB Atlas (atualização automatizada)",
-    "updated_at": "2026-11-27 03:47:15 UTC"
+    "updated_at": "2026-11-28 03:31:09 UTC"
   },
   "headline": {
     "latest_year": 2025,
@@ -29450,16 +29450,6 @@
     },
     {
       "datetime": "2026-10-02",
-      "ticker": "ITUB",
-      "close": 8.59,
-      "high": 8.59,
-      "low": 8.19,
-      "open": 8.48,
-      "source": "Twelve Data",
-      "volume": 44951900.0
-    },
-    {
-      "datetime": "2026-10-02",
       "ticker": "NU",
       "close": 13.43,
       "high": 13.5,
@@ -29477,6 +29467,16 @@
       "open": 3.53,
       "source": "Twelve Data",
       "volume": 48375600.0
+    },
+    {
+      "datetime": "2026-10-02",
+      "ticker": "ITUB",
+      "close": 8.59,
+      "high": 8.59,
+      "low": 8.19,
+      "open": 8.48,
+      "source": "Twelve Data",
+      "volume": 44951900.0
     },
     {
       "datetime": "2026-10-05",
@@ -29510,16 +29510,6 @@
     },
     {
       "datetime": "2026-10-06",
-      "ticker": "BBD",
-      "close": 4.51,
-      "high": 4.58,
-      "low": 4.42,
-      "open": 4.52,
-      "source": "Twelve Data",
-      "volume": 92144000.0
-    },
-    {
-      "datetime": "2026-10-06",
       "ticker": "NU",
       "close": 15.66,
       "high": 15.69,
@@ -29539,6 +29529,16 @@
       "volume": 52292500.0
     },
     {
+      "datetime": "2026-10-06",
+      "ticker": "BBD",
+      "close": 4.51,
+      "high": 4.58,
+      "low": 4.42,
+      "open": 4.52,
+      "source": "Twelve Data",
+      "volume": 92144000.0
+    },
+    {
       "datetime": "2026-10-07",
       "ticker": "NU",
       "close": 15.58,
@@ -29547,16 +29547,6 @@
       "open": 15.55,
       "source": "Twelve Data",
       "volume": 82394200.0
-    },
-    {
-      "datetime": "2026-10-07",
-      "ticker": "BBD",
-      "close": 4.34,
-      "high": 4.51,
-      "low": 4.33,
-      "open": 4.5,
-      "source": "Twelve Data",
-      "volume": 65758300.0
     },
     {
       "ticker": "ITUB",
@@ -29569,14 +29559,24 @@
       "volume": 41687400.0
     },
     {
-      "datetime": "2026-10-08",
+      "datetime": "2026-10-07",
       "ticker": "BBD",
-      "close": 4.24,
-      "high": 4.37,
-      "low": 4.21,
-      "open": 4.27,
+      "close": 4.34,
+      "high": 4.51,
+      "low": 4.33,
+      "open": 4.5,
       "source": "Twelve Data",
-      "volume": 74833100.0
+      "volume": 65758300.0
+    },
+    {
+      "datetime": "2026-10-08",
+      "ticker": "NU",
+      "close": 15.38,
+      "high": 15.79,
+      "low": 15.2,
+      "open": 15.5,
+      "source": "Twelve Data",
+      "volume": 82430800.0
     },
     {
       "datetime": "2026-10-08",
@@ -29590,13 +29590,13 @@
     },
     {
       "datetime": "2026-10-08",
-      "ticker": "NU",
-      "close": 15.38,
-      "high": 15.79,
-      "low": 15.2,
-      "open": 15.5,
+      "ticker": "BBD",
+      "close": 4.24,
+      "high": 4.37,
+      "low": 4.21,
+      "open": 4.27,
       "source": "Twelve Data",
-      "volume": 82430800.0
+      "volume": 74833100.0
     },
     {
       "datetime": "2026-10-09",
@@ -29660,13 +29660,13 @@
     },
     {
       "datetime": "2026-10-13",
-      "ticker": "NU",
-      "close": 15.58,
-      "high": 15.86,
-      "low": 15.57,
-      "open": 15.85,
+      "ticker": "BBD",
+      "close": 4.19,
+      "high": 4.23,
+      "low": 4.16,
+      "open": 4.19,
       "source": "Twelve Data",
-      "volume": 60126500.0
+      "volume": 48466600.0
     },
     {
       "datetime": "2026-10-13",
@@ -29680,33 +29680,13 @@
     },
     {
       "datetime": "2026-10-13",
-      "ticker": "BBD",
-      "close": 4.19,
-      "high": 4.23,
-      "low": 4.16,
-      "open": 4.19,
-      "source": "Twelve Data",
-      "volume": 48466600.0
-    },
-    {
       "ticker": "NU",
-      "datetime": "2026-10-14",
-      "close": 14.93,
-      "high": 15.44,
-      "low": 14.765,
-      "open": 15.31,
+      "close": 15.58,
+      "high": 15.86,
+      "low": 15.57,
+      "open": 15.85,
       "source": "Twelve Data",
-      "volume": 81835800.0
-    },
-    {
-      "datetime": "2026-10-14",
-      "ticker": "ITUB",
-      "close": 9.68,
-      "high": 9.77,
-      "low": 9.49,
-      "open": 9.67,
-      "source": "Twelve Data",
-      "volume": 32206900.0
+      "volume": 60126500.0
     },
     {
       "datetime": "2026-10-14",
@@ -29719,14 +29699,34 @@
       "volume": 42896300.0
     },
     {
-      "datetime": "2026-10-15",
-      "ticker": "NU",
-      "close": 14.73,
-      "high": 15.065,
-      "low": 14.4,
-      "open": 14.46,
+      "datetime": "2026-10-14",
+      "ticker": "ITUB",
+      "close": 9.68,
+      "high": 9.77,
+      "low": 9.49,
+      "open": 9.67,
       "source": "Twelve Data",
-      "volume": 76170200.0
+      "volume": 32206900.0
+    },
+    {
+      "ticker": "NU",
+      "datetime": "2026-10-14",
+      "close": 14.93,
+      "high": 15.44,
+      "low": 14.765,
+      "open": 15.31,
+      "source": "Twelve Data",
+      "volume": 81835800.0
+    },
+    {
+      "datetime": "2026-10-15",
+      "ticker": "BBD",
+      "close": 4.03,
+      "high": 4.14,
+      "low": 3.98,
+      "open": 4.02,
+      "source": "Twelve Data",
+      "volume": 41762800.0
     },
     {
       "datetime": "2026-10-15",
@@ -29740,23 +29740,23 @@
     },
     {
       "datetime": "2026-10-15",
-      "ticker": "BBD",
-      "close": 4.03,
-      "high": 4.14,
-      "low": 3.98,
-      "open": 4.02,
+      "ticker": "NU",
+      "close": 14.73,
+      "high": 15.065,
+      "low": 14.4,
+      "open": 14.46,
       "source": "Twelve Data",
-      "volume": 41762800.0
+      "volume": 76170200.0
     },
     {
       "datetime": "2026-10-16",
-      "ticker": "NU",
-      "close": 14.56,
-      "high": 14.945,
-      "low": 14.45,
-      "open": 14.71,
+      "ticker": "BBD",
+      "close": 3.96,
+      "high": 4.07,
+      "low": 3.94,
+      "open": 4.06,
       "source": "Twelve Data",
-      "volume": 45187000.0
+      "volume": 49281900.0
     },
     {
       "ticker": "ITUB",
@@ -29770,13 +29770,13 @@
     },
     {
       "datetime": "2026-10-16",
-      "ticker": "BBD",
-      "close": 3.96,
-      "high": 4.07,
-      "low": 3.94,
-      "open": 4.06,
+      "ticker": "NU",
+      "close": 14.56,
+      "high": 14.945,
+      "low": 14.45,
+      "open": 14.71,
       "source": "Twelve Data",
-      "volume": 49281900.0
+      "volume": 45187000.0
     },
     {
       "datetime": "2026-10-19",
@@ -29809,6 +29809,16 @@
       "volume": 38289700.0
     },
     {
+      "datetime": "2026-10-20",
+      "ticker": "BBD",
+      "close": 4.08,
+      "high": 4.13,
+      "low": 4.0,
+      "open": 4.02,
+      "source": "Twelve Data",
+      "volume": 48325900.0
+    },
+    {
       "ticker": "NU",
       "datetime": "2026-10-20",
       "close": 15.09,
@@ -29829,24 +29839,14 @@
       "volume": 32754000.0
     },
     {
-      "datetime": "2026-10-20",
-      "ticker": "BBD",
-      "close": 4.08,
-      "high": 4.13,
-      "low": 4.0,
-      "open": 4.02,
-      "source": "Twelve Data",
-      "volume": 48325900.0
-    },
-    {
       "datetime": "2026-10-21",
-      "ticker": "BBD",
-      "close": 4.05,
-      "high": 4.11,
-      "low": 4.04,
-      "open": 4.11,
+      "ticker": "NU",
+      "close": 15.05,
+      "high": 15.37,
+      "low": 15.01,
+      "open": 15.21,
       "source": "Twelve Data",
-      "volume": 31361900.0
+      "volume": 66306900.0
     },
     {
       "ticker": "ITUB",
@@ -29860,13 +29860,13 @@
     },
     {
       "datetime": "2026-10-21",
-      "ticker": "NU",
-      "close": 15.05,
-      "high": 15.37,
-      "low": 15.01,
-      "open": 15.21,
+      "ticker": "BBD",
+      "close": 4.05,
+      "high": 4.11,
+      "low": 4.04,
+      "open": 4.11,
       "source": "Twelve Data",
-      "volume": 66306900.0
+      "volume": 31361900.0
     },
     {
       "datetime": "2026-10-22",
@@ -29899,6 +29899,16 @@
       "volume": 58450500.0
     },
     {
+      "ticker": "BBD",
+      "datetime": "2026-10-23",
+      "close": 4.07,
+      "high": 4.09,
+      "low": 3.87,
+      "open": 3.9,
+      "source": "Twelve Data",
+      "volume": 62321300.0
+    },
+    {
       "datetime": "2026-10-23",
       "ticker": "NU",
       "close": 15.16,
@@ -29917,16 +29927,6 @@
       "open": 9.48,
       "source": "Twelve Data",
       "volume": 31574000.0
-    },
-    {
-      "ticker": "BBD",
-      "datetime": "2026-10-23",
-      "close": 4.07,
-      "high": 4.09,
-      "low": 3.87,
-      "open": 3.9,
-      "source": "Twelve Data",
-      "volume": 62321300.0
     },
     {
       "ticker": "NU",
@@ -29969,16 +29969,6 @@
       "volume": 99667300.0
     },
     {
-      "datetime": "2026-10-27",
-      "ticker": "ITUB",
-      "close": 7.67,
-      "high": 8.01,
-      "low": 7.66,
-      "open": 7.9,
-      "source": "Twelve Data",
-      "volume": 38993800.0
-    },
-    {
       "ticker": "BBD",
       "datetime": "2026-10-27",
       "close": 2.91,
@@ -29989,14 +29979,14 @@
       "volume": 82407100.0
     },
     {
+      "datetime": "2026-10-27",
       "ticker": "ITUB",
-      "datetime": "2026-10-28",
-      "close": 7.4,
-      "high": 7.6,
-      "low": 7.32,
-      "open": 7.58,
+      "close": 7.67,
+      "high": 8.01,
+      "low": 7.66,
+      "open": 7.9,
       "source": "Twelve Data",
-      "volume": 35419600.0
+      "volume": 38993800.0
     },
     {
       "ticker": "BBD",
@@ -30019,14 +30009,14 @@
       "volume": 89320400.0
     },
     {
-      "datetime": "2026-10-29",
-      "ticker": "NU",
-      "close": 12.05,
-      "high": 12.185,
-      "low": 11.85,
-      "open": 11.98,
+      "ticker": "ITUB",
+      "datetime": "2026-10-28",
+      "close": 7.4,
+      "high": 7.6,
+      "low": 7.32,
+      "open": 7.58,
       "source": "Twelve Data",
-      "volume": 80210200.0
+      "volume": 35419600.0
     },
     {
       "ticker": "BBD",
@@ -30040,6 +30030,16 @@
     },
     {
       "datetime": "2026-10-29",
+      "ticker": "NU",
+      "close": 12.05,
+      "high": 12.185,
+      "low": 11.85,
+      "open": 11.98,
+      "source": "Twelve Data",
+      "volume": 80210200.0
+    },
+    {
+      "datetime": "2026-10-29",
       "ticker": "ITUB",
       "close": 7.37,
       "high": 7.48,
@@ -30049,14 +30049,14 @@
       "volume": 49561700.0
     },
     {
-      "ticker": "NU",
+      "ticker": "ITUB",
       "datetime": "2026-10-30",
-      "close": 11.61,
-      "high": 11.855,
-      "low": 11.48,
-      "open": 11.75,
+      "close": 7.13,
+      "high": 7.27,
+      "low": 7.09,
+      "open": 7.2,
       "source": "Twelve Data",
-      "volume": 92979500.0
+      "volume": 32420400.0
     },
     {
       "datetime": "2026-10-30",
@@ -30069,14 +30069,14 @@
       "volume": 66517900.0
     },
     {
-      "ticker": "ITUB",
+      "ticker": "NU",
       "datetime": "2026-10-30",
-      "close": 7.13,
-      "high": 7.27,
-      "low": 7.09,
-      "open": 7.2,
+      "close": 11.61,
+      "high": 11.855,
+      "low": 11.48,
+      "open": 11.75,
       "source": "Twelve Data",
-      "volume": 32420400.0
+      "volume": 92979500.0
     },
     {
       "ticker": "NU",
@@ -30169,14 +30169,14 @@
       "volume": 79277100.0
     },
     {
-      "ticker": "NU",
       "datetime": "2026-11-05",
-      "close": 11.74,
-      "high": 12.02,
-      "low": 11.21,
-      "open": 12.02,
+      "ticker": "BBD",
+      "close": 2.51,
+      "high": 2.6,
+      "low": 2.49,
+      "open": 2.59,
       "source": "Twelve Data",
-      "volume": 99882900.0
+      "volume": 52929100.0
     },
     {
       "datetime": "2026-11-05",
@@ -30189,14 +30189,14 @@
       "volume": 35427200.0
     },
     {
+      "ticker": "NU",
       "datetime": "2026-11-05",
-      "ticker": "BBD",
-      "close": 2.51,
-      "high": 2.6,
-      "low": 2.49,
-      "open": 2.59,
+      "close": 11.74,
+      "high": 12.02,
+      "low": 11.21,
+      "open": 12.02,
       "source": "Twelve Data",
-      "volume": 52929100.0
+      "volume": 99882900.0
     },
     {
       "ticker": "NU",
@@ -30210,16 +30210,6 @@
     },
     {
       "datetime": "2026-11-06",
-      "ticker": "BBD",
-      "close": 2.54,
-      "high": 2.59,
-      "low": 2.54,
-      "open": 2.55,
-      "source": "Twelve Data",
-      "volume": 44171800.0
-    },
-    {
-      "datetime": "2026-11-06",
       "ticker": "ITUB",
       "close": 7.39,
       "high": 7.5,
@@ -30227,6 +30217,16 @@
       "open": 7.32,
       "source": "Twelve Data",
       "volume": 31668200.0
+    },
+    {
+      "datetime": "2026-11-06",
+      "ticker": "BBD",
+      "close": 2.54,
+      "high": 2.59,
+      "low": 2.54,
+      "open": 2.55,
+      "source": "Twelve Data",
+      "volume": 44171800.0
     },
     {
       "ticker": "NU",
@@ -30330,16 +30330,6 @@
     },
     {
       "datetime": "2026-11-12",
-      "ticker": "ITUB",
-      "close": 7.37,
-      "high": 7.5,
-      "low": 7.31,
-      "open": 7.42,
-      "source": "Twelve Data",
-      "volume": 23127700.0
-    },
-    {
-      "datetime": "2026-11-12",
       "ticker": "NU",
       "close": 11.83,
       "high": 12.27,
@@ -30347,6 +30337,16 @@
       "open": 12.08,
       "source": "Twelve Data",
       "volume": 60179800.0
+    },
+    {
+      "datetime": "2026-11-12",
+      "ticker": "ITUB",
+      "close": 7.37,
+      "high": 7.5,
+      "low": 7.31,
+      "open": 7.42,
+      "source": "Twelve Data",
+      "volume": 23127700.0
     },
     {
       "ticker": "NU",
@@ -30469,16 +30469,6 @@
       "volume": 49874900.0
     },
     {
-      "ticker": "ITUB",
-      "datetime": "2026-11-19",
-      "close": 6.69,
-      "high": 6.84,
-      "low": 6.69,
-      "open": 6.82,
-      "source": "Twelve Data",
-      "volume": 40815800.0
-    },
-    {
       "datetime": "2026-11-19",
       "ticker": "BBD",
       "close": 2.3,
@@ -30497,6 +30487,16 @@
       "open": 12.2,
       "source": "Twelve Data",
       "volume": 55616600.0
+    },
+    {
+      "ticker": "ITUB",
+      "datetime": "2026-11-19",
+      "close": 6.69,
+      "high": 6.84,
+      "low": 6.69,
+      "open": 6.82,
+      "source": "Twelve Data",
+      "volume": 40815800.0
     },
     {
       "ticker": "NU",
@@ -30570,16 +30570,6 @@
     },
     {
       "datetime": "2026-11-24",
-      "ticker": "ITUB",
-      "close": 6.72,
-      "high": 6.99,
-      "low": 6.7,
-      "open": 6.92,
-      "source": "Twelve Data",
-      "volume": 27306400.0
-    },
-    {
-      "datetime": "2026-11-24",
       "ticker": "BBD",
       "close": 2.29,
       "high": 2.41,
@@ -30587,6 +30577,16 @@
       "open": 2.4,
       "source": "Twelve Data",
       "volume": 48226300.0
+    },
+    {
+      "datetime": "2026-11-24",
+      "ticker": "ITUB",
+      "close": 6.72,
+      "high": 6.99,
+      "low": 6.7,
+      "open": 6.92,
+      "source": "Twelve Data",
+      "volume": 27306400.0
     },
     {
       "datetime": "2026-11-25",
@@ -30617,6 +30617,36 @@
       "open": 2.29,
       "source": "Twelve Data",
       "volume": 61908600.0
+    },
+    {
+      "datetime": "2026-11-27",
+      "ticker": "NU",
+      "close": 12.91,
+      "high": 13.515,
+      "low": 12.87,
+      "open": 13.42,
+      "source": "Twelve Data",
+      "volume": 68259753.0
+    },
+    {
+      "ticker": "ITUB",
+      "datetime": "2026-11-27",
+      "close": 7.66,
+      "high": 7.87,
+      "low": 7.65,
+      "open": 7.87,
+      "source": "Twelve Data",
+      "volume": 40878179.0
+    },
+    {
+      "datetime": "2026-11-27",
+      "ticker": "BBD",
+      "close": 2.8,
+      "high": 2.89,
+      "low": 2.79,
+      "open": 2.875,
+      "source": "Twelve Data",
+      "volume": 114087668.0
     }
   ],
   "financial": [
@@ -69438,7 +69468,7 @@
         "selic_meta_pct": 13.75
       },
       {
-        "data": "2026-11-26",
+        "data": "2026-11-28",
         "selic_meta_pct": 13.75
       }
     ],
